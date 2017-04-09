@@ -6,8 +6,11 @@
     "react-scripts": "0.9.5"
   },
   "dependencies": {
+    "history": "^4.6.1",
     "react": "^15.5.3",
-    "react-dom": "^15.5.3"
+    "react-dom": "^15.5.3",
+    "react-router": "^4.0.0",
+    "react-router-dom": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
