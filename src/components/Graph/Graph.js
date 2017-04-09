@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
+import styles from '../../styles/styles';
 
 class Graph extends Component {
   render() {
     return (
-    	<div>
+    	<div style={styles.container}>
     		<Navbar />
     		<div>GRAPH COMPONENT</div>
     	</div>

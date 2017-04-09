@@ -7,6 +7,7 @@ const style = {
     flexDirection: 'column'
   },
   link: {
+    textDecoration: 'none',
     color: 'red',
     fontSize: 20
   }
