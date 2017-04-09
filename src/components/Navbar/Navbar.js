@@ -26,6 +26,21 @@ class Navbar extends Component {
           to="/graph">
             Graph
         </Link>
+        <Link
+          style={style.link}
+          to="/debts">
+            Edit Debts
+        </Link>
+        <Link
+          style={style.link}
+          to="/contribution">
+            Edit Contribution
+        </Link>
+        <Link
+          style={style.link}
+          to="/strategy">
+            Edit Strategy
+        </Link>
       </div>
     );
   }
