@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
 import styles from '../../styles/styles';
+import ContributionForm from './contributionForm.js'
 
 class Contribution extends Component {
   render() {
@@ -10,7 +11,7 @@ class Contribution extends Component {
     		<Header />
     		<div style={styles.subContainer}>
 	    		<Navbar />
-	    		INSERT EDIT CONTRIBUTION COMPONENT HERE
+	    		<ContributionForm /> 
 	    	</div>
     	</div>
       

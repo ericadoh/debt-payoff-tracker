@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
 import styles from '../../styles/styles';
-import Highcharts from 'highcharts';
-import ReactDOM from 'react-dom';
 import ReactHighcharts from 'react-highcharts';
 
 // var graphStyle = {
@@ -60,3 +58,4 @@ class Graph extends Component {
   }
 }
 export default Graph;
+
