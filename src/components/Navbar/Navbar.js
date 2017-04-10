@@ -5,7 +5,9 @@ import styles from '../../styles/styles';
 const style = {
   navbar: {
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    width: 300,
+    paddingRight: 20
   },
   link: {
     textDecoration: 'none',
