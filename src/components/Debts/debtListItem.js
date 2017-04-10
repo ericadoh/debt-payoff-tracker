@@ -9,7 +9,16 @@ const style = {
     fontSize: 30,
     backgroundColor: styles.mainColor,
     color: 'white',
-    padding: '15px 20px 15px 20px'
+    padding: '15px 20px 0px 20px'
+  },
+  header2: {
+    display: 'flex',
+    flexDirection: 'column',
+    fontFamily: styles.mainFont,
+    fontSize: 12,
+    backgroundColor: styles.mainColor,
+    color: 'lightgrey',
+    padding: '15px 20px 5px 20px'
   },
   button: {
     background: styles.mainColor, 
@@ -24,7 +33,10 @@ const style = {
       display: 'flex',
       flexDirection: 'column',
       padding: '0px 0px 25px 0px', 
-      backgroundColor: 'white'  
+      backgroundColor: 'white', 
+      borderRadius: 10,  
+      borderWidth: 5, 
+      borderColor: 'green', 
     }
 };
 
@@ -39,10 +51,10 @@ class DebtLI extends Component {
         <label style={style.header}>
          Debt Name: {this.props.name}
         </label>
-         <label style={style.header}>
+         <label style={style.header2}>
           Minimum Monthly Payment: {this.props.minpay}
         </label>
-          <label style={style.header}>
+          <label style={style.header2}>
           Interest: {this.props.interest}
         </label>
       </div>
