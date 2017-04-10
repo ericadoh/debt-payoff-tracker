@@ -6,6 +6,7 @@
     "react-scripts": "0.9.5"
   },
   "dependencies": {
+    "highcharts": "^5.0.10",
     "history": "^4.6.1",
     "react": "^15.5.3",
     "react-dom": "^15.5.3",
