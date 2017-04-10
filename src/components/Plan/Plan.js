@@ -10,8 +10,29 @@ require('fixed-data-table/dist/fixed-data-table.css');
 const rows = [
   ['a1', 'b1', 'c1'],
   ['a2', 'b2', 'c2'],
+  ['a3', 'b3', 'c3'],
+  ['a1', 'b1', 'c1'],
+  ['a2', 'b2', 'c2'],
+  ['a3', 'b3', 'c3'],
+  ['a1', 'b1', 'c1'],
+  ['a2', 'b2', 'c2'],
+  ['a3', 'b3', 'c3'],
+  ['a1', 'b1', 'c1'],
+  ['a2', 'b2', 'c2'],
+  ['a3', 'b3', 'c3'],
+  ['a2', 'b2', 'c2'],
+  ['a3', 'b3', 'c3'],
+  ['a1', 'b1', 'c1'],
+  ['a2', 'b2', 'c2'],
+  ['a3', 'b3', 'c3'],
+  ['a1', 'b1', 'c1'],
+  ['a2', 'b2', 'c2'],
   ['a3', 'b3', 'c3']
 ];
+
+const generateTable = () => {
+
+}
 
 class Plan extends Component {
   render() {
@@ -31,16 +52,45 @@ class Plan extends Component {
               <Column
                 fixed={true}
                 header={<Cell>Month</Cell>}
-                cell={<Cell>what</Cell>}
+                cell={<Cell>Month Name</Cell>}
                 width={150} />
             </ColumnGroup>
-
 
             <ColumnGroup>
               <Column
                 fixed={true}
                 header={<Cell>Debt 1</Cell>}
-                cell={<Cell>what</Cell>}
+                cell={<Cell>200</Cell>}
+                width={150} />
+              <Column
+                fixed={true}
+                header={<Cell>Debt 2</Cell>}
+                cell={<Cell>300</Cell>}
+                width={150} />
+              <Column
+                fixed={true}
+                header={<Cell>Debt 3</Cell>}
+                cell={<Cell>400</Cell>}
+                width={150} />
+              <Column
+                fixed={true}
+                header={<Cell>Debt 4</Cell>}
+                cell={<Cell>400</Cell>}
+                width={150} />
+              <Column
+                fixed={true}
+                header={<Cell>Debt 5</Cell>}
+                cell={<Cell>400</Cell>}
+                width={150} />
+              <Column
+                fixed={true}
+                header={<Cell>Debt 6</Cell>}
+                cell={<Cell>400</Cell>}
+                width={150} />
+              <Column
+                fixed={true}
+                header={<Cell>Debt 7</Cell>}
+                cell={<Cell>400</Cell>}
                 width={150} />
             </ColumnGroup>
 
