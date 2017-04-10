@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
 import styles from '../../styles/styles';
 
@@ -21,16 +22,16 @@ class HighChart extends Component {
                     this.props.container, 
                     this.props.options
                 );
-    }
+                }
 
-    //Destroy chart before unmount.
-    componentWillUnmount: function () {
-        this.chart.destroy();
-    },
-    //Create the div which the chart will be rendered to.
-    render: function () {
-        return React.createElement('div', { id: this.props.container });
-    }
+            //Destroy chart before unmount.
+            componentWillUnmount: function () {
+                this.chart.destroy();
+            },
+            //Create the div which the chart will be rendered to.
+            render: function () {
+                return React.createElement('div', { id: this.props.container });
+            }
             </div>
     	</div>
       
