@@ -54,19 +54,19 @@ class DebtForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label style = {style.header}>
+        <label style={style.header}>
           Debt Name:
           <input type="text" style={styles.subContainer} value={this.state.name} onChange={this.handleChangeName} />
         </label>
-          <label style = {style.header}>
+          <label style={style.header}>
           Minimum Monthly Payment:
           <input type="text" style={styles.subContainer} value={this.state.minpay} onChange={this.handleChangeMinPay} />
         </label>
-          <label style = {style.header}>
+          <label style={style.header}>
           Interest:
           <input type="text" style={styles.subContainer} value={this.state.interest} onChange={this.handleChangeInterest} />
         </label>
-        <input style = {style.button} type="submit" value="Submit" />
+        <input style={style.button} type="submit" value="Submit" />
       </form>
     );
   }

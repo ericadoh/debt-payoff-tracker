@@ -25,12 +25,12 @@ class Strategy extends Component {
 	    	<Header />
 	    	<div style={styles.subContainer}>
 	    		<Navbar />
-          <div style = {style.stratD}>
-          <StratDiv name ="Lowest Amount First"/>
-          <StratDiv name ="Highest Interest First"/>
-           <StratDiv name ="Order Entered in Table"/>    
-           <StratDiv name ="Highest Amount First"/>
-            <StratDiv name ="Lowest Balance First"/>
+          <div style={style.stratD}>
+          <StratDiv name={"Lowest Amount First"} />
+          <StratDiv name={"Highest Interest First"} />
+           <StratDiv name={"Order Entered in Table"} />    
+           <StratDiv name={"Highest Amount First"} />
+            <StratDiv name={"Lowest Balance First"} />
           </div> 
 	    	</div>
     	</div>

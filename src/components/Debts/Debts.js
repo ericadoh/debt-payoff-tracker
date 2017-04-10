@@ -38,9 +38,9 @@ class Debts extends Component {
   renderDebts(){      
     return (
         <div> 
-           <DebtLI name = "Car" minpay="600" interest="8%"/>
-            <DebtLI name = "School" minpay="510" interest="10%"/>
-            <DebtLI name = "Other" minpay="780" interest="5%" />
+           <DebtLI name={"Car"} minpay={"600"} interest={"8%"}/>
+            <DebtLI name={"School"} minpay={"510"} interest={"10%"}/>
+            <DebtLI name={"Other"} minpay={"780"} interest={"5%"} />
         </div> 
         
         
@@ -56,17 +56,13 @@ class Debts extends Component {
 	    		<Navbar />
           <div> 
 	    		 <DebtForm/>
-          </div> 
-          
+          </div>  
           <div> 
-           <h1 style = {style.header}>  Current Debts </h1> 
+           <h1 style={style.header}>Current Debts</h1> 
             <ul>
             {this.renderDebts()}
            </ul>
 	       </div> 
-
-
-
         </div> 
     </div>
       

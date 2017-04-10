@@ -49,12 +49,12 @@ class ContributionForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label style = {style.header}>
+        <label style={style.header}>
           How much money can you pay towards your debts per month?
           <input type="text" style={styles.subContainer} value={this.state.monthly} onChange={this.handleChange} />
         </label>
         <div style={style.wrapper}>
-        <input style = {style.button} type="submit" value="Submit" />
+        <input style={style.button} type="submit" value="Submit" />
         </div> 
       </form>
     );
