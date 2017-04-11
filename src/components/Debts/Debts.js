@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
-import styles from '../../styles/styles';
+import sharedStyles from '../../styles/styles';
 import DebtForm from './debtForm.js'; 
 import DebtLI from './debtListItem.js'; 
 const style = {
   header: {
     display: 'flex',
     flexDirection: 'column',
-    fontFamily: styles.mainFont,
+    fontFamily: sharedStyles.mainFont,
     fontSize: 30,
-    backgroundColor: styles.mainColor,
+    backgroundColor: sharedStyles.mainColor,
     color: 'white',
     padding: '15px 20px 15px 20px', 
     marginLeft: 40, 
@@ -18,22 +18,17 @@ const style = {
     textAlign: 'center'
   },
   fullC: {
-    backgroundColor: styles.mainColor,
+    backgroundColor: sharedStyles.mainColor,
      display: 'flex',
       flexDirection: 'row',
       marginLeft:  '10px',
   },
   debtListContainer: {
-     // backgroundColor: 'white',
-    //  display: 'flex',
-     // flexDirection: 'row',
       marginLeft:  '10px',
- 
   }
 }
+
 class Debts extends Component {
-
-
 
   renderDebts(){      
     return (
@@ -42,17 +37,14 @@ class Debts extends Component {
             <DebtLI name={"School"} minpay={"510"} interest={"10%"}/>
             <DebtLI name={"Other"} minpay={"780"} interest={"5%"} />
         </div> 
-        
-        
-      
       ); 
   }
 
   render() {
     return (
-    	<div style={styles.container}>
+    	<div style={sharedStyles.container}>
     		<Header />
-    		<div style={styles.subContainer}>
+    		<div style={sharedStyles.subContainer}>
 	    		<Navbar />
           <div> 
 	    		 <DebtForm/>
@@ -65,7 +57,7 @@ class Debts extends Component {
 	       </div> 
         </div> 
     </div>
-      
+    
     );
   }
 }

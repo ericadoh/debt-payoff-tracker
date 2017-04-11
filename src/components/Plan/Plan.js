@@ -3,7 +3,7 @@ import { Table, Column, ColumnGroup, Cell } from 'fixed-data-table';
 
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
-import styles from '../../styles/styles';
+import sharedStyles from '../../styles/styles';
 
 require('fixed-data-table/dist/fixed-data-table.css');
 
@@ -37,9 +37,9 @@ const generateTable = () => {
 class Plan extends Component {
   render() {
     return (
-      <div style={styles.container}>
+      <div style={sharedStyles.container}>
         <Header />
-        <div style={styles.subContainer}>
+        <div style={sharedStyles.subContainer}>
           <Navbar />
           <Table
             rowHeight={30}

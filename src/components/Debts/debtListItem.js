@@ -1,32 +1,32 @@
 import React, { Component } from 'react';
-import styles from '../../styles/styles';
+import sharedStyles from '../../styles/styles';
 
 const style = {
   header: {
     display: 'flex',
     flexDirection: 'column',
-    fontFamily: styles.mainFont,
+    fontFamily: sharedStyles.mainFont,
     fontSize: 30,
-    backgroundColor: styles.mainColor,
+    backgroundColor: sharedStyles.mainColor,
     color: 'white',
     padding: '15px 20px 0px 20px'
   },
   header2: {
     display: 'flex',
     flexDirection: 'column',
-    fontFamily: styles.mainFont,
+    fontFamily: sharedStyles.mainFont,
     fontSize: 12,
-    backgroundColor: styles.mainColor,
+    backgroundColor: sharedStyles.mainColor,
     color: 'lightgrey',
     padding: '15px 20px 5px 20px'
   },
   button: {
-    background: styles.mainColor, 
+    background: sharedStyles.mainColor, 
     color: 'white', 
     fontSize: 30, 
     margin: 10, 
     padding: '25px 10px', 
-    border: '2 solid'+styles.mainColor, 
+    border: '2 solid'+sharedStyles.mainColor, 
     borderRadius: 5
   }, 
   debtContainer: {

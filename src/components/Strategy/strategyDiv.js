@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import defaultStyles from '../../styles/styles';
+import sharedStyles from '../../styles/styles';
 
 const style = {
   label: {
-    fontFamily: defaultStyles.mainFont,
+    fontFamily: sharedStyles.mainFont,
     fontSize: 30,
-    backgroundColor: defaultStyles.mainColor,
+    backgroundColor: sharedStyles.mainColor,
     color: 'white',
   },
   debtContainer: {
@@ -13,7 +13,7 @@ const style = {
       flexDirection: 'column', 
       padding: '20px',
       margin: '10px',
-      backgroundColor: defaultStyles.mainColor, 
+      backgroundColor: sharedStyles.mainColor, 
       width: '200px', 
       height: '100px',
       textAlign: 'center',

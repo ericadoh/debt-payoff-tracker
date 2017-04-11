@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
-import styles from '../../styles/styles';
+import sharedStyles from '../../styles/styles';
 import ReactHighcharts from 'react-highcharts';
 
 const config = {
@@ -29,9 +29,9 @@ class Graph extends Component {
 
   render() {
     return (
-    	<div style={styles.container}>
+    	<div style={sharedStyles.container}>
     		<Header />
-            <div style={styles.subContainer} >
+            <div style={sharedStyles.subContainer} >
                 <Navbar />
                 <ReactHighcharts config={config}></ReactHighcharts>
             </div>

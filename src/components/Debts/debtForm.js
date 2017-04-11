@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
-import styles from '../../styles/styles';
+import sharedStyles from '../../styles/styles';
 
 const style = {
   header: {
     display: 'flex',
     flexDirection: 'column',
-    fontFamily: styles.mainFont,
+    fontFamily: sharedStyles.mainFont,
     fontSize: 30,
-    backgroundColor: styles.mainColor,
+    backgroundColor: sharedStyles.mainColor,
     color: 'white',
     padding: '15px 20px 15px 20px'
   },
   button: {
-    background: styles.mainColor, 
+    background: sharedStyles.mainColor, 
     color: 'white', 
     fontSize: 30, 
     margin: 10, 
     padding: '25px 10px', 
-    border: '2 solid'+styles.mainColor, 
+    border: '2 solid'+sharedStyles.mainColor, 
     borderRadius: 5
   }
 };
@@ -56,15 +56,15 @@ class DebtForm extends Component {
       <form onSubmit={this.handleSubmit}>
         <label style={style.header}>
           Debt Name:
-          <input type="text" style={styles.subContainer} value={this.state.name} onChange={this.handleChangeName} />
+          <input type="text" style={sharedStyles.subContainer} value={this.state.name} onChange={this.handleChangeName} />
         </label>
           <label style={style.header}>
           Minimum Monthly Payment:
-          <input type="text" style={styles.subContainer} value={this.state.minpay} onChange={this.handleChangeMinPay} />
+          <input type="text" style={sharedStyles.subContainer} value={this.state.minpay} onChange={this.handleChangeMinPay} />
         </label>
           <label style={style.header}>
           Interest:
-          <input type="text" style={styles.subContainer} value={this.state.interest} onChange={this.handleChangeInterest} />
+          <input type="text" style={sharedStyles.subContainer} value={this.state.interest} onChange={this.handleChangeInterest} />
         </label>
         <input style={style.button} type="submit" value="Submit" />
       </form>

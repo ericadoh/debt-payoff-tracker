@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import styles from '../../styles/styles';
+import sharedStyles from '../../styles/styles';
 
 const style = {
   navbar: {
@@ -11,7 +11,7 @@ const style = {
   },
   link: {
     textDecoration: 'none',
-    fontFamily: styles.mainFont,
+    fontFamily: sharedStyles.mainFont,
     fontSize: 24,
     padding: '10px 0px 10px 0px'
   }

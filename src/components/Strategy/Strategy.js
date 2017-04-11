@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
 import StratDiv from './strategyDiv.js';
-import defaultStyles from '../../styles/styles'; 
+import sharedStyles from '../../styles/styles'; 
 
 const style = {
   header: {
     display: 'flex',
     flexDirection: 'column',
-    fontFamily: defaultStyles.mainFont,
+    fontFamily: sharedStyles.mainFont,
     fontSize: 30,
-    backgroundColor: defaultStyles.mainColor,
+    backgroundColor: sharedStyles.mainColor,
     color: 'white',
   },
   row: {
@@ -28,9 +28,9 @@ const style = {
 class Strategy extends Component {
   render() {
     return (
-    	<div style={defaultStyles.container}>
+    	<div style={sharedStyles.container}>
 	    	<Header />
-	    	<div style={defaultStyles.subContainer}>
+	    	<div style={sharedStyles.subContainer}>
 	    		<Navbar />
           <div style={style.stratD}>
             <div style={style.row}>
@@ -45,7 +45,6 @@ class Strategy extends Component {
           </div> 
 	    	</div>
     	</div>
-      
     );
   }
 }

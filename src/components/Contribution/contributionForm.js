@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from '../../styles/styles';
+import sharedStyles from '../../styles/styles';
 
 const style = {
   form: {
@@ -11,7 +11,7 @@ const style = {
     display: 'flex',
     flexDirection: 'column',
     width: '80%',
-    fontFamily: styles.mainFont,
+    fontFamily: sharedStyles.mainFont,
     fontWeight: 700,
     fontSize: 30,
     color: 'black',
@@ -49,10 +49,10 @@ class ContributionForm extends Component {
       <form style={style.form} onSubmit={this.handleSubmit}>
         <label style={style.label}>
           <p>What is the maximum amount of money you can pay towards your debts per month?</p>
-          <input style={styles.input} type="text" value={this.state.monthly} onChange={this.handleChange} />
+          <input style={sharedStyles.input} type="text" value={this.state.monthly} onChange={this.handleChange} />
         </label>
         <div style={style.wrapper}>
-          <input style={styles.button} type="submit" value="Submit" />
+          <input style={sharedStyles.button} type="submit" value="Submit" />
         </div> 
       </form>
     );
