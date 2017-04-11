@@ -2,7 +2,7 @@ const styles = {
 
 	// COLORS 
 	mainColor: '#7ED321',
-
+	buttonColor: '#36BAFF',
 	mainFont: '"Open Sans", sans-serif',
 
 	// GENERAL STYLES

@@ -41,16 +41,9 @@ class Graph extends Component {
     return (
     	<div style={styles.container}>
     		<Header />
-            <div >
-                <div style={styles.subContainer} >
-                    <Navbar />
-                </div>
-
-        		<div >
-                    <div >
-                        <ReactHighcharts config={config}></ReactHighcharts>
-                    </div>
-                </div>
+            <div style={styles.subContainer} >
+                <Navbar />
+                <ReactHighcharts config={config}></ReactHighcharts>
             </div>
     	</div>
       
