@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from '../../styles/styles';
 
 const style = {
-  header: {
+  label: {
     fontFamily: styles.mainFont,
     fontSize: 30,
     backgroundColor: styles.mainColor,
@@ -11,12 +11,15 @@ const style = {
   debtContainer: {
       display: 'flex',
       flexDirection: 'column', 
-      padding: '10px 10px 25px 10px', 
+      padding: '20px',
       margin: '10px',
       backgroundColor: styles.mainColor, 
-      border: '1px solid green', 
       width: '200px', 
-      height: '100px'
+      height: '100px',
+      textAlign: 'center',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: 5
     }
 };
 
@@ -28,7 +31,7 @@ class StratDiv extends Component {
   render() {
     return (
       <div style={style.debtContainer}>
-        <label style={style.header}>
+        <label style={style.label}>
           {this.props.name}
         </label>
       </div> 
