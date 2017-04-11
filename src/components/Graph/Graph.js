@@ -4,39 +4,29 @@ import Navbar from '../Navbar/Navbar';
 import styles from '../../styles/styles';
 import ReactHighcharts from 'react-highcharts';
 
-// var graphStyle = {
-//     width: '400px',
-//     height: '400px'
-//     };
+const config = {
+    
+    xAxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    },
 
-var config = {
-        xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        },
-        series: [{
-            data: [500, 476, 450, 430, 370, 350, 325, 250, 220, 175, 130, 50]
-        }],
+    series: [{
+        data: [500, 476, 450, 430, 370, 350, 325, 250, 220, 175, 130, 50]
+    }],
+
+    title: {
+        text: 'Debt over Time'
+    },
+
+    yAxis: {
         title: {
-            text: 'Debt over Time'
-        },
-        yAxis: {
-            title: {
-                text: 'Debt'
-            }
-        },
-        // tooltip: {
-        //     style: {
-        //         width: '500px',
-        //         height: '500px'
-        //     }
-        // }
-    };
+            text: 'Debt'
+        }
+    }
+};
 
 class Graph extends Component {
-    // componentDidMount() {
-    //     let chart = this.refs.chart.getChart();
-    //     chart.series.addPoint({x: 10, y: 12});
-    // }
+
   render() {
     return (
     	<div style={styles.container}>
@@ -49,6 +39,8 @@ class Graph extends Component {
       
     );
   }
+
 }
+
 export default Graph;
 

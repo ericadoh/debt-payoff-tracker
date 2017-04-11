@@ -2,22 +2,22 @@ import React, { Component } from 'react';
 import styles from '../../styles/styles';
 
 const style = {
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
   label: {
     display: 'flex',
     flexDirection: 'column',
+    width: '80%',
     fontFamily: styles.mainFont,
     fontWeight: 700,
     fontSize: 30,
-    color: 'black'
-  },
-  button: {
-    background: styles.buttonColor, 
-    color: 'white', 
-    fontSize: 30, 
-    margin: 10, 
-    padding: '25px 10px', 
-    border: '2 solid' + styles.mainColor, 
-    borderRadius: 5
+    color: 'black',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center'
   },
   wrapper: {
     width: '100%', 
@@ -46,13 +46,13 @@ class ContributionForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form style={style.form} onSubmit={this.handleSubmit}>
         <label style={style.label}>
-          What is the maximum amount of money you can pay towards your debts per month?
-          <input type="text" style={styles.subContainer} value={this.state.monthly} onChange={this.handleChange} />
+          <p>What is the maximum amount of money you can pay towards your debts per month?</p>
+          <input style={styles.input} type="text" value={this.state.monthly} onChange={this.handleChange} />
         </label>
         <div style={style.wrapper}>
-          <input style={style.button} type="submit" value="Submit" />
+          <input style={styles.button} type="submit" value="Submit" />
         </div> 
       </form>
     );
