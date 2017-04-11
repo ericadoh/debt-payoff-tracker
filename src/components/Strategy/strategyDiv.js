@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import styles from '../../styles/styles';
+import defaultStyles from '../../styles/styles';
 
 const style = {
   label: {
-    fontFamily: styles.mainFont,
+    fontFamily: defaultStyles.mainFont,
     fontSize: 30,
-    backgroundColor: styles.mainColor,
+    backgroundColor: defaultStyles.mainColor,
     color: 'white',
   },
   debtContainer: {
@@ -13,7 +13,7 @@ const style = {
       flexDirection: 'column', 
       padding: '20px',
       margin: '10px',
-      backgroundColor: styles.mainColor, 
+      backgroundColor: defaultStyles.mainColor, 
       width: '200px', 
       height: '100px',
       textAlign: 'center',
@@ -24,10 +24,12 @@ const style = {
 };
 
 class StratDiv extends Component {
+
   constructor(props) {
     super(props);
     this.state = {value: ''};
   }
+
   render() {
     return (
       <div style={style.debtContainer}>
@@ -37,5 +39,7 @@ class StratDiv extends Component {
       </div> 
     );
   }
+
 }
+
 export default StratDiv; 
