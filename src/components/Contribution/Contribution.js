@@ -14,7 +14,6 @@ class Contribution extends Component {
 	    		<ContributionForm /> 
 	    	</div>
     	</div>
-      
     );
   }
 }
