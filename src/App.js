@@ -14,18 +14,24 @@ class App extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state = { debts: [] };
+		this.state = { 
+			debts: [
+				{ name: 'Blah', minimumPayment: 600, interest: .08 },
+				{ name: 'School', minimumPayment: 510, interest: .1 },
+				{ name: 'Other', minimumPayment: 780, interest: .05 }
+			]
+		};
 	}
 	
 	render() {
     	return (
     		<Router history={history}>
 			    <div>
-					<Route path="/table" render={()=><Plan debts={this.state.debts}/>} />
-					<Route path="/graph" render={()=><Graph debts={this.state.debts}/>} />
-					<Route path="/debts" render={()=><Debts debts={this.state.debts}/>}/>
-					<Route path="/contribution" render={()=><Contribution debts={this.state.debts}/>}/>
-					<Route path="/strategy" render={()=><Strategy debts={this.state.debts}/>} />
+					<Route path="/table" render={()=><Plan debts={this.state.debts} />} />
+					<Route path="/graph" render={()=><Graph debts={this.state.debts} />} />
+					<Route path="/debts" render={()=><Debts debts={this.state.debts} />}/>
+					<Route path="/contribution" render={()=><Contribution debts={this.state.debts} />}/>
+					<Route path="/strategy" render={()=><Strategy debts={this.state.debts} />} />
 			    </div>
 			</Router>
     	);
