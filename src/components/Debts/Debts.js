@@ -50,7 +50,6 @@ class Debts extends Component {
   }
 
   render() {
-    console.log(this.props.debts);
     return (
     	<div style={sharedStyles.container}>
     		<Header />
@@ -66,8 +65,7 @@ class Debts extends Component {
            </ul>
 	       </div> 
         </div> 
-    </div>
-    
+      </div>
     );
   }
 }

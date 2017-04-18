@@ -42,11 +42,9 @@ class DebtForm extends Component {
   }
 
   handleSubmit(event) {
-    //alert('A debt was submitted: ' + this.state.name +" "+this.state.minimumPayment+" "+this.state.interest);
     event.preventDefault();
     const { addDebt } = this.props;
-    const { name, minimumPayment, interest } = this.state;
-    addDebt({ name: name, minimumPayment: minimumPayment, interest: interest });
+    addDebt({...this.state});
   }
 
   render() {
