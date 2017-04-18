@@ -17,8 +17,7 @@ const style = {
     fontSize: 30, 
     margin: 10, 
     padding: '25px 10px', 
-    border: '2 solid'+styles.mainColor, 
-    borderRadius: 5
+    border: '1px solid green'
   }
 };
 

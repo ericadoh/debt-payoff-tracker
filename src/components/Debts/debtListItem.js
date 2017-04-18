@@ -34,9 +34,7 @@ const style = {
       flexDirection: 'column',
       padding: '0px 0px 25px 0px', 
       backgroundColor: 'white', 
-      borderRadius: 10,  
-      borderWidth: 5, 
-      borderColor: 'green', 
+     
     }
 };
 
