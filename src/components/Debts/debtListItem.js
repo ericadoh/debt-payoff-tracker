@@ -17,6 +17,12 @@ const style = {
     flex: '1 0 300px'
   },
 
+  x: {
+    float: 'right',
+    marginBottom: 5,
+    cursor: 'pointer'
+  },
+
   debtName: {
     borderBottom: '2px solid black',
     fontWeight: 700,
@@ -37,15 +43,18 @@ const style = {
 };
 
 class DebtListItem extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {value: ''};
+
+  deleteSelf = () => {
+    const { deleteDebt } = this.props;
+    deleteDebt({...this.props});
   }
+
   render() {
     return (
       <div style={style.debtListItem} >
         <label style={style.debtName}>
          {this.props.name}
+         <span style={style.x} onClick={this.deleteSelf}>x</span>
         </label>
         <label>
           Min. monthly payment: {this.props.minimumPayment}
@@ -56,6 +65,7 @@ class DebtListItem extends Component {
       </div>
     );
   }
+
 }
 
 export default DebtListItem; 

@@ -67,19 +67,23 @@ class Debts extends Component {
     this.setState({ showModal: false });
   }
 
-  renderDebts(){      
+  renderDebts = () => {     
+
+    const renderDebtListItem = (debt, i, deleteDebt) => {
+      return (
+        <DebtListItem
+          key={i}
+          name={debt.name}
+          minimumPayment={debt.minimumPayment}
+          interest={debt.interest}
+          deleteDebt={this.props.deleteDebt} />
+      );
+    };
+
     return (
       <div style={style.debts}>
         <button style={style.addDebtItem} onClick={this.handleOpenModal}>Add debt</button>
-        {this.props.debts.map(function(debt, i) {
-          return (
-            <DebtListItem
-              key={i}
-              name={debt.name}
-              minimumPayment={debt.minimumPayment}
-              interest={debt.interest} />
-          );
-        })}
+        {this.props.debts.map(renderDebtListItem)}
       </div>
       ); 
   }
