@@ -40,7 +40,7 @@ const style = {
     }
 };
 
-class DebtLI extends Component {
+class DebtListItem extends Component {
   constructor(props) {
     super(props);
     this.state = {value: ''};
@@ -69,4 +69,4 @@ class DebtLI extends Component {
     );
   }
 }
-export default DebtLI; 
+export default DebtListItem; 
