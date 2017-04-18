@@ -85,16 +85,14 @@ class Debts extends Component {
   }
 
   render() {
+
     return (
     	<div style={sharedStyles.container}>
-
         <ReactModal 
           isOpen={this.state.showModal}
           contentLabel="Minimal Modal Example" >
-          <DebtForm addDebt={this.props.addDebt} />
-          <button onClick={this.handleCloseModal}>Close Modal</button>
+          <DebtForm addDebt={this.props.addDebt} onSubmit={this.handleCloseModal} />
         </ReactModal>
-
     		<Header />
     		<div style={sharedStyles.subContainer}>
 	    		<Navbar />
