@@ -4,13 +4,17 @@ import sharedStyles from '../../styles/styles';
 const style = {
 
   debtListItem: {
+    display: 'flex',
+    flexDirection: 'column',
+    boxSizing: 'border-box',
+    width: 300,
+    height: 150,
     margin: 10,
     border: '1px solid black',
     padding: '15px 20px 15px 20px',
     fontFamily: sharedStyles.mainFont,
     fontSize: 18,
-    display: 'flex',
-    flexDirection: 'column'
+    flex: '1 0 300px'
   },
 
   debtName: {
@@ -19,7 +23,7 @@ const style = {
     fontSize: 24,
     marginBottom: 10
   },
-  
+
   button: {
     background: sharedStyles.mainColor, 
     color: 'white', 

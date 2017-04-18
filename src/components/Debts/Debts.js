@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ReactModal from 'react-modal';
+
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
 import sharedStyles from '../../styles/styles';
@@ -6,6 +8,23 @@ import DebtForm from './DebtForm.js';
 import DebtListItem from './DebtListItem.js'; 
 
 const style = {
+
+  debts: {
+    display: 'flex',
+    flexWrap: 'wrap'
+  },
+
+  addDebtItem: {
+    boxSizing: 'border-box',
+    width: 300,
+    height: 150,
+    margin: 10,
+    border: '1px solid black',
+    padding: '15px 20px 15px 20px',
+    fontFamily: sharedStyles.mainFont,
+    fontSize: 18,
+    flex: '1 0 300px'
+  },
 
   debtListContainer: {
       marginLeft:  '10px',
@@ -33,9 +52,25 @@ const style = {
 
 class Debts extends Component {
 
+  constructor () {
+    super();
+    this.state = { showModal: false };
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
+
+  handleOpenModal () {
+    this.setState({ showModal: true });
+  }
+  
+  handleCloseModal () {
+    this.setState({ showModal: false });
+  }
+
   renderDebts(){      
     return (
-      <div>
+      <div style={style.debts}>
+        <button style={style.addDebtItem} onClick={this.handleOpenModal}>Add debt</button>
         {this.props.debts.map(function(debt, i) {
           return (
             <DebtListItem
@@ -52,18 +87,18 @@ class Debts extends Component {
   render() {
     return (
     	<div style={sharedStyles.container}>
+
+        <ReactModal 
+          isOpen={this.state.showModal}
+          contentLabel="Minimal Modal Example" >
+          <DebtForm addDebt={this.props.addDebt} />
+          <button onClick={this.handleCloseModal}>Close Modal</button>
+        </ReactModal>
+
     		<Header />
     		<div style={sharedStyles.subContainer}>
 	    		<Navbar />
-          <div> 
-	    		 <DebtForm addDebt={this.props.addDebt} />
-          </div>  
-          <div> 
-           <h1 style={style.header}>Current Debts</h1> 
-            <ul>
-            {this.renderDebts()}
-           </ul>
-	       </div> 
+          {this.renderDebts()}
         </div> 
       </div>
     );
