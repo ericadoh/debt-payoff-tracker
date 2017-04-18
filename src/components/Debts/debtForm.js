@@ -10,25 +10,18 @@ const style = {
     backgroundColor: sharedStyles.mainColor,
     color: 'white',
     padding: '15px 20px 15px 20px'
-  },
-  button: {
-    background: sharedStyles.mainColor, 
-    color: 'white', 
-    fontSize: 30, 
-    margin: 10, 
-    padding: '25px 10px', 
-    border: '2 solid'+sharedStyles.mainColor, 
-    borderRadius: 5
   }
 };
 
-
 class DebtForm extends Component {
+
   constructor(props) {
     super(props);
-    this.state = {name: '',
-     minpay: '',
-    interest: ''};
+    this.state = {
+      name: '',
+      minimumPayment: '',
+      interest: ''
+    };
 
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeMinPay = this.handleChangeMinPay.bind(this);
@@ -39,16 +32,21 @@ class DebtForm extends Component {
   handleChangeName(event) {
     this.setState({name: event.target.value});
   }
+
   handleChangeMinPay(event) {
-    this.setState({minpay: event.target.value});
+    this.setState({minimumPayment: event.target.value});
   }
+
   handleChangeInterest(event) {
     this.setState({interest: event.target.value});
   }
 
   handleSubmit(event) {
-    alert('A debt was submitted: ' + this.state.name +" "+this.state.minpay+" "+this.state.interest);
+    //alert('A debt was submitted: ' + this.state.name +" "+this.state.minimumPayment+" "+this.state.interest);
     event.preventDefault();
+    const { addDebt } = this.props;
+    const { name, minimumPayment, interest } = this.state;
+    addDebt({ name: name, minimumPayment: minimumPayment, interest: interest });
   }
 
   render() {
@@ -60,13 +58,13 @@ class DebtForm extends Component {
         </label>
           <label style={style.header}>
           Minimum Monthly Payment:
-          <input type="text" style={sharedStyles.subContainer} value={this.state.minpay} onChange={this.handleChangeMinPay} />
+          <input type="text" style={sharedStyles.subContainer} value={this.state.minimumPayment} onChange={this.handleChangeMinPay} />
         </label>
           <label style={style.header}>
           Interest:
           <input type="text" style={sharedStyles.subContainer} value={this.state.interest} onChange={this.handleChangeInterest} />
         </label>
-        <input style={style.button} type="submit" value="Submit" />
+        <input style={sharedStyles.button} type="submit" value="Submit" />
       </form>
     );
   }

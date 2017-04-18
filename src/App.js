@@ -22,6 +22,12 @@ class App extends Component {
 			]
 		};
 	}
+
+	addDebt = debt => {
+		this.setState(previousState => ({
+		    debts: [...previousState.debts, debt]
+		}));
+	}
 	
 	render() {
     	return (
@@ -29,7 +35,7 @@ class App extends Component {
 			    <div>
 					<Route path="/table" render={()=><Plan debts={this.state.debts} />} />
 					<Route path="/graph" render={()=><Graph debts={this.state.debts} />} />
-					<Route path="/debts" render={()=><Debts debts={this.state.debts} />}/>
+					<Route path="/debts" render={()=><Debts debts={this.state.debts} addDebt={this.addDebt}/>}/>
 					<Route path="/contribution" render={()=><Contribution debts={this.state.debts} />}/>
 					<Route path="/strategy" render={()=><Strategy debts={this.state.debts} />} />
 			    </div>

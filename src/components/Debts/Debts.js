@@ -57,7 +57,7 @@ class Debts extends Component {
     		<div style={sharedStyles.subContainer}>
 	    		<Navbar />
           <div> 
-	    		 <DebtForm/>
+	    		 <DebtForm addDebt={this.props.addDebt} />
           </div>  
           <div> 
            <h1 style={style.header}>Current Debts</h1> 
