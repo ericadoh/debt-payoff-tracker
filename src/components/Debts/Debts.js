@@ -36,16 +36,16 @@ class Debts extends Component {
   renderDebts(){      
     return (
       <div>
-      {this.props.debts.map(function(debt, i) {
-        return <DebtListItem key={i} name={debt.name} minpay={debt.minimumPayment} interest={debt.interest}/>;
-      })}
+        {this.props.debts.map(function(debt, i) {
+          return (
+            <DebtListItem
+              key={i}
+              name={debt.name}
+              minimumPayment={debt.minimumPayment}
+              interest={debt.interest} />
+          );
+        })}
       </div>
-
-        // <div> 
-        //   <DebtListItem name={"Car"} minpay={"600"} interest={"8%"}/>
-        //   <DebtListItem name={"School"} minpay={"510"} interest={"10%"}/>
-        //   <DebtListItem name={"Other"} minpay={"780"} interest={"5%"} />
-        // </div> 
       ); 
   }
 

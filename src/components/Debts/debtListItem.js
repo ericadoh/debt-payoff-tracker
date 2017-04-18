@@ -2,24 +2,24 @@ import React, { Component } from 'react';
 import sharedStyles from '../../styles/styles';
 
 const style = {
-  header: {
-    display: 'flex',
-    flexDirection: 'column',
+
+  debtListItem: {
+    margin: 10,
+    border: '1px solid black',
+    padding: '15px 20px 15px 20px',
     fontFamily: sharedStyles.mainFont,
-    fontSize: 30,
-    backgroundColor: sharedStyles.mainColor,
-    color: 'white',
-    padding: '15px 20px 0px 20px'
-  },
-  header2: {
+    fontSize: 18,
     display: 'flex',
-    flexDirection: 'column',
-    fontFamily: sharedStyles.mainFont,
-    fontSize: 12,
-    backgroundColor: sharedStyles.mainColor,
-    color: 'lightgrey',
-    padding: '15px 20px 5px 20px'
+    flexDirection: 'column'
   },
+
+  debtName: {
+    borderBottom: '2px solid black',
+    fontWeight: 700,
+    fontSize: 24,
+    marginBottom: 10
+  },
+  
   button: {
     background: sharedStyles.mainColor, 
     color: 'white', 
@@ -28,16 +28,8 @@ const style = {
     padding: '25px 10px', 
     border: '2 solid'+sharedStyles.mainColor, 
     borderRadius: 5
-  }, 
-  debtContainer: {
-      display: 'flex',
-      flexDirection: 'column',
-      padding: '0px 0px 25px 0px', 
-      backgroundColor: 'white', 
-      borderRadius: 10,  
-      borderWidth: 5, 
-      borderColor: 'green', 
-    }
+  }
+
 };
 
 class DebtListItem extends Component {
@@ -47,26 +39,19 @@ class DebtListItem extends Component {
   }
   render() {
     return (
-      <div style={style.debtContainer}>
-        <label style={style.header}>
-         Debt Name: {this.props.name}
+      <div style={style.debtListItem} >
+        <label style={style.debtName}>
+         {this.props.name}
         </label>
-         <label style={style.header2}>
-          Minimum Monthly Payment: {this.props.minpay}
+        <label>
+          Min. monthly payment: {this.props.minimumPayment}
         </label>
-          <label style={style.header2}>
+        <label>
           Interest: {this.props.interest}
         </label>
       </div>
-
-       /* <label style = {style.header}>
-          Minimum Monthly Payment:
-        </label>
-          <label style = {style.header}>
-          Interest:
-       
-        </label>*/
     );
   }
 }
+
 export default DebtListItem; 

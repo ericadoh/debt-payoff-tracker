@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
 import sharedStyles from '../../styles/styles';
-import ContributionForm from './contributionForm.js'
+import ContributionForm from './ContributionForm.js'
 
 class Contribution extends Component {
   render() {
