@@ -41,6 +41,7 @@ class Debts extends Component {
   }
 
   render() {
+    console.log(this.props.hello);
     return (
     	<div style={sharedStyles.container}>
     		<Header />

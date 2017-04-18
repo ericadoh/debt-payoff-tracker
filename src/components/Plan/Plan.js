@@ -30,10 +30,6 @@ const rows = [
   ['a3', 'b3', 'c3']
 ];
 
-const generateTable = () => {
-
-}
-
 class Plan extends Component {
   render() {
     return (
