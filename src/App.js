@@ -29,6 +29,11 @@ class App extends Component {
 		}));
 	}
 
+	/*
+		NOTE: This just uses the debt's name as an ID to figure out whether
+		it should be deleted or not. Ideally, each debt would have some sort
+		of unique ID.
+	*/
 	deleteDebt = debt => {
 		const index = this.state.debts.map(d => d.name).indexOf(debt.name);
 		this.setState(previousState => ({
