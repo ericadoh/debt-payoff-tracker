@@ -1,38 +1,45 @@
 import React, { Component } from 'react';
-import styles from '../../styles/styles';
+import sharedStyles from '../../styles/styles';
 
 const style = {
-  header: {
-    fontFamily: styles.mainFont,
+  label: {
+    fontFamily: sharedStyles.mainFont,
     fontSize: 30,
-    backgroundColor: styles.mainColor,
+    backgroundColor: sharedStyles.mainColor,
     color: 'white',
   },
   debtContainer: {
       display: 'flex',
       flexDirection: 'column', 
-      padding: '10px 10px 25px 10px', 
+      padding: '20px',
       margin: '10px',
-      backgroundColor: styles.mainColor, 
-      border: '1px solid green', 
+      backgroundColor: sharedStyles.mainColor, 
       width: '200px', 
-      height: '100px'
+      height: '100px',
+      textAlign: 'center',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: 5
     }
 };
 
 class StratDiv extends Component {
+
   constructor(props) {
     super(props);
     this.state = {value: ''};
   }
+
   render() {
     return (
       <div style={style.debtContainer}>
-        <label style={style.header}>
+        <label style={style.label}>
           {this.props.name}
         </label>
       </div> 
     );
   }
+
 }
+
 export default StratDiv; 

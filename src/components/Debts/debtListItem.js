@@ -1,32 +1,42 @@
 import React, { Component } from 'react';
-import styles from '../../styles/styles';
+import sharedStyles from '../../styles/styles';
 
 const style = {
-  header: {
+
+  debtListItem: {
     display: 'flex',
     flexDirection: 'column',
-    fontFamily: styles.mainFont,
-    fontSize: 30,
-    backgroundColor: styles.mainColor,
-    color: 'white',
-    padding: '15px 20px 0px 20px'
+    boxSizing: 'border-box',
+    width: 300,
+    height: 150,
+    margin: 10,
+    border: '1px solid black',
+    padding: '15px 20px 15px 20px',
+    fontFamily: sharedStyles.mainFont,
+    fontSize: 18,
+    flex: '1 0 300px'
   },
-  header2: {
-    display: 'flex',
-    flexDirection: 'column',
-    fontFamily: styles.mainFont,
-    fontSize: 12,
-    backgroundColor: styles.mainColor,
-    color: 'lightgrey',
-    padding: '15px 20px 5px 20px'
+
+  x: {
+    float: 'right',
+    marginBottom: 5,
+    cursor: 'pointer'
   },
+
+  debtName: {
+    borderBottom: '2px solid black',
+    fontWeight: 700,
+    fontSize: 24,
+    marginBottom: 10
+  },
+
   button: {
-    background: styles.mainColor, 
+    background: sharedStyles.mainColor, 
     color: 'white', 
     fontSize: 30, 
     margin: 10, 
     padding: '25px 10px', 
-    border: '2 solid'+styles.mainColor, 
+    border: '2 solid'+sharedStyles.mainColor, 
     borderRadius: 5
   }, 
   debtContainer: {
@@ -36,35 +46,34 @@ const style = {
       backgroundColor: 'white', 
      
     }
+  }
+
 };
 
-class DebtLI extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {value: ''};
+class DebtListItem extends Component {
+
+  deleteSelf = () => {
+    const { deleteDebt } = this.props;
+    deleteDebt({...this.props});
   }
+
   render() {
     return (
-      <div style={style.debtContainer}>
-        <label style={style.header}>
-         Debt Name: {this.props.name}
+      <div style={style.debtListItem} >
+        <label style={style.debtName}>
+         {this.props.name}
+         <span style={style.x} onClick={this.deleteSelf}>x</span>
         </label>
-         <label style={style.header2}>
-          Minimum Monthly Payment: {this.props.minpay}
+        <label>
+          Min. monthly payment: {this.props.minimumPayment}
         </label>
-          <label style={style.header2}>
+        <label>
           Interest: {this.props.interest}
         </label>
       </div>
-
-       /* <label style = {style.header}>
-          Minimum Monthly Payment:
-        </label>
-          <label style = {style.header}>
-          Interest:
-       
-        </label>*/
     );
   }
+
 }
-export default DebtLI; 
+
+export default DebtListItem; 

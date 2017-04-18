@@ -1,76 +1,46 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
-import styles from '../../styles/styles';
+import sharedStyles from '../../styles/styles';
+import ReactHighcharts from 'react-highcharts';
 
-// class HighChart extends Component {
-//   render() {
-//     return (
-//     	<div style={styles.container}>
-//     		<Navbar />
-//     		<div>
-//                 GRAPH COMPONENT
-//                 componentDidMount() {
-//                 // Extend Highcharts with modules
-//                 if (this.props.modules) {
-//                     this.props.modules.forEach(function (module) {
-//                         module(Highcharts);
-//                     });
-//                 }
-//                 // Set container which the chart should render to.
-//                 this.chart = new Highcharts[this.props.type || "Chart"](
-//                     this.props.container, 
-//                     this.props.options
-//                 );
-//                 }
-
-//             //Destroy chart before unmount.
-//             componentWillUnmount: function () {
-//                 this.chart.destroy();
-//             },
-//             //Create the div which the chart will be rendered to.
-//             render: function () {
-//                 return React.createElement('div', { id: this.props.container });
-//             }
-//             </div>
-//     	</div>
-      
-//     );
-//   }
-// }
-
-// export default Graph;
-
-/*
-var React = require('highcharts');
-var Highcharts = require('highcharts');
-
-class Highchart extends Component {
-
-    // When the DOM is ready, create the chart.
-    componentDidMount() {
-        // Extend Highcharts with modules
-        if (this.props.modules) {
-            this.props.modules.forEach(function (module) {
-                module(Highcharts);
-            });
-        }
-        // Set container which the chart should render to.
-        this.chart = new Highcharts[this.props.type || "Chart"](
-            this.props.container, 
-            this.props.options
-        );
-    }
-
-    //Destroy chart before unmount.
-    componentWillUnmount: function () {
-        this.chart.destroy();
+const config = {
+    
+    xAxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     },
-    //Create the div which the chart will be rendered to.
-    render: function () {
-        return React.createElement('div', { id: this.props.container });
+
+    series: [{
+        data: [500, 476, 450, 430, 370, 350, 325, 250, 220, 175, 130, 50]
+    }],
+
+    title: {
+        text: 'Debt over Time'
+    },
+
+    yAxis: {
+        title: {
+            text: 'Debt'
+        }
     }
-});*/
+};
 
+class Graph extends Component {
 
+  render() {
+    return (
+    	<div style={sharedStyles.container}>
+    		<Header />
+            <div style={sharedStyles.subContainer} >
+                <Navbar />
+                <ReactHighcharts config={config}></ReactHighcharts>
+            </div>
+    	</div>
+      
+    );
+  }
+
+}
+
+export default Graph;
 

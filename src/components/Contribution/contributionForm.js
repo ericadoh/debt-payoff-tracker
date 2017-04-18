@@ -1,24 +1,23 @@
 import React, { Component } from 'react';
-import styles from '../../styles/styles';
+import sharedStyles from '../../styles/styles';
 
 const style = {
-  header: {
+  form: {
     display: 'flex',
     flexDirection: 'column',
-    fontFamily: styles.mainFont,
-    fontSize: 30,
-    backgroundColor: styles.mainColor,
-    color: 'white',
-    padding: '120px 180px 120px 180px'
+    alignItems: 'center'
   },
-  button: {
-    background: styles.mainColor, 
-    color: 'white', 
-    fontSize: 30, 
-    margin: 10, 
-    padding: '25px 10px', 
-    border: '2 solid'+styles.mainColor, 
-    borderRadius: 5
+  label: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '80%',
+    fontFamily: sharedStyles.mainFont,
+    fontWeight: 700,
+    fontSize: 30,
+    color: 'black',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center'
   },
   wrapper: {
     width: '100%', 
@@ -26,7 +25,6 @@ const style = {
     justifyContent: 'center'
   }
 };
-
 
 class ContributionForm extends Component {
   constructor(props) {
@@ -48,13 +46,13 @@ class ContributionForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label style = {style.header}>
-          How much money can you pay towards your debts per month?
-          <input type="text" style={styles.subContainer} value={this.state.monthly} onChange={this.handleChange} />
+      <form style={style.form} onSubmit={this.handleSubmit}>
+        <label style={style.label}>
+          <p>What is the maximum amount of money you can pay towards your debts per month?</p>
+          <input style={sharedStyles.input} type="text" value={this.state.monthly} onChange={this.handleChange} />
         </label>
         <div style={style.wrapper}>
-        <input style = {style.button} type="submit" value="Submit" />
+          <input style={sharedStyles.button} type="submit" value="Submit" />
         </div> 
       </form>
     );

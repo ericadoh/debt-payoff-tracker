@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import styles from '../../styles/styles';
+import sharedStyles from '../../styles/styles';
 
 const style = {
   header: {
     display: 'flex',
     flexDirection: 'column',
-    fontFamily: styles.mainFont,
+    fontFamily: sharedStyles.mainFont,
     fontSize: 30,
-    backgroundColor: styles.mainColor,
+    backgroundColor: sharedStyles.mainColor,
     color: 'white',
     padding: '15px 20px 15px 20px'
   }
