@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import sharedStyles from '../../styles/styles';
+import sharedStyles from '../../styles/styles.js';
 
 const style = {
   header: {
@@ -10,7 +10,7 @@ const style = {
     padding: '15px 20px 15px 20px'
   },
   button: {
-    background: styles.mainColor, 
+    background: sharedStyles.mainColor, 
     color: 'white', 
     fontSize: 30, 
     margin: 10, 
