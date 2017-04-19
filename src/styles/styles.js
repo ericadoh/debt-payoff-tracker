@@ -35,7 +35,21 @@ const styles = {
 	    padding: '10px 20px', 
 	    border: 0,
 	    borderRadius: 5
-	}
+	}, 
+	nextButton: {
+    background: '#36BAFF', 
+      color: 'white', 
+      width: '150px', 
+      height: '50px', 
+      fontSize: 30, 
+      fontFamily: '"Open Sans", sans-serif',
+      fontWeight: 700,
+      margin: 10,
+      marginTop: 90, 
+      padding: '10px 20px', 
+      border: 0,
+      borderRadius: 5, 
+  }
   
 }
 

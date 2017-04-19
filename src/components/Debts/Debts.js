@@ -6,7 +6,7 @@ import Navbar from '../Navbar/Navbar';
 import sharedStyles from '../../styles/styles';
 import DebtForm from './DebtForm.js'; 
 import DebtListItem from './DebtListItem.js'; 
-
+import { Link } from 'react-router-dom';
 const style = {
 
   debts: {
@@ -46,7 +46,7 @@ const style = {
      display: 'flex',
       flexDirection: 'row',
       marginLeft:  '10px',
-  }
+  }, 
 
 }
 
@@ -101,6 +101,11 @@ class Debts extends Component {
     		<div style={sharedStyles.subContainer}>
 	    		<Navbar />
           {this.renderDebts()}
+        <Link
+          style={sharedStyles.nextButton}
+          to="/contribution">
+            Next Step
+        </Link>
         </div> 
       </div>
     );

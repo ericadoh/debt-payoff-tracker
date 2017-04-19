@@ -46,15 +46,20 @@ const style = {
       backgroundColor: 'white', 
      
     }
-  }
-
-};
+  };
 
 class DebtListItem extends Component {
 
   deleteSelf = () => {
     const { deleteDebt } = this.props;
     deleteDebt({...this.props});
+  }
+  editSelf = () => {
+    alert("Edit!") 
+    //maybe? 
+    //delete self, 
+    //display new debt creator with prefilled info
+    //save new debt
   }
 
   render() {
@@ -70,6 +75,9 @@ class DebtListItem extends Component {
         <label>
           Interest: {this.props.interest}
         </label>
+        <label>
+          <span style={style.x} onClick={this.editSelf}>Edit?</span>
+          </label> 
       </div>
     );
   }

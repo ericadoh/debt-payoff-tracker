@@ -10,7 +10,7 @@ const style = {
     padding: '15px 20px 15px 20px'
   },
   button: {
-    background: styles.mainColor, 
+    background: sharedStyles.mainColor, 
     color: 'white', 
     fontSize: 30, 
     margin: 10, 
@@ -41,11 +41,11 @@ class DebtForm extends Component {
   }
 
   handleChangeMinPay(event) {
-    this.setState({minimumPayment: event.target.value});
+      this.setState({minimumPayment: event.target.value});
   }
 
   handleChangeInterest(event) {
-    this.setState({interest: event.target.value});
+      this.setState({interest: event.target.value});
   }
 
   handleSubmit(event) {
@@ -64,11 +64,11 @@ class DebtForm extends Component {
         </label>
           <label style={style.header}>
           Minimum Monthly Payment:
-          <input type="text" style={sharedStyles.input} value={this.state.minimumPayment} onChange={this.handleChangeMinPay} />
+          <input type="number" style={sharedStyles.input} value={this.state.minimumPayment} onChange={this.handleChangeMinPay} />
         </label>
           <label style={style.header}>
           Interest:
-          <input type="text" style={sharedStyles.input} value={this.state.interest} onChange={this.handleChangeInterest} />
+          <input type="number" style={sharedStyles.input} value={this.state.interest} onChange={this.handleChangeInterest} />
         </label>
         <input style={sharedStyles.button} type="submit" value="Submit" />
       </form>
