@@ -20,7 +20,8 @@ const style = {
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: 5
-    }
+    },
+
 };
 
 class StratDiv extends Component {
@@ -32,11 +33,10 @@ class StratDiv extends Component {
 
   render() {
     return (
-      <div style={style.debtContainer}>
-        <label style={style.label}>
+        <button style={sharedStyles.button}>
           {this.props.name}
-        </label>
-      </div> 
+        </button>
+     
     );
   }
 
