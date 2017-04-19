@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import sharedStyles from '../../styles/styles';
+import sharedStyles from '../../styles/styles.js';
 
 const style = {
   header: {

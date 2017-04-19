@@ -43,10 +43,11 @@ const style = {
       display: 'flex',
       flexDirection: 'column',
       padding: '0px 0px 25px 0px', 
-      backgroundColor: 'white', 
-     
-    }
-  };
+      backgroundColor: 'white',   
+  }
+
+};
+
 
 class DebtListItem extends Component {
 
