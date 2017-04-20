@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import sharedStyles from '../../styles/styles';
+import RadioButtonGroup from 'react-radio-button';
+
 
 const style = {
   label: {
@@ -33,10 +35,11 @@ class StratDiv extends Component {
 
   render() {
     return (
+      <div>
         <button style={sharedStyles.button}>
           {this.props.name}
         </button>
-     
+    </div>
     );
   }
 
