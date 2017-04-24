@@ -25,12 +25,14 @@ class DebtForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      minimumPayment: '',
-      interest: ''
+      name: this.props.name ? this.props.name : '',
+      balance: this.props.balance ? this.props.balance : '',
+      minimumPayment: this.props.minimumPayment ? this.props.minimumPayment : '',
+      interest: this.props.interest ? this.props.interest : ''
     };
 
     this.handleChangeName = this.handleChangeName.bind(this);
+    this.handleChangeBalance = this.handleChangeBalance.bind(this);
     this.handleChangeMinPay = this.handleChangeMinPay.bind(this);
     this.handleChangeInterest = this.handleChangeInterest.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,6 +40,9 @@ class DebtForm extends Component {
 
   handleChangeName(event) {
     this.setState({name: event.target.value});
+  }
+   handleChangeBalance(event) {
+      this.setState({balance: event.target.value});
   }
 
   handleChangeMinPay(event) {
@@ -61,6 +66,10 @@ class DebtForm extends Component {
         <label style={style.header}>
           Debt Name:
           <input type="text" style={sharedStyles.input} value={this.state.name} onChange={this.handleChangeName} />
+        </label>
+        <label style={style.header}>
+          Balance:
+          <input type="text" style={sharedStyles.input} value={this.state.balance} onChange={this.handleChangeBalance} />
         </label>
           <label style={style.header}>
           Minimum Monthly Payment:

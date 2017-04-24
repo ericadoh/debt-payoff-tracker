@@ -33,9 +33,10 @@ const style = {
 };
 
 class ContributionForm extends Component {
+
   constructor(props) {
     super(props);
-    this.state = {monthly: '', canLink: false};
+    this.state = {monthly: this.props.monthly, canLink: false};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -48,7 +49,8 @@ class ContributionForm extends Component {
   handleSubmit(event) {
     alert('A payment was submitted: ' + this.state.monthly);
     event.preventDefault();
-    this.setState({canLink: true}); 
+    this.setState({canLink: true});
+    this.props.setMonthly(this.state.monthly);
   }
 
   render() {

@@ -72,8 +72,10 @@ class Debts extends Component {
     const renderDebtListItem = (debt, i, deleteDebt) => {
       return (
         <DebtListItem
+          addDebt={this.props.addDebt}
           key={i}
           name={debt.name}
+          balance={debt.balance}
           minimumPayment={debt.minimumPayment}
           interest={debt.interest}
           deleteDebt={this.props.deleteDebt} />
