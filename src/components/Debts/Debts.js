@@ -75,10 +75,11 @@ class Debts extends Component {
           addDebt={this.props.addDebt}
           key={i}
           name={debt.name}
+          id = {debt.id} 
           balance={debt.balance}
           minimumPayment={debt.minimumPayment}
           interest={debt.interest}
-          deleteDebt={this.props.deleteDebt} />
+          deleteDebt={this.props.deleteDebt}/>
       );
     };
 

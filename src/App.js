@@ -39,7 +39,7 @@ class App extends Component {
 		of unique ID.
 	*/
 	deleteDebt = debt => {
-		const index = this.state.debts.map(d => d.name).indexOf(debt.name);
+		const index = this.state.debts.map(d => d.id).indexOf(debt.id);
 		this.setState(previousState => ({
 			debts: previousState.debts.filter((_, i) => i !== index)
 		}));

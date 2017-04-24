@@ -28,15 +28,22 @@ class DebtForm extends Component {
       name: this.props.name ? this.props.name : '',
       balance: this.props.balance ? this.props.balance : '',
       minimumPayment: this.props.minimumPayment ? this.props.minimumPayment : '',
-      interest: this.props.interest ? this.props.interest : ''
+      interest: this.props.interest ? this.props.interest : '', 
+      id: this.handleCreateID()
     };
-
+    this.handleCreateID = this.handleCreateID.bind(this); 
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeBalance = this.handleChangeBalance.bind(this);
     this.handleChangeMinPay = this.handleChangeMinPay.bind(this);
     this.handleChangeInterest = this.handleChangeInterest.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  //createID for debt 
+  handleCreateID(){
+    return Math.floor(Math.random() * 80000000); 
+  }
+
 
   handleChangeName(event) {
     this.setState({name: event.target.value});
@@ -55,6 +62,7 @@ class DebtForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.handleCreateID(); 
     const { addDebt, onSubmit } = this.props;
     addDebt({...this.state});
     onSubmit();

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import sharedStyles from '../../styles/styles';
 import DebtForm from './DebtForm.js'; 
 import ReactModal from 'react-modal';
+import pencil from './pencilEdit.png' 
 const style = {
 
   debtListItem: {
@@ -25,10 +26,22 @@ const style = {
   },
    edit: {
     float: 'right',
-    marginBottom: 5,
-    cursor: 'pointer', 
+    cursor: 'pointer',
+    margin: 5, 
+    width: 30, 
+    height: 30, 
+    color: 'white'
   },
+  pencilEdit: {
+    cursor: 'pointer',
+    width: 30, 
+    height: 30, 
+    marginTop: "-3", 
+    marginLeft: "-7", 
 
+
+  },
+  
   debtName: {
     borderBottom: '2px solid black',
     fontWeight: 700,
@@ -89,7 +102,7 @@ constructor () {
         <label style={style.debtName}>
          {this.props.name}
          <button style={style.edit} onClick={this.handleOpenModal} type="submit">
-            <img src="../../../editImg.png" width="40" height="40" alt="edit"/>
+            <img style ={style.pencilEdit} src={pencil} alt="edit"/>
          </button>
          <span style={style.x} onClick={this.deleteSelf}>x</span>
         </label>
@@ -102,6 +115,7 @@ constructor () {
         <label>
           Interest: {this.props.interest}
         </label>
+
        
       </div>
     );
