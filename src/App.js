@@ -20,9 +20,11 @@ class App extends Component {
 				{ name: 'School', minimumPayment: 510, interest: .1 },
 				{ name: 'Other', minimumPayment: 780, interest: .05 }
 			],
-			payoffStrategy: "Lowest Amount First"
+			payoffStrategy: "Lowest Amount First",
+			monthly: "10"
 		};
 		this.setState = this.setState.bind(this);
+		console.log("monthly:"+this.state.monthly);
 	}
 
 	addDebt = debt => {
@@ -47,6 +49,11 @@ class App extends Component {
 		this.setState({payoffStrategy: strategy});
 	}
 
+	
+
+	setMonthly = contribution => {
+		this.setState({monthly: contribution});
+	}
 
 	render() {
     	return (
@@ -58,10 +65,13 @@ class App extends Component {
 						render={()=><Debts debts={this.state.debts}
 						addDebt={this.addDebt}
 						deleteDebt={this.deleteDebt} />} />
-					<Route path="/contribution" render={()=><Contribution debts={this.state.debts} />}/>
+					<Route path="/contribution" render={()=><Contribution 
+						debts={this.state.debts} 
+						monthly={this.state.monthly} 
+						setMonthly={this.setMonthly} />} />
 					<Route path="/strategy" render={()=><Strategy debts={this.state.debts} 
 						payoffStrategy={this.state.payoffStrategy} 
-						setStrategy={this.setStrategy}/>} />
+						setStrategy={this.setStrategy} />} />
 			    </div>
 			</Router>
     	);
