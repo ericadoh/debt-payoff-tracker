@@ -53,7 +53,7 @@ class ContributionForm extends Component {
 
   render() {
     let button = null; 
-    if(this.state.monthly!=''&& this.state.canLink){
+    if(this.state.monthly !== ''&& this.state.canLink){
       button = <div style={style.rightWrap}>
         <Link
           style={sharedStyles.nextButton}

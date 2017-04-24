@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
-import StratDiv from './strategyDiv.js';
 import sharedStyles from '../../styles/styles'; 
 import { Link } from 'react-router-dom';
 import {RadioGroup, RadioButton} from 'react-radio-buttons';
-import App from '../../App'
 
 const style = {
   header: {
