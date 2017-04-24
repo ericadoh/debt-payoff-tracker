@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import sharedStyles from '../../styles/styles';
-
+import DebtForm from './DebtForm.js'; 
+import ReactModal from 'react-modal';
 const style = {
 
   debtListItem: {
@@ -8,7 +9,7 @@ const style = {
     flexDirection: 'column',
     boxSizing: 'border-box',
     width: 300,
-    height: 150,
+    height: 170,
     margin: 10,
     border: '1px solid black',
     padding: '15px 20px 15px 20px',
@@ -21,6 +22,11 @@ const style = {
     float: 'right',
     marginBottom: 5,
     cursor: 'pointer'
+  },
+   edit: {
+    float: 'right',
+    marginBottom: 5,
+    cursor: 'pointer', 
   },
 
   debtName: {
@@ -50,25 +56,45 @@ const style = {
 
 
 class DebtListItem extends Component {
+constructor () {
+    super();
+    this.state = { showModal: false };
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
 
+  handleOpenModal () {
+    this.setState({ showModal: true });
+   
+  }
+  
+  handleCloseModal () {
+    this.setState({ showModal: false });
+    this.deleteSelf(); 
+  }
   deleteSelf = () => {
     const { deleteDebt } = this.props;
     deleteDebt({...this.props});
   }
-  editSelf = () => {
-    alert("Edit!") 
-    //maybe? 
-    //delete self, 
-    //display new debt creator with prefilled info
-    //save new debt
-  }
+
 
   render() {
     return (
       <div style={style.debtListItem} >
+        <ReactModal 
+          isOpen={this.state.showModal}
+          contentLabel="Minimal Modal Example" >
+          <DebtForm name = {this.props.name} balance = {this.props.balance} minimumPayment = {this.props.minimumPayment} interest = {this.props.interest} addDebt={this.props.addDebt} onSubmit={this.handleCloseModal} />
+        </ReactModal>
         <label style={style.debtName}>
          {this.props.name}
+         <button style={style.edit} onClick={this.handleOpenModal} type="submit">
+            <img src="../../../editImg.png" width="40" height="40" alt="edit"/>
+         </button>
          <span style={style.x} onClick={this.deleteSelf}>x</span>
+        </label>
+        <label>
+          Balance: {this.props.balance}
         </label>
         <label>
           Min. monthly payment: {this.props.minimumPayment}
@@ -76,9 +102,7 @@ class DebtListItem extends Component {
         <label>
           Interest: {this.props.interest}
         </label>
-        <label>
-          <span style={style.x} onClick={this.editSelf}>Edit?</span>
-          </label> 
+       
       </div>
     );
   }
