@@ -97,7 +97,7 @@ constructor () {
         <ReactModal 
           isOpen={this.state.showModal}
           contentLabel="Minimal Modal Example" >
-          <DebtForm name = {this.props.name} balance = {this.props.balance} minimumPayment = {this.props.minimumPayment} interest = {this.props.interest} addDebt={this.props.addDebt} onSubmit={this.handleCloseModal} />
+          <DebtForm name={this.props.name} balance={this.props.balance} minimumPayment={this.props.minimumPayment} interest={this.props.interest} addDebt={this.props.addDebt} onSubmit={this.handleCloseModal} />
         </ReactModal>
         <label style={style.debtName}>
          {this.props.name}

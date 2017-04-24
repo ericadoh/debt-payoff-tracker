@@ -5,9 +5,6 @@ import sharedStyles from '../../styles/styles';
 import ContributionForm from './ContributionForm.js'
 
 class Contribution extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
