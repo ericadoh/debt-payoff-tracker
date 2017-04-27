@@ -23,7 +23,16 @@ const style = {
     display: 'flex',
     flexDirection: 'column',
     margin: '10px', 
-  }
+  }, 
+  radioB: {
+   
+    fontFamily: sharedStyles.mainFont,
+    fontSize: 20, 
+    backgroundColor: sharedStyles.mainColor, 
+    color: 'white', 
+    fontWeight: 400, 
+
+  },
 
 }; 
 
@@ -50,12 +59,12 @@ class Strategy extends Component {
 	    	<div style={sharedStyles.subContainer}>
 	    		<Navbar />
           <div style={style.stratD}>
-
+          <label style = {style.radioB}>
             <RadioGroup onChange={(value) => this.handleSelection(value)} horizontal value={this.props.payoffStrategy}>
-              <RadioButton value="Lowest Amount First" >
+              <RadioButton style = {style.radioB} value="Lowest Amount First" >
                   Lowest Amount First
                 </RadioButton>
-                <RadioButton value="Highest Interest First">
+                <RadioButton  style = {style.radioB} value="Highest Interest First">
                   Highest Interest First
                 </RadioButton>
                 <RadioButton value="Order Entered in Table">
@@ -67,7 +76,9 @@ class Strategy extends Component {
                 <RadioButton value="Lowest Balance First">
                   Lowest Balance First
                 </RadioButton>
+
             </RadioGroup>
+             </label> 
           
 
             {/*

@@ -22,8 +22,12 @@ const style = {
     border: '1px solid black',
     padding: '15px 20px 15px 20px',
     fontFamily: sharedStyles.mainFont,
-    fontSize: 18,
-    flex: '1 0 300px'
+    fontSize: 30,
+    flex: '1 0 300px', 
+    backgroundColor: sharedStyles.mainColor, 
+    color: 'white', 
+    fontWeight: 700
+
   },
 
   debtListContainer: {
@@ -85,7 +89,7 @@ class Debts extends Component {
 
     return (
       <div style={style.debts}>
-        <button style={style.addDebtItem} onClick={this.handleOpenModal}>Add debt</button>
+        <button style={style.addDebtItem} onClick={this.handleOpenModal}>Add Debt</button>
         {this.props.debts.map(renderDebtListItem)}
       </div>
       ); 

@@ -16,7 +16,8 @@ const style = {
     padding: '15px 20px 15px 20px',
     fontFamily: sharedStyles.mainFont,
     fontSize: 18,
-    flex: '1 0 300px'
+    flex: '1 0 300px', 
+    backgroundColor: sharedStyles.mainColor,
   },
 
   x: {
@@ -41,12 +42,18 @@ const style = {
 
 
   },
+  debtInfo: {
+    backgroundColor: 'white', 
+    padding: 2.5
+  }, 
   
   debtName: {
     borderBottom: '2px solid black',
     fontWeight: 700,
     fontSize: 24,
-    marginBottom: 10
+    marginBottom: 10, 
+    backgroundColor: sharedStyles.mainColor, 
+    color: 'white'
   },
 
   button: {
@@ -63,7 +70,7 @@ const style = {
       flexDirection: 'column',
       padding: '0px 0px 25px 0px', 
       backgroundColor: 'white',   
-  }
+  }, 
 
 };
 
@@ -106,13 +113,13 @@ constructor () {
          </button>
          <span style={style.x} onClick={this.deleteSelf}>x</span>
         </label>
-        <label>
+        <label style={style.debtInfo}>
           Balance: {this.props.balance}
         </label>
-        <label>
+        <label style={style.debtInfo}>
           Min. monthly payment: {this.props.minimumPayment}
         </label>
-        <label>
+        <label style={style.debtInfo}>
           Interest: {this.props.interest}
         </label>
 
