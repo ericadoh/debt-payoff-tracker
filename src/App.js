@@ -16,15 +16,14 @@ class App extends Component {
 		super(props);
 		this.state = { 
 			debts: [
-				{ name: 'Blah', minimumPayment: 600, interest: .08 },
-				{ name: 'School', minimumPayment: 510, interest: .1 },
-				{ name: 'Other', minimumPayment: 780, interest: .05 }
+				{ name: 'Blah', balance: 10000, minimumPayment: 600, interest: .08 },
+				{ name: 'School', balance: 15000, minimumPayment: 510, interest: .1 },
+				{ name: 'Other', balance: 4000, minimumPayment: 780, interest: .05 }
 			],
 			payoffStrategy: "Lowest Amount First",
 			monthly: "10"
 		};
 		this.setState = this.setState.bind(this);
-		console.log("monthly:"+this.state.monthly);
 	}
 
 	addDebt = debt => {
