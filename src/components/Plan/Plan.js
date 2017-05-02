@@ -36,7 +36,13 @@ class Plan extends Component {
           <Column
               fixed={true}
               header={<Cell>{debt.name}</Cell>}
-              cell={<Cell>200</Cell>}
+              cell={({rowIndex, ...props}) => {
+                console.log('hi');
+                console.log(...props);
+                return (<Cell {...props}>
+                  {plan[rowIndex][i]}
+                </Cell>);
+              }}
               width={150} />
         </ColumnGroup>
       );
@@ -49,7 +55,7 @@ class Plan extends Component {
           <Navbar />
           <Table
             rowHeight={30}
-            rowsCount={rows.length}
+            rowsCount={plan.length}
             width={2000}
             height={500}
             headerHeight={30}>
