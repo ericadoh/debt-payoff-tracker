@@ -31,9 +31,10 @@ class App extends Component {
 
 		this.state = { 
 			debts: [
-				{ name: 'Blah', minimumPayment: 600, interest: .08 },
-				{ name: 'School', minimumPayment: 510, interest: .1 },
-				{ name: 'Other', minimumPayment: 780, interest: .05 }
+				{ name: 'Blah', balance: 200, minimumPayment: 100, interest: .08 },
+				{ name: 'School', balance: 1400, minimumPayment: 200, interest: .1 },
+				{ name: 'Other', balance: 900, minimumPayment: 300, interest: .05 },
+				{ name: 'Erica', balance: 450, minimumPayment: 50, interest: .05 }
 			],
 			payoffStrategy: "Lowest Amount First",
 			monthly: "10"
@@ -53,7 +54,7 @@ class App extends Component {
 		of unique ID.
 	*/
 	deleteDebt = debt => {
-		const index = this.state.debts.map(d => d.name).indexOf(debt.name);
+		const index = this.state.debts.map(d => d.id).indexOf(debt.id);
 		this.setState(previousState => ({
 			debts: previousState.debts.filter((_, i) => i !== index)
 		}));

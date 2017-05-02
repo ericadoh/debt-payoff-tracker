@@ -7,13 +7,21 @@ const style = {
     display: 'flex',
     flexDirection: 'column',
     width: 200,
-    paddingRight: 20
+    paddingRight: 20, 
   },
   link: {
     textDecoration: 'none',
     fontFamily: sharedStyles.mainFont,
     fontSize: 24,
-    padding: '10px 0px 10px 0px'
+    padding: '10px 0px 10px 0px',
+    color: 'black'
+  }, 
+   line: {
+    textDecoration: 'none',
+    fontFamily: sharedStyles.mainFont,
+    fontSize: 24,
+    margin: '-10px -10px 10px -10px', 
+    color: 'gray'
   }
 };
 
@@ -31,6 +39,9 @@ class Navbar extends Component {
           to="/graph">
             Graph
         </Link>
+        <div style={style.line}> 
+          ______________
+        </div> 
         <Link
           style={style.link}
           to="/debts">

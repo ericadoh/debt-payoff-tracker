@@ -22,8 +22,12 @@ const style = {
     border: '1px solid black',
     padding: '15px 20px 15px 20px',
     fontFamily: sharedStyles.mainFont,
-    fontSize: 18,
-    flex: '1 0 300px'
+    fontSize: 30,
+    flex: '1 0 300px', 
+    backgroundColor: sharedStyles.mainColor, 
+    color: 'white', 
+    fontWeight: 700
+
   },
 
   debtListContainer: {
@@ -72,17 +76,20 @@ class Debts extends Component {
     const renderDebtListItem = (debt, i, deleteDebt) => {
       return (
         <DebtListItem
+          addDebt={this.props.addDebt}
           key={i}
           name={debt.name}
+          id = {debt.id} 
+          balance={debt.balance}
           minimumPayment={debt.minimumPayment}
           interest={debt.interest}
-          deleteDebt={this.props.deleteDebt} />
+          deleteDebt={this.props.deleteDebt}/>
       );
     };
 
     return (
       <div style={style.debts}>
-        <button style={style.addDebtItem} onClick={this.handleOpenModal}>Add debt</button>
+        <button style={style.addDebtItem} onClick={this.handleOpenModal}>Add Debt</button>
         {this.props.debts.map(renderDebtListItem)}
       </div>
       ); 
