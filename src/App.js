@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Router, Route } from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
+import $ from 'jquery';
 
 import Plan from './components/Plan/Plan';
 import Graph from './components/Graph/Graph';
@@ -8,12 +9,26 @@ import Debts from './components/Debts/Debts';
 import Contribution from './components/Contribution/Contribution';
 import Strategy from './components/Strategy/Strategy';
 
+
 const history = createBrowserHistory();
 
 class App extends Component {
 
 	constructor(props) {
 		super(props);
+
+		{/*$.ajax({
+			type: 'GET',
+			url: 'https://www.capitalgoodfund.org/api/debt-tracker/load.php',
+			success: function(data) {
+				console.log(data);
+
+			}.bind(this),
+			error: function(xhr, status, err) {
+				console.log(this.props.url, status, err.toString());
+			}.bind(this)
+		})*/}
+
 		this.state = { 
 			debts: [
 				{ name: 'Blah', minimumPayment: 600, interest: .08 },
@@ -24,7 +39,6 @@ class App extends Component {
 			monthly: "10"
 		};
 		this.setState = this.setState.bind(this);
-		console.log("monthly:"+this.state.monthly);
 	}
 
 	addDebt = debt => {
@@ -49,11 +63,28 @@ class App extends Component {
 		this.setState({payoffStrategy: strategy});
 	}
 
-	
-
 	setMonthly = contribution => {
 		this.setState({monthly: contribution});
 	}
+
+	saveCGF() {
+		var params = {
+			monthlyPayoffAmount: this.state.monthly,
+			payoffStrategy: this.state.payoffStrategy,
+		};
+		$.ajax({
+			type: 'POST',
+			url: 'https://capitalgoodfund.org/api/debt-tracker/save.php',
+			data: params,
+			success: function(data) {
+				console.log(data);
+			}.bind(this),
+			error: function(xhr, status, err) {
+				console.log(this.props.url, status, err.toString());
+			}.bind(this)
+		});
+	}
+
 
 	render() {
     	return (
