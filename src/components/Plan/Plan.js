@@ -9,16 +9,21 @@ import PlanGenerator from './PlanGenerator';
 
 require('fixed-data-table/dist/fixed-data-table.css');
 
-const rows = [
-  ['a1', 'b1', 'c1'],
-  ['a2', 'b2', 'c2'],
-  ['a3', 'b3', 'c3']
-];
-
 const STRATEGY = {
   'LOWEST_BALANCE': 0,
   'HIGHEST_INTEREST': 1
 };
+
+// 0 is January and 11 is December
+const generateMonths = numRows => {
+  const today = new Date();
+  const months = [];
+  for (let i = 0; i < numRows; i++) {
+    months.push(today.getMonth());
+    today.setMonth(today.getMonth() + 1); 
+  }
+  return months;
+}
 
 class Plan extends Component {
 
@@ -26,8 +31,7 @@ class Plan extends Component {
 
     const planGenerator = new PlanGenerator(this.props.debts);
     const plan = planGenerator.generate();
-
-    console.log(plan);
+    const months = generateMonths(plan.length);
 
     const renderColumn = (debt, i) => {
       console.log(debt);
@@ -37,7 +41,6 @@ class Plan extends Component {
               fixed={true}
               header={<Cell>{debt.name}</Cell>}
               cell={({rowIndex, ...props}) => {
-                console.log('hi');
                 console.log(...props);
                 return (<Cell {...props}>
                   {plan[rowIndex][i]}
@@ -64,7 +67,12 @@ class Plan extends Component {
               <Column
                 fixed={true}
                 header={<Cell>Month</Cell>}
-                cell={<Cell>Month Name</Cell>}
+                cell={({rowIndex, ...props}) => {
+                  console.log(...props);
+                  return (<Cell {...props}>
+                    {months[rowIndex]}
+                  </Cell>);
+                }}
                 width={150} />
             </ColumnGroup>
 

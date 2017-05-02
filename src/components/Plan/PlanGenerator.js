@@ -37,17 +37,11 @@ class PlanGenerator {
   generate = () => {
 
     const debts = this.debts;
-    console.log('printing from PlanGenerator')
-    console.log(debts);
-
     const debt_amounts = debts.map(d => d.balance);
     const debt_min_payments = debts.map(d => d.minimumPayment);
-
-    console.log(debt_amounts);
-    console.log(debt_min_payments);
     const max_monthly_contribution = 700;
-
     const plan = [];
+    
     let strategy_index = this.index_of_least_balance_debt(debt_amounts);
 
     while (this.not_zero(debt_amounts)) {
