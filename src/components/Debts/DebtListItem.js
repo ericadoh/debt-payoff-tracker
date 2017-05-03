@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import sharedStyles from '../../styles/styles';
 import DebtForm from './DebtForm.js'; 
 import ReactModal from 'react-modal';
-import pencil from './pencilEdit.png' 
+import pencil from './pencilButton.png'; 
 const style = {
 
   debtListItem: {
@@ -31,16 +31,19 @@ const style = {
     margin: 5, 
     width: 30, 
     height: 30, 
-    color: 'white'
+    color: 'white', 
+    border: "none", 
+    // borderColor: sharedStyles.mainColor, 
+    boxShadow: "none", 
+    backgroundColor: sharedStyles.mainColor
+    // background: "url('./pencilEdit.png') no-repeat center", 
   },
   pencilEdit: {
     cursor: 'pointer',
-    width: 30, 
-    height: 30, 
-    marginTop: "-3", 
-    marginLeft: "-7", 
-
-
+    width: 23, 
+    height: 23, 
+    position: 'center', 
+    margin: -5, 
   },
   debtInfo: {
     backgroundColor: 'white', 
@@ -63,7 +66,9 @@ const style = {
     margin: 10, 
     padding: '25px 10px', 
     border: '2 solid'+sharedStyles.mainColor, 
-    borderRadius: 5
+    borderRadius: 5, 
+    backgroundImage: pencil
+    
   }, 
   debtContainer: {
       display: 'flex',

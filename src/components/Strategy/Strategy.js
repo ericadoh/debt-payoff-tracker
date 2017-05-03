@@ -34,6 +34,16 @@ const style = {
     fontWeight: 400, 
 
   },
+  unSelect: {
+   
+    fontFamily: sharedStyles.mainFont,
+    fontSize: 20, 
+    backgroundColor: "grey", 
+    color: 'black', 
+    fontWeight: 100, 
+
+  },
+ 
 
 }; 
 
@@ -53,6 +63,7 @@ class Strategy extends Component {
 
 
   render() {
+    console.log(this.state.selectedValue); 
     return (
     	<div style={sharedStyles.container}>
 	    	<Header />
