@@ -65,10 +65,10 @@ class Strategy extends Component {
   render() {
     console.log(this.state.selectedValue); 
     return (
-    	<div style={sharedStyles.container}>
-	    	<Header />
-	    	<div style={sharedStyles.subContainer}>
-	    		<Navbar />
+      <div style={sharedStyles.container}>
+        <Header />
+        <div style={sharedStyles.subContainer}>
+          <Navbar />
           <div style={style.stratD}>
           <label style={style.radioB}>
             <RadioGroup onChange={(value) => this.handleSelection(value)} horizontal value={"" + this.props.strategy}>
@@ -109,9 +109,9 @@ class Strategy extends Component {
             to="/contribution">
               Next Step
           </Link>
-	    	</div>
+        </div>
          
-    	</div>
+      </div>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Router, Route } from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
+import $ from 'jquery';
 
 import Plan from './components/Plan/Plan';
 import Graph from './components/Graph/Graph';
@@ -9,12 +10,26 @@ import Contribution from './components/Contribution/Contribution';
 import Strategy from './components/Strategy/Strategy';
 import STRATEGY_TYPES from './components/Strategy/StrategyTypes';
 
+
 const history = createBrowserHistory();
 
 class App extends Component {
 
 	constructor(props) {
 		super(props);
+
+		{/*$.ajax({
+			type: 'GET',
+			url: 'https://www.capitalgoodfund.org/api/debt-tracker/load.php',
+			success: function(data) {
+				console.log(data);
+
+			}.bind(this),
+			error: function(xhr, status, err) {
+				console.log(this.props.url, status, err.toString());
+			}.bind(this)
+		})*/}
+
 		this.state = { 
 			debts: [
 				{ name: 'Blah', balance: 200, minimumPayment: 20, interest: .08 },
@@ -53,11 +68,28 @@ class App extends Component {
 		});
 	}
 
-	
-
 	setMonthly = contribution => {
 		this.setState({monthly: contribution});
 	}
+
+	saveCGF() {
+		var params = {
+			monthlyPayoffAmount: this.state.monthly,
+			payoffStrategy: this.state.payoffStrategy,
+		};
+		$.ajax({
+			type: 'POST',
+			url: 'https://capitalgoodfund.org/api/debt-tracker/save.php',
+			data: params,
+			success: function(data) {
+				console.log(data);
+			}.bind(this),
+			error: function(xhr, status, err) {
+				console.log(this.props.url, status, err.toString());
+			}.bind(this)
+		});
+	}
+
 
 	render() {
     	return (
@@ -66,7 +98,7 @@ class App extends Component {
 					<Route path="/table" render={()=> <Plan
 						debts={this.state.debts}
 						strategy={this.state.strategy} />} />
-					<Route path="/graph" render={()=><Graph debts={this.state.debts} />} />
+					<Route path="/graph" render={()=><Graph debts={this.state.debts} monthly={this.state.monthly} />} />
 					<Route path="/debts"
 						render={()=><Debts debts={this.state.debts}
 						addDebt={this.addDebt}
