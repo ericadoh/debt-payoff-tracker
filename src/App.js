@@ -17,12 +17,12 @@ class App extends Component {
 		super(props);
 		this.state = { 
 			debts: [
-				{ name: 'Blah', balance: 200, minimumPayment: 100, interest: .08 },
+				{ name: 'Blah', balance: 200, minimumPayment: 20, interest: .08 },
 				{ name: 'School', balance: 1400, minimumPayment: 200, interest: .1 },
 				{ name: 'Other', balance: 900, minimumPayment: 300, interest: .05 },
 				{ name: 'Erica', balance: 450, minimumPayment: 50, interest: .05 }
 			],
-			strategy: STRATEGY_TYPES.LOWEST_BALANCE_FIRST,
+			strategy: STRATEGY_TYPES.HIGHEST_INTEREST_FIRST,
 			monthly: "10"
 		};
 		this.setState = this.setState.bind(this);

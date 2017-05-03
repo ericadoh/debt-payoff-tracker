@@ -25,14 +25,12 @@ class PlanGenerator {
   choose_strategy_index = (debt_balances, debt_min_payments) => {
 
     const strategy = this.strategy;
-    console.log('strategy in choose_strategy_index: ' + strategy);
 
     switch (strategy) {
       case STRATEGY_TYPES.LOWEST_BALANCE_FIRST:
-        console.log('choosing STRATEGY_TYPES.LOWEST_BALANCE_FIRST');
         return this.index_of_least_balance_debt(debt_balances);
       case STRATEGY_TYPES.HIGHEST_INTEREST_FIRST:
-        // do something
+        return this.index_of_highest_interest_debt(debt_balances);
         break;
       case STRATEGY_TYPES.ORDER_ENTERED:
         // do something
@@ -41,6 +39,29 @@ class PlanGenerator {
         return -1;
     }
 
+  }
+
+  index_of_highest_interest_debt = debt_balances => {
+
+    if (debt_balances.length === 0) return -1;
+
+    const debts = this.debts;
+    
+    let index = this.first_non_zero_index(debt_balances);
+    if (index === -1) return index;
+    console.log(debts)
+    console.log(index)
+    let highest_interest = debts[index].interest;
+    
+    for (let i = 0; i < debt_balances.length; i++) {
+      if (debt_balances[i] !== 0 && debts[i].interest > highest_interest) {
+        highest_interest = debts[i].interest;
+        index = i;
+      }
+    }
+
+    console.log('index_of_highest_interest_debt is returning: ' + index);
+    return index;
   }
 
   index_of_least_balance_debt = debt_balances => {
