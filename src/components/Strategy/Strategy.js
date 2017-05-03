@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
+import STRATEGY_TYPES from './StrategyTypes';
 import sharedStyles from '../../styles/styles'; 
 import { Link } from 'react-router-dom';
 import {RadioGroup, RadioButton} from 'react-radio-buttons';
@@ -40,8 +41,7 @@ class Strategy extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {selectedValue: this.props.payoffStrategy,
-      };
+    this.state = { selectedValue: this.props.strategy };
     this.setState = this.setState.bind(this);
   }
 
@@ -59,12 +59,12 @@ class Strategy extends Component {
 	    	<div style={sharedStyles.subContainer}>
 	    		<Navbar />
           <div style={style.stratD}>
-          <label style = {style.radioB}>
-            <RadioGroup onChange={(value) => this.handleSelection(value)} horizontal value={this.props.payoffStrategy}>
-              <RadioButton style = {style.radioB} value="Lowest Amount First" >
+          <label style={style.radioB}>
+            <RadioGroup onChange={(value) => this.handleSelection(value)} horizontal value={"" + this.props.strategy}>
+              <RadioButton style={style.radioB} value={"" + STRATEGY_TYPES.LOWEST_BALANCE_FIRST} >
                   Lowest Amount First
                 </RadioButton>
-                <RadioButton  style = {style.radioB} value="Highest Interest First">
+                <RadioButton  style={style.radioB} value={"" + STRATEGY_TYPES.HIGHEST_INTEREST_FIRST} >
                   Highest Interest First
                 </RadioButton>
                 <RadioButton value="Order Entered in Table">

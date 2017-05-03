@@ -109,7 +109,7 @@ constructor () {
         <label style={style.debtName}>
          {this.props.name}
          <button style={style.edit} onClick={this.handleOpenModal} type="submit">
-            <img style ={style.pencilEdit} src={pencil} alt="edit"/>
+            <img style={style.pencilEdit} src={pencil} alt="edit"/>
          </button>
          <span style={style.x} onClick={this.deleteSelf}>x</span>
         </label>

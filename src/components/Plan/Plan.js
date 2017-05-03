@@ -9,11 +9,6 @@ import PlanGenerator from './PlanGenerator';
 
 require('fixed-data-table/dist/fixed-data-table.css');
 
-const STRATEGY = {
-  'LOWEST_BALANCE': 0,
-  'HIGHEST_INTEREST': 1
-};
-
 // 0 is January and 11 is December
 const generateMonths = numRows => {
   const today = new Date();
@@ -29,7 +24,9 @@ class Plan extends Component {
 
   render() {
 
-    const planGenerator = new PlanGenerator(this.props.debts);
+    const { debts, strategy } = this.props;
+
+    const planGenerator = new PlanGenerator(debts, strategy);
     const plan = planGenerator.generate();
     const months = generateMonths(plan.length);
 

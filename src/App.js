@@ -7,6 +7,7 @@ import Graph from './components/Graph/Graph';
 import Debts from './components/Debts/Debts';
 import Contribution from './components/Contribution/Contribution';
 import Strategy from './components/Strategy/Strategy';
+import STRATEGY_TYPES from './components/Strategy/StrategyTypes';
 
 const history = createBrowserHistory();
 
@@ -21,7 +22,7 @@ class App extends Component {
 				{ name: 'Other', balance: 900, minimumPayment: 300, interest: .05 },
 				{ name: 'Erica', balance: 450, minimumPayment: 50, interest: .05 }
 			],
-			payoffStrategy: "Lowest Amount First",
+			strategy: STRATEGY_TYPES.LOWEST_BALANCE_FIRST,
 			monthly: "10"
 		};
 		this.setState = this.setState.bind(this);
@@ -45,8 +46,11 @@ class App extends Component {
 		}));
 	}
 	
-	setStrategy = strategy => {
-		this.setState({payoffStrategy: strategy});
+	setStrategy = newStrategy => {
+		console.log('new strategy: ' + newStrategy);
+		this.setState({
+			strategy: newStrategy
+		});
 	}
 
 	
@@ -59,7 +63,9 @@ class App extends Component {
     	return (
     		<Router history={history}>
 			    <div>
-					<Route path="/table" render={()=><Plan debts={this.state.debts} />} />
+					<Route path="/table" render={()=> <Plan
+						debts={this.state.debts}
+						strategy={this.state.strategy} />} />
 					<Route path="/graph" render={()=><Graph debts={this.state.debts} />} />
 					<Route path="/debts"
 						render={()=><Debts debts={this.state.debts}
@@ -69,8 +75,9 @@ class App extends Component {
 						debts={this.state.debts} 
 						monthly={this.state.monthly} 
 						setMonthly={this.setMonthly} />} />
-					<Route path="/strategy" render={()=><Strategy debts={this.state.debts} 
-						payoffStrategy={this.state.payoffStrategy} 
+					<Route path="/strategy" render={()=><Strategy
+						debts={this.state.debts} 
+						strategy={this.state.strategy} 
 						setStrategy={this.setStrategy} />} />
 			    </div>
 			</Router>
