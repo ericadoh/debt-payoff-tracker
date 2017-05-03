@@ -33,6 +33,16 @@ const style = {
     fontWeight: 400, 
 
   },
+  unSelect: {
+   
+    fontFamily: sharedStyles.mainFont,
+    fontSize: 20, 
+    backgroundColor: "grey", 
+    color: 'black', 
+    fontWeight: 100, 
+
+  },
+ 
 
 }; 
 
@@ -53,6 +63,7 @@ class Strategy extends Component {
 
 
   render() {
+    console.log(this.state.selectedValue); 
     return (
     	<div style={sharedStyles.container}>
 	    	<Header />
@@ -61,10 +72,10 @@ class Strategy extends Component {
           <div style={style.stratD}>
           <label style = {style.radioB}>
             <RadioGroup onChange={(value) => this.handleSelection(value)} horizontal value={this.props.payoffStrategy}>
-              <RadioButton style = {style.radioB} value="Lowest Amount First" >
+              <RadioButton style={style.radioB} value="Lowest Amount First" >
                   Lowest Amount First
                 </RadioButton>
-                <RadioButton  style = {style.radioB} value="Highest Interest First">
+                <RadioButton  style={(this.state.selectedValue === "Highest Interest First" ? style.radioB : style.unSelect)} value="Highest Interest First">
                   Highest Interest First
                 </RadioButton>
                 <RadioButton value="Order Entered in Table">
