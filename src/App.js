@@ -92,7 +92,7 @@ class App extends Component {
     		<Router history={history}>
 			    <div>
 					<Route path="/table" render={()=><Plan debts={this.state.debts} />} />
-					<Route path="/graph" render={()=><Graph debts={this.state.debts} />} />
+					<Route path="/graph" render={()=><Graph debts={this.state.debts} monthly={this.state.monthly} />} />
 					<Route path="/debts"
 						render={()=><Debts debts={this.state.debts}
 						addDebt={this.addDebt}
