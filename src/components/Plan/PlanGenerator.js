@@ -31,7 +31,6 @@ class PlanGenerator {
         return this.index_of_least_balance_debt(debt_balances);
       case STRATEGY_TYPES.HIGHEST_INTEREST_FIRST:
         return this.index_of_highest_interest_debt(debt_balances);
-        break;
       case STRATEGY_TYPES.ORDER_ENTERED:
         // do something
         break;

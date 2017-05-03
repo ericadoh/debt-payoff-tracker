@@ -9,12 +9,27 @@ import PlanGenerator from './PlanGenerator';
 
 require('fixed-data-table/dist/fixed-data-table.css');
 
+const MONTH_NAMES = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+];
+
 // 0 is January and 11 is December
 const generateMonths = numRows => {
   const today = new Date();
   const months = [];
   for (let i = 0; i < numRows; i++) {
-    months.push(today.getMonth());
+    months.push(MONTH_NAMES[today.getMonth()] + ' ' + today.getFullYear());
     today.setMonth(today.getMonth() + 1); 
   }
   return months;
