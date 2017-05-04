@@ -38,7 +38,7 @@ class App extends Component {
 				{ name: 'Erica', balance: 450, minimumPayment: 50, interest: .05 }
 			],
 			strategy: STRATEGY_TYPES.HIGHEST_INTEREST_FIRST,
-			monthly: "10"
+			monthly: 700
 		};
 		this.setState = this.setState.bind(this);
 	}
@@ -97,7 +97,8 @@ class App extends Component {
 			    <div>
 					<Route path="/table" render={()=> <Plan
 						debts={this.state.debts}
-						strategy={this.state.strategy} />} />
+						strategy={this.state.strategy}
+						monthly={this.state.monthly} />} />
 					<Route path="/graph" render={()=><Graph 
 						debts={this.state.debts}
 						monthly={this.state.monthly} 

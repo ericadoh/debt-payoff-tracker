@@ -4,9 +4,10 @@ import STRATEGY_TYPES from '../Strategy/StrategyTypes';
 
 class PlanGenerator {
 
-  constructor(debts, strategy) {
+  constructor(debts, strategy, monthly) {
     this.debts = debts;
     this.strategy = strategy;
+    this.monthly = monthly;
   }
 
   not_zero = arr => {
@@ -48,8 +49,6 @@ class PlanGenerator {
     
     let index = this.first_non_zero_index(debt_balances);
     if (index === -1) return index;
-    console.log(debts)
-    console.log(index)
     let highest_interest = debts[index].interest;
     
     for (let i = 0; i < debt_balances.length; i++) {
@@ -59,7 +58,6 @@ class PlanGenerator {
       }
     }
 
-    console.log('index_of_highest_interest_debt is returning: ' + index);
     return index;
   }
 
@@ -77,7 +75,6 @@ class PlanGenerator {
       }
     }
 
-    console.log('index_of_least_balance_debt is returning: ' + min_index);
     return min_index;
   }
 
@@ -86,7 +83,7 @@ class PlanGenerator {
     const debts = this.debts;
     const debt_amounts = debts.map(d => d.balance);
     const debt_min_payments = debts.map(d => d.minimumPayment);
-    const max_monthly_contribution = 700;
+    const max_monthly_contribution = this.monthly;
     const plan = [];
     
     let strategy_index = this.choose_strategy_index(debt_amounts, debt_min_payments);
