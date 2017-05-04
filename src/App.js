@@ -20,7 +20,7 @@ class App extends Component {
 
 		{/*$.ajax({
 			type: 'GET',
-			url: 'https://www.capitalgoodfund.org/api/debt-tracker/load.php',
+			url: 'https://capitalgoodfund.org/api/debt-tracker/load.php',
 			success: function(data) {
 				console.log(data);
 
