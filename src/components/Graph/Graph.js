@@ -72,7 +72,7 @@ class Graph extends Component {
 
         yAxis: {
             title: {
-                text: 'Debt'
+                text: 'Debt Balance'
             }
         },
         
