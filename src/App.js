@@ -98,7 +98,10 @@ class App extends Component {
 					<Route path="/table" render={()=> <Plan
 						debts={this.state.debts}
 						strategy={this.state.strategy} />} />
-					<Route path="/graph" render={()=><Graph debts={this.state.debts} monthly={this.state.monthly} />} />
+					<Route path="/graph" render={()=><Graph 
+						debts={this.state.debts}
+						monthly={this.state.monthly} 
+						strategy={this.state.strategy}/>} />
 					<Route path="/debts"
 						render={()=><Debts debts={this.state.debts}
 						addDebt={this.addDebt}

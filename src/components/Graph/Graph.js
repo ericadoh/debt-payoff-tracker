@@ -24,14 +24,38 @@ class Graph extends Component {
         this.monthly = this.props.monthly;
     }
 
+    arrangeData(debts, plan) {
+        let series = [];
+        for (var i=0; i<debts.length; i++) {
+            series.push({
+                name: debts[i].name,
+                data: [debts[i].balance]
+            });
+        }
+        console.log(series);
+
+        var prev = 0;
+        for (var month=0; month<plan.length; month++) {
+            for (var debt=0; debt<plan[0].length; debt++) {
+                prev = series[debt].data[series[debt].data.length-1];
+                series[debt].data.push(prev - plan[month][debt]);
+            }
+        }
+        return series
+    }
+
 
   render() {
 
-    const planGenerator = new PlanGenerator(this.props.debts);
+    const { debts, strategy } = this.props;
+    const planGenerator = new PlanGenerator(debts, strategy);
     const plan = planGenerator.generate();
     const months = generateMonths(plan.length);
 
     console.log(plan);
+    let debtSeries = this.arrangeData(this.props.debts, plan);
+
+    //console.log(series);
 
     const config = {
     
@@ -40,16 +64,7 @@ class Graph extends Component {
             categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
         },
 
-        series: [
-            {
-                name: 'debt1',
-                data: [500, 476, 450, 430, 370, 350, 325, 250, 220, 175, 130, 50],
-            },
-            {
-                name: 'debt2',
-                data: [100, 200, 300, 400, 500, 600, 700, 800, 600, 300, 200, 30]
-            }
-        ],
+        series: debtSeries,
 
         title: {
             text: 'Debt over Time'
