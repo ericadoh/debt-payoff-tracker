@@ -61,7 +61,10 @@ class Graph extends Component {
     
         xAxis: {
             /*categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']*/
-            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+            title: {
+                text: 'Month'
+            }
         },
 
         series: debtSeries,
@@ -76,11 +79,6 @@ class Graph extends Component {
             }
         },
         
-        xAxis: {
-            title: {
-                text: 'Month'
-            }
-        },
         
         plotOptions: {
             series: {

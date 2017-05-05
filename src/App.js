@@ -12,6 +12,7 @@ import STRATEGY_TYPES from './components/Strategy/StrategyTypes';
 
 
 const history = createBrowserHistory();
+history.push('/debts');
 
 class App extends Component {
 
@@ -41,6 +42,7 @@ class App extends Component {
 			monthly: 700
 		};
 		this.setState = this.setState.bind(this);
+
 	}
 
 	addDebt = debt => {
