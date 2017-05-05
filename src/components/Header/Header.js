@@ -16,7 +16,7 @@ const style = {
 class Header extends Component {
   render() {
     return (
-    	<div style={style.header}>
+    	<div style={{...sharedStyles.shadow, ...style.header}}>
     		Debt Payoff Tracker
     	</div>
     );

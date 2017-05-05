@@ -12,12 +12,15 @@ const style = {
     width: 300,
     height: 170,
     margin: 10,
-    border: '1px solid black',
-    padding: '15px 20px 15px 20px',
+    //padding: '15px 20px 15px 20px',
     fontFamily: sharedStyles.mainFont,
     fontSize: 18,
-    flex: '1 0 300px', 
-    backgroundColor: sharedStyles.mainColor,
+    flex: '1 0 300px'
+  },
+
+  debtHeader: {
+    backgroundColor: sharedStyles.lightMainColor,
+    padding: '5px 20px 5px 20px'
   },
 
   x: {
@@ -25,6 +28,7 @@ const style = {
     marginBottom: 5,
     cursor: 'pointer'
   },
+
    edit: {
     float: 'right',
     cursor: 'pointer',
@@ -45,18 +49,20 @@ const style = {
     position: 'center', 
     margin: -5, 
   },
+
+  debtInfoContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    padding: '5px 20px 5px 20px'
+  },
+
   debtInfo: {
-    backgroundColor: 'white', 
-    padding: 2.5
+    fontSize: 24
   }, 
   
   debtName: {
-    borderBottom: '2px solid black',
     fontWeight: 700,
-    fontSize: 24,
-    marginBottom: 10, 
-    backgroundColor: sharedStyles.mainColor, 
-    color: 'white'
+    fontSize: 24
   },
 
   button: {
@@ -106,28 +112,35 @@ class DebtListItem extends Component {
 
   render() {
     return (
-      <div style={style.debtListItem} >
+      <div style={{...style.debtListItem, ...sharedStyles.shadow}} >
         <ReactModal 
           isOpen={this.state.showModal}
           contentLabel="Minimal Modal Example" >
           <DebtForm name={this.props.name} balance={this.props.balance} minimumPayment={this.props.minimumPayment} interest={this.props.interest} addDebt={this.props.addDebt} onSubmit={this.handleCloseModal} />
         </ReactModal>
-        <label style={style.debtName}>
-         {this.props.name}
-         <button style={style.edit} onClick={this.handleOpenModal} type="submit">
-            <img style={style.pencilEdit} src={pencil} alt="edit"/>
-         </button>
-         <span style={style.x} onClick={this.deleteSelf}>x</span>
-        </label>
-        <label style={style.debtInfo}>
-          Balance: {this.props.balance}
-        </label>
-        <label style={style.debtInfo}>
-          Min. monthly payment: {this.props.minimumPayment}
-        </label>
-        <label style={style.debtInfo}>
-          Interest: {this.props.interest}
-        </label>
+
+        <div style={style.debtHeader} >
+          <label style={style.debtName}>
+           {this.props.name}
+           <button style={style.edit} onClick={this.handleOpenModal} type="submit">
+              <img style={style.pencilEdit} src={pencil} alt="edit"/>
+           </button>
+           <span style={style.x} onClick={this.deleteSelf}>x</span>
+          </label>
+        </div>
+
+        <div style={style.debtInfoContainer}>
+          <label style={style.debtInfo}>
+            Balance: {this.props.balance}
+          </label>
+          <label style={style.debtInfo}>
+            Min. monthly payment: {this.props.minimumPayment}
+          </label>
+          <label style={style.debtInfo}>
+            Interest: {this.props.interest}
+          </label>
+        </div>
+
       </div>
     );
   }

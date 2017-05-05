@@ -4,6 +4,7 @@ const styles = {
 	mainColor: '#7ED321',
 	buttonColor: '#36BAFF',
 	mainFont: '"Open Sans", sans-serif',
+	lightMainColor: '#b9e78b',
 
 	// GENERAL STYLES
 	container: {
@@ -15,6 +16,10 @@ const styles = {
 	    display: 'flex',
 	    flexDirection: 'row',
 	    padding: '15px 20px 15px 20px'
+	},
+
+	shadow: {
+		boxShadow: '0 4px 4px -2px rgba(0, 0, 0, 0.5)'
 	},
 
 	input: {
