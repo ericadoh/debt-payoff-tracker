@@ -17,6 +17,10 @@ const style = {
     padding: '25px 10px', 
     border: '1px solid green'
 
+  }, 
+  example: {
+    color: "lightgrey", 
+    fontsize: 12
   }
 };
 
@@ -65,13 +69,37 @@ class DebtForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.handleCreateID(); 
-    const { addDebt, onSubmit } = this.props;
-    this.setState({
-      dateEntered: new Date()
-    });
-    addDebt({...this.state});
-    onSubmit();
+    var sub = true; 
+    if(this.state.name === '' || this.state.balance === '' || this.state.minimumPayment === '' || this.state.interest === ''){
+      alert("ERROR: You have left field/s blank. Please fill in all fields."); 
+      sub = false; 
+    }
+    if(parseInt(this.state.balance, 10) < parseInt(this.state.minimumPayment, 10)){
+      alert("ERROR: Your minimum monthly payment is greater than the balance of the debt.")
+      sub = false; 
+    }
+    if(parseInt(this.state.balance, 10) < 0 ){
+      alert("ERROR: Your balance is negative, which is not allowed."); 
+      sub = false; 
+    }
+    if(parseInt(this.state.minimumPayment, 10) < 0){
+      alert("ERROR: Your minimum monthly payment is negative, which is not allowed."); 
+      sub = false; 
+    }
+    if(parseInt(this.state.interest, 10) < 0){
+      alert("ERROR: Your interest is negative, which is not allowed."); 
+      sub = false; 
+    }
+    if(sub == true){
+      event.preventDefault();
+      this.handleCreateID(); 
+      const { addDebt, onSubmit } = this.props;
+      this.setState({
+        dateEntered: new Date()
+      });
+      addDebt({...this.state});
+      onSubmit();
+    }
   }
 
   render() {
@@ -92,6 +120,9 @@ class DebtForm extends Component {
           <label style={style.header}>
           Interest:
           <input type="number" style={sharedStyles.input} value={this.state.interest} onChange={this.handleChangeInterest} />
+          <label style={style.example}>
+          Ex: A 20% interest rate would be written as 20.
+          </label>  
         </label>
         <input style={sharedStyles.button} type="submit" value="Submit" />
       </form>
