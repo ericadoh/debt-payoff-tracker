@@ -45,7 +45,7 @@ class Plan extends Component {
     const plan = planGenerator.generate();
     const months = generateMonths(plan.length);
 
-    console.log(plan);
+    console.log(debts);
 
     const renderColumn = (debt, i) => {
       console.log(debt);
