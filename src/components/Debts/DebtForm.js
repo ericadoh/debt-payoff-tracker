@@ -2,13 +2,29 @@ import React, { Component } from 'react';
 import sharedStyles from '../../styles/styles.js';
 
 const style = {
+
   header: {
+    backgroundColor: sharedStyles.lightMainColor,
+    padding: '15px 20px 15px 20px',
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     fontFamily: sharedStyles.mainFont,
     fontSize: 30,
-    padding: '15px 20px 15px 20px'
+    fontWeight: 700,
+    marginBottom: '15px'
   },
+
+  item: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    fontFamily: sharedStyles.mainFont,
+    fontSize: 24,
+    padding: '10px 20px 10px 20px',
+  },
+
   button: {
     background: sharedStyles.mainColor, 
     color: 'white', 
@@ -127,28 +143,33 @@ class DebtForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-          <button style= {style.x} onClick= {this.closeSelf}>
+
+        <div style={style.header}>
+          <span>Add/change debt information</span>
+          <button style={style.x} onClick= {this.closeSelf}>
                  x
           </button>
-        <label style={style.header}>
-          Debt Name:
+        </div>
+          
+        <label style={style.item}>
+          <span>Debt Name:</span>
           <input type="text" style={sharedStyles.input} value={this.state.name} onChange={this.handleChangeName} />
         </label>
-        <label style={style.header}>
-          Balance:
+        <label style={style.item}>
+          <span>Balance:</span>
           <input type="text" style={sharedStyles.input} value={this.state.balance} onChange={this.handleChangeBalance} />
         </label>
-          <label style={style.header}>
-          Minimum Monthly Payment:
+        <label style={style.item}>
+          <span>Minimum Monthly Payment:</span>
           <input type="number" style={sharedStyles.input} value={this.state.minimumPayment} onChange={this.handleChangeMinPay} />
         </label>
-          <label style={style.header}>
-          Interest:
+        <label style={style.item}>
+          <span>Interest:</span>
           <input type="number" style={sharedStyles.input} value={this.state.interest} onChange={this.handleChangeInterest} />
-          <label style={style.example}>
+        </label>
+        <label style={style.example}>
           Ex: A 20% interest rate would be written as 20.
           </label>  
-        </label>
         <input style={sharedStyles.button} type="submit" value="Submit" />
       </form>
     );

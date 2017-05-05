@@ -53,6 +53,31 @@ const style = {
       marginLeft:  '10px',
   }, 
 
+  modal: {
+    overlay : {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor   : 'rgba(0, 0, 0, 0.5)'
+    },
+    content : {
+      position: 'absolute',
+      top: '40px',
+      left: '40px',
+      right: '40px',
+      bottom: '40px',
+      border: 'none',
+      background: '#fff',
+      overflow: 'auto',
+      WebkitOverflowScrolling: 'touch',
+      borderRadius: '4px',
+      outline: 'none',
+      padding: '0'
+    }
+  }
+
 }
 
 class Debts extends Component {
@@ -103,7 +128,7 @@ class Debts extends Component {
 
     return (
     	<div style={sharedStyles.container}>
-        <ReactModal 
+        <ReactModal style={style.modal}
           isOpen={this.state.showModal}
           contentLabel="Minimal Modal Example" >
           <DebtForm addDebt={this.props.addDebt} onSubmit={this.handleCloseModal} />
