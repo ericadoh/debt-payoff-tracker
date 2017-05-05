@@ -125,27 +125,47 @@ class Debts extends Component {
 
   render() {
 
-    console.log(this.props.debts);
-
-    return (
-    	<div style={sharedStyles.container}>
-        <ReactModal style={style.modal}
-          isOpen={this.state.showModal}
-          contentLabel="Minimal Modal Example" >
-          <DebtForm addDebt={this.props.addDebt} onSubmit={this.handleCloseModal} />
-        </ReactModal>
-    		<Header />
-    		<div style={sharedStyles.subContainer}>
-	    		<Navbar />
-          {this.renderDebts()}
-        <Link
-          style={sharedStyles.nextButton}
-          to="/contribution">
-            Next Step
-        </Link>
-        </div> 
-      </div>
-    );
+    if (this.props.showNav) {
+      return (
+        <div style={sharedStyles.container}>
+          <ReactModal style={style.modal}
+            isOpen={this.state.showModal}
+            contentLabel="Minimal Modal Example" >
+            <DebtForm addDebt={this.props.addDebt} onSubmit={this.handleCloseModal} />
+          </ReactModal>
+          <Header />
+          <div style={sharedStyles.subContainer}>
+            <Navbar />
+            {this.renderDebts()}
+          <Link
+            style={sharedStyles.nextButton}
+            to="/contribution">
+              Next Step
+          </Link>
+          </div> 
+        </div>
+      );
+    } else {
+      return (
+        <div style={sharedStyles.container}>
+          <ReactModal style={style.modal}
+            isOpen={this.state.showModal}
+            contentLabel="Minimal Modal Example" >
+            <DebtForm addDebt={this.props.addDebt} onSubmit={this.handleCloseModal} />
+          </ReactModal>
+          <Header />
+          <div style={sharedStyles.subContainer}>
+            {this.renderDebts()}
+          <Link
+            style={sharedStyles.nextButton}
+            to="/contribution">
+              Next Step
+          </Link>
+          </div> 
+        </div>
+      );
+    }
+    
   }
 }
 
