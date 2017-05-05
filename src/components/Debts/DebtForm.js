@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import sharedStyles from '../../styles/styles.js';
+import deleteIcon from './delete.png';
 
 const style = {
 
@@ -25,6 +26,15 @@ const style = {
     padding: '10px 20px 10px 20px',
   },
 
+  icon: {
+    cursor: 'pointer',
+    margin: 5, 
+    width: 25, 
+    height: 25, 
+    border: 'none',
+    backgroundColor: sharedStyles.lightMainColor
+  },
+
   itemName: {
     marginRight: '20'
   },
@@ -48,16 +58,7 @@ const style = {
   example: {
     color: "lightgrey", 
     fontsize: 12
-  }, 
-
-  x: {
-    float: 'left',
-    color: "black", 
-    fontFamily: sharedStyles.mainFont, 
-    background: "white", 
-    marginBottom: 5,
-    cursor: 'pointer'
-  },
+  }
 };
 
 class DebtForm extends Component {
@@ -157,8 +158,8 @@ class DebtForm extends Component {
 
         <div style={style.header}>
           <span>Add/change debt information</span>
-          <button style={style.x} onClick= {this.closeSelf}>
-                 x
+          <button style={style.icon} onClick= {this.closeSelf}>
+            <img src={deleteIcon} alt="delete"/>
           </button>
         </div>
           

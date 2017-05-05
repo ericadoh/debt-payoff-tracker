@@ -7,6 +7,7 @@ import sharedStyles from '../../styles/styles';
 import DebtForm from './DebtForm.js'; 
 import DebtListItem from './DebtListItem.js'; 
 import { Link } from 'react-router-dom';
+
 const style = {
 
   debts: {
@@ -73,7 +74,8 @@ const style = {
       display: 'table',
       top: '50%',
       left: '50%',
-      transform: 'translate(-50%,-50%)'
+      transform: 'translate(-50%,-50%)',
+      boxShadow: '0 4px 4px -2px rgba(0, 0, 0, 0.5)'
     }
   }
 
