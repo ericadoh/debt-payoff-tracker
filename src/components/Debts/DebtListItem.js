@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import sharedStyles from '../../styles/styles';
 import DebtForm from './DebtForm.js'; 
 import ReactModal from 'react-modal';
-import pencil from './pencilButton.png'; 
+import pencil from './pencil.png'; 
+import deleteIcon from './delete.png';
+
 const style = {
 
   debtListItem: {
@@ -20,34 +22,25 @@ const style = {
 
   debtHeader: {
     backgroundColor: sharedStyles.lightMainColor,
-    padding: '5px 20px 5px 20px'
+    padding: '5px 20px 5px 20px',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
   },
 
   x: {
-    float: 'right',
     marginBottom: 5,
     cursor: 'pointer'
   },
 
-   edit: {
-    float: 'right',
+  edit: {
     cursor: 'pointer',
     margin: 5, 
-    width: 30, 
-    height: 30, 
-    color: 'white', 
-    border: "none", 
-    // borderColor: sharedStyles.mainColor, 
-    boxShadow: "none", 
-    backgroundColor: sharedStyles.mainColor
-    // background: "url('./pencilEdit.png') no-repeat center", 
-  },
-  pencilEdit: {
-    cursor: 'pointer',
-    width: 23, 
-    height: 23, 
-    position: 'center', 
-    margin: -5, 
+    width: 25, 
+    height: 25, 
+    border: 'none',
+    backgroundColor: sharedStyles.lightMainColor
   },
 
   debtInfoContainer: {
@@ -122,11 +115,15 @@ class DebtListItem extends Component {
         <div style={style.debtHeader} >
           <label style={style.debtName}>
            {this.props.name}
-           <button style={style.edit} onClick={this.handleOpenModal} type="submit">
-              <img style={style.pencilEdit} src={pencil} alt="edit"/>
-           </button>
-           <span style={style.x} onClick={this.deleteSelf}>x</span>
           </label>
+          <div style={style.icons}>
+            <button style={style.edit} onClick={this.handleOpenModal} type="submit">
+              <img src={pencil} alt="edit"/>
+            </button>
+            <button style={style.edit} onClick={this.deleteSelf} type="submit">
+              <img src={deleteIcon} alt="delete"/>
+            </button>
+          </div>
         </div>
 
         <div style={style.debtInfoContainer}>

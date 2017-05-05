@@ -17,7 +17,7 @@ const style = {
   addDebtItem: {
     boxSizing: 'border-box',
     width: 300,
-    height: 150,
+    height: 170,
     margin: 10,
     padding: '15px 20px 15px 20px',
     fontFamily: sharedStyles.mainFont,
@@ -26,7 +26,8 @@ const style = {
     backgroundColor: sharedStyles.mainColor, 
     color: 'white', 
     fontWeight: 700,
-    outline: 'none'
+    outline: 'none',
+    border: 'none'
   },
 
   debtListContainer: {
