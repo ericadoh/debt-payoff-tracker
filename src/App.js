@@ -12,7 +12,7 @@ import STRATEGY_TYPES from './components/Strategy/StrategyTypes';
 
 
 const history = createBrowserHistory();
-history.push('/debts');
+{/*history.push('/debts');*/}
 
 class App extends Component {
 
@@ -39,10 +39,10 @@ class App extends Component {
 				{ name: 'Erica', balance: 450, minimumPayment: 50, interest: .05, dateEntered: new Date() }
 			],
 			strategy: STRATEGY_TYPES.HIGHEST_INTEREST_FIRST,
-			monthly: 700
+			monthly: '',
+			showNav: false
 		};
 		this.setState = this.setState.bind(this);
-
 	}
 
 	addDebt = debt => {
@@ -94,6 +94,17 @@ class App extends Component {
 		});
 	}
 
+	setShowNav = navState => {
+		this.setState({showNav: navState});
+	}
+
+	showNav() {
+		if (this.state.debts.length == 0 || this.state.monthly =='') {
+			return false;
+		} else {
+			return true;
+		}
+	}
 
 	render() {
     	return (
@@ -106,19 +117,26 @@ class App extends Component {
 					<Route path="/graph" render={()=><Graph 
 						debts={this.state.debts}
 						monthly={this.state.monthly} 
-						strategy={this.state.strategy}/>} />
+						strategy={this.state.strategy}
+						showNav={this.state.showNav}
+						setShowNav={this.setShowNav}/>} />
 					<Route path="/debts"
 						render={()=><Debts debts={this.state.debts}
 						addDebt={this.addDebt}
-						deleteDebt={this.deleteDebt} />} />
+						deleteDebt={this.deleteDebt} 
+						showNav={this.state.showNav}/>} />
 					<Route path="/contribution" render={()=><Contribution 
 						debts={this.state.debts} 
 						monthly={this.state.monthly} 
-						setMonthly={this.setMonthly} />} />
+						setMonthly={this.setMonthly} 
+						showNav={this.state.showNav}/>} />
 					<Route path="/strategy" render={()=><Strategy
 						debts={this.state.debts} 
 						strategy={this.state.strategy} 
-						setStrategy={this.setStrategy} />} />
+						setStrategy={this.setStrategy} 
+						showNav={this.state.showNav}
+						setShowNav={this.setShowNav}/>} />
+
 			    </div>
 			</Router>
     	);

@@ -37,8 +37,8 @@ class ContributionForm extends Component {
   constructor(props) {
     super(props);
     this.debts = this.props.debts; 
-    this.state = {monthly: this.props.monthly, canLink: false};
-
+    this.state = {monthly: this.props.monthly, canLink: this.props.showNav};
+    console.log(this.state);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -51,23 +51,26 @@ class ContributionForm extends Component {
     var data = 0; 
     for (var i=0; i<this.debts.length; i++) {
            
-                data += this.debts[i].balance; 
+                data += this.debts[i].minimumPayment; 
             
       }
     if(this.state.monthly < data){
-      alert("Your monthly contribution is not high enough to cover your minimum monthly payments."); 
+      alert("Your monthly contribution is not high enough to cover your minimum monthly payments.");
+      event.preventDefault(); 
+      return false;
     }
     else{
-      alert('A payment was submitted: ' + this.state.monthly);
+      alert('Your monthly contribution was submitted: ' + this.state.monthly);
       event.preventDefault();
       this.setState({canLink: true});
       this.props.setMonthly(this.state.monthly);
+      return false;
     }
   }
 
   render() {
     let button = null; 
-    if(this.state.monthly !== ''&& this.state.canLink){
+    if(this.state.monthly !== '' && this.state.canLink){
       button = <div style={style.rightWrap}>
         <Link
           style={sharedStyles.nextButton}
