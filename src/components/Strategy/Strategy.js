@@ -21,19 +21,46 @@ const style = {
     justifyContent: 'center'
   },
   stratD: {
+     boxSizing: 'border-box', 
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
     margin: '10px', 
   }, 
-  radioB: {
-   
+  radioB: {  
     fontFamily: sharedStyles.mainFont,
-    fontSize: 20, 
+    fontSize: 40, 
     backgroundColor: sharedStyles.mainColor, 
     color: 'white', 
     fontWeight: 400, 
+    width: "250", 
+    height: "150", 
+    textAlign: "center",
+    padding: "20", 
+    margin: "7", 
+    borderRadius: "10", 
+    borderColor: sharedStyles.mainColor, 
+    borderWidth: "1", 
+    border: "solid"
 
   },
+  grey: {
+    fontFamily: sharedStyles.mainFont,
+    fontSize: 40, 
+    backgroundColor: "white", 
+    color: 'grey', 
+    fontWeight: 200, 
+      width: "250", 
+    height: "150", 
+    textAlign: "center",
+    padding: "20", 
+    margin: "7", 
+    borderRadius: "10", 
+    borderColor: "grey", 
+    borderWidth: "1", 
+    border: "solid"
+
+
+  }, 
   unSelect: {
    
     fontFamily: sharedStyles.mainFont,
@@ -51,8 +78,34 @@ class Strategy extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { selectedValue: this.props.strategy };
+    this.state = { selectedValue: this.props.strategy, idNum: "1" };
     this.setState = this.setState.bind(this);
+
+    this.handleLBF = this.handleLBF.bind(this);
+    this.handleHIF = this.handleHIF.bind(this);
+    this.handleOE = this.handleOE.bind(this);
+  }
+
+  handleLBF(){
+    var newValue = "" + STRATEGY_TYPES.LOWEST_BALANCE_FIRST; 
+    this.setState({selectedValue: newValue});
+    this.props.setStrategy(newValue);
+    this.setState({idNum: "1"})
+
+  }
+   handleHIF(){
+    var newValue = "" + STRATEGY_TYPES.HIGHEST_INTEREST_FIRST; 
+    this.setState({selectedValue: newValue});
+    this.props.setStrategy(newValue);
+     this.setState({idNum: "2"})
+
+  }
+  handleOE(){
+    var newValue = "" + STRATEGY_TYPES.ORDER_ENTERED; 
+    this.setState({selectedValue: newValue});
+    this.props.setStrategy(newValue);
+     this.setState({idNum: "3"})
+
   }
 
   handleSelection(newValue) {
@@ -60,7 +113,7 @@ class Strategy extends Component {
     this.setState({selectedValue: newValue});
     this.props.setStrategy(newValue);
   }
-
+/*Make each RB a div, that has an onclick that changes the state, and alters the color(?) of the div*/
 
   render() {
     console.log(this.state.selectedValue); 
@@ -70,20 +123,9 @@ class Strategy extends Component {
         <div style={sharedStyles.subContainer}>
           <Navbar />
           <div style={style.stratD}>
-          <label style={style.radioB}>
-            <RadioGroup onChange={(value) => this.handleSelection(value)} horizontal value={"" + this.props.strategy}>
-              <RadioButton style={style.radioB} value={"" + STRATEGY_TYPES.LOWEST_BALANCE_FIRST} >
-                  Lowest Amount First
-                </RadioButton>
-                <RadioButton  style={style.radioB} value={"" + STRATEGY_TYPES.HIGHEST_INTEREST_FIRST} >
-                  Highest Interest First
-                </RadioButton>
-                <RadioButton value={"" + STRATEGY_TYPES.ORDER_ENTERED } >
-                  Order Entered in Table
-                </RadioButton>
-
-            </RadioGroup>
-             </label> 
+            <div onClick={this.handleLBF} style={this.state.idNum === "1" ? style.radioB : style.grey}>Lowest Amount First</div> 
+            <div onClick={this.handleHIF} style={this.state.idNum === "2" ? style.radioB : style.grey}>Highest Interest First</div> 
+            <div onClick={this.handleOE} style={this.state.idNum === "3" ? style.radioB : style.grey}>Order Entered</div> 
         
           </div> 
           <br/> <br/>
