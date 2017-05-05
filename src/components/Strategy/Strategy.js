@@ -78,30 +78,13 @@ class Strategy extends Component {
                 <RadioButton  style={style.radioB} value={"" + STRATEGY_TYPES.HIGHEST_INTEREST_FIRST} >
                   Highest Interest First
                 </RadioButton>
-                <RadioButton value="Order Entered in Table">
+                <RadioButton value={"" + STRATEGY_TYPES.ORDER_ENTERED } >
                   Order Entered in Table
-                </RadioButton>
-                <RadioButton value="Highest Amount First">
-                  Highest Amount First
-                </RadioButton>
-                <RadioButton value="Lowest Balance First">
-                  Lowest Balance First
                 </RadioButton>
 
             </RadioGroup>
              </label> 
-          
-
-            {/*
-            // <div style={style.row}>
-            //   <StratDiv name={"Lowest Amount First"} />
-            //   <StratDiv name={"Highest Interest First"} />
-            //   <StratDiv name={"Order Entered in Table"} />    
-            // </div>
-            // <div style={style.row}>
-            //   <StratDiv name={"Highest Amount First"} />
-            //   <StratDiv name={"Lowest Balance First"} />
-            // </div> */}
+        
           </div> 
           <br/> <br/>
          <Link

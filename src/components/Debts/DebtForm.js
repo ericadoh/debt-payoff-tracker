@@ -36,6 +36,7 @@ class DebtForm extends Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
       name: this.props.name ? this.props.name : '',
       balance: this.props.balance ? this.props.balance : '',
@@ -43,6 +44,7 @@ class DebtForm extends Component {
       interest: this.props.interest ? this.props.interest : '', 
       id: this.handleCreateID()
     };
+
     this.handleCreateID = this.handleCreateID.bind(this); 
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeBalance = this.handleChangeBalance.bind(this);
@@ -60,16 +62,17 @@ class DebtForm extends Component {
   handleChangeName(event) {
     this.setState({name: event.target.value});
   }
+
    handleChangeBalance(event) {
-      this.setState({balance: event.target.value});
+      this.setState({ balance: parseFloat(event.target.value) });
   }
 
   handleChangeMinPay(event) {
-      this.setState({minimumPayment: event.target.value});
+      this.setState({minimumPayment: parseFloat(event.target.value) });
   }
 
   handleChangeInterest(event) {
-      this.setState({interest: event.target.value});
+      this.setState({interest: parseFloat(event.target.value) });
   }
 
   handleSubmit(event) {
@@ -81,6 +84,7 @@ class DebtForm extends Component {
     }
     else{
       event.preventDefault();
+
       var sub = true; 
       if(this.state.name === '' || this.state.balance === '' || this.state.minimumPayment === '' || this.state.interest === ''){
         alert("ERROR: You have left field/s blank. Please fill in all fields."); 
@@ -106,9 +110,13 @@ class DebtForm extends Component {
         event.preventDefault();
         this.handleCreateID(); 
         const { addDebt, onSubmit } = this.props;
+        this.setState({
+          dateEntered: new Date()
+        });
         addDebt({...this.state});
         onSubmit();
     }
+
     }
   }
   closeSelf = () => {

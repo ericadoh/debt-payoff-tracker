@@ -15,19 +15,20 @@ const style = {
   },
 
   addDebtItem: {
+    cursor: 'pointer',
     boxSizing: 'border-box',
     width: 300,
     height: 150,
     margin: 10,
-    border: '1px solid black',
     padding: '15px 20px 15px 20px',
     fontFamily: sharedStyles.mainFont,
     fontSize: 30,
     flex: '1 0 300px', 
     backgroundColor: sharedStyles.mainColor, 
     color: 'white', 
-    fontWeight: 700
-
+    fontWeight: 700,
+    outline: 'none',
+    border: 'none'
   },
 
   debtListContainer: {
@@ -89,13 +90,16 @@ class Debts extends Component {
 
     return (
       <div style={style.debts}>
-        <button style={style.addDebtItem} onClick={this.handleOpenModal}>Add Debt</button>
+        <button style={{...style.addDebtItem, ...sharedStyles.shadow}} onClick={this.handleOpenModal}>{'+ Add new debt'}</button>
         {this.props.debts.map(renderDebtListItem)}
       </div>
       ); 
+
   }
 
   render() {
+
+    console.log(this.props.debts);
 
     return (
     	<div style={sharedStyles.container}>
