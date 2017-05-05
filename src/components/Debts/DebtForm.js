@@ -24,9 +24,9 @@ const style = {
   }, 
   x: {
     float: 'left',
-    color: "white", 
+    color: "black", 
     fontFamily: sharedStyles.mainFont, 
-    background: sharedStyles.mainColor, 
+    background: "white", 
     marginBottom: 5,
     cursor: 'pointer'
   },
