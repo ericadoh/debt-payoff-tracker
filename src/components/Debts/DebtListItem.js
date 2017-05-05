@@ -81,7 +81,8 @@ const style = {
 
 
 class DebtListItem extends Component {
-constructor () {
+
+  constructor () {
     super();
     this.state = { showModal: false };
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -97,11 +98,11 @@ constructor () {
     this.setState({ showModal: false });
     this.deleteSelf(); 
   }
+
   deleteSelf = () => {
     const { deleteDebt } = this.props;
     deleteDebt({...this.props});
   }
-
 
   render() {
     return (
@@ -127,8 +128,6 @@ constructor () {
         <label style={style.debtInfo}>
           Interest: {this.props.interest}
         </label>
-
-       
       </div>
     );
   }

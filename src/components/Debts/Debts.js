@@ -27,7 +27,6 @@ const style = {
     backgroundColor: sharedStyles.mainColor, 
     color: 'white', 
     fontWeight: 700
-
   },
 
   debtListContainer: {
@@ -96,6 +95,8 @@ class Debts extends Component {
   }
 
   render() {
+
+    console.log(this.props.debts);
 
     return (
     	<div style={sharedStyles.container}>

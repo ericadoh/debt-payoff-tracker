@@ -33,11 +33,31 @@ class PlanGenerator {
       case STRATEGY_TYPES.HIGHEST_INTEREST_FIRST:
         return this.index_of_highest_interest_debt(debt_balances);
       case STRATEGY_TYPES.ORDER_ENTERED:
-        // do something
-        break;
+        return this.index_of_earliest_entered_debt(debt_balances);
       default:
         return -1;
     }
+
+  }
+
+  index_of_earliest_entered_debt = debt_balances => {
+
+    if (debt_balances.length === 0) return -1;
+
+    const debts = this.debts;
+    
+    let index = this.first_non_zero_index(debt_balances);
+    if (index === -1) return index;
+    let earliest_date = debts[index].dateEntered;
+    
+    for (let i = 0; i < debt_balances.length; i++) {
+      if (debt_balances[i] !== 0 && debts[i].dateEntered < earliest_date) {
+        earliest_date = debts[i].dateEntered;
+        index = i;
+      }
+    }
+
+    return index;
 
   }
 
