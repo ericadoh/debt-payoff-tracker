@@ -21,7 +21,15 @@ const style = {
   example: {
     color: "lightgrey", 
     fontsize: 12
-  }
+  }, 
+  x: {
+    float: 'left',
+    color: "white", 
+    fontFamily: sharedStyles.mainFont, 
+    background: sharedStyles.mainColor, 
+    marginBottom: 5,
+    cursor: 'pointer'
+  },
 };
 
 class DebtForm extends Component {
@@ -65,40 +73,55 @@ class DebtForm extends Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
-    var sub = true; 
-    if(this.state.name === '' || this.state.balance === '' || this.state.minimumPayment === '' || this.state.interest === ''){
-      alert("ERROR: You have left field/s blank. Please fill in all fields."); 
-      sub = false; 
+    
+    if(event.target.value === "close"){
+      //do nothing
+     const{ onSubmit } = this.props;
+      onSubmit(); 
     }
-    if(parseInt(this.state.balance, 10) < parseInt(this.state.minimumPayment, 10)){
-      alert("ERROR: Your minimum monthly payment is greater than the balance of the debt.")
-      sub = false; 
-    }
-    if(parseInt(this.state.balance, 10) < 0 ){
-      alert("ERROR: Your balance is negative, which is not allowed."); 
-      sub = false; 
-    }
-    if(parseInt(this.state.minimumPayment, 10) < 0){
-      alert("ERROR: Your minimum monthly payment is negative, which is not allowed."); 
-      sub = false; 
-    }
-    if(parseInt(this.state.interest, 10) < 0){
-      alert("ERROR: Your interest is negative, which is not allowed."); 
-      sub = false; 
-    }
-    if(sub == true){
+    else{
       event.preventDefault();
-      this.handleCreateID(); 
-      const { addDebt, onSubmit } = this.props;
-      addDebt({...this.state});
-      onSubmit();
+      var sub = true; 
+      if(this.state.name === '' || this.state.balance === '' || this.state.minimumPayment === '' || this.state.interest === ''){
+        alert("ERROR: You have left field/s blank. Please fill in all fields."); 
+        sub = false; 
+      }
+      if(parseInt(this.state.balance, 10) < parseInt(this.state.minimumPayment, 10)){
+        alert("ERROR: Your minimum monthly payment is greater than the balance of the debt.")
+        sub = false; 
+      }
+      if(parseInt(this.state.balance, 10) < 0 ){
+        alert("ERROR: Your balance is negative, which is not allowed."); 
+        sub = false; 
+      }
+      if(parseInt(this.state.minimumPayment, 10) < 0){
+        alert("ERROR: Your minimum monthly payment is negative, which is not allowed."); 
+        sub = false; 
+      }
+      if(parseInt(this.state.interest, 10) < 0){
+        alert("ERROR: Your interest is negative, which is not allowed."); 
+        sub = false; 
+      }
+      if(sub === true){
+        event.preventDefault();
+        this.handleCreateID(); 
+        const { addDebt, onSubmit } = this.props;
+        addDebt({...this.state});
+        onSubmit();
+    }
     }
   }
+  closeSelf = () => {
+     const{ addDebt, onSubmit } = this.props;
+      onSubmit(); 
 
+  }
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+          <button style= {style.x} onClick= {this.closeSelf}>
+                 x
+          </button>
         <label style={style.header}>
           Debt Name:
           <input type="text" style={sharedStyles.input} value={this.state.name} onChange={this.handleChangeName} />
