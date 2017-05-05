@@ -62,19 +62,18 @@ const style = {
       bottom: 0,
       backgroundColor   : 'rgba(0, 0, 0, 0.5)'
     },
-    content : {
-      position: 'absolute',
-      top: '40px',
-      left: '40px',
-      right: '40px',
-      bottom: '40px',
+    content: {
       border: 'none',
       background: '#fff',
       overflow: 'auto',
       WebkitOverflowScrolling: 'touch',
       borderRadius: '4px',
       outline: 'none',
-      padding: '0'
+      padding: '0',
+      display: 'table',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%,-50%)'
     }
   }
 

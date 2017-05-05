@@ -25,6 +25,16 @@ const style = {
     padding: '10px 20px 10px 20px',
   },
 
+  itemName: {
+    marginRight: '20'
+  },
+
+  buttonContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
+
   button: {
     background: sharedStyles.mainColor, 
     color: 'white', 
@@ -34,10 +44,12 @@ const style = {
     border: '1px solid green'
 
   }, 
+
   example: {
     color: "lightgrey", 
     fontsize: 12
   }, 
+
   x: {
     float: 'left',
     color: "black", 
@@ -73,7 +85,6 @@ class DebtForm extends Component {
   handleCreateID(){
     return Math.floor(Math.random() * 80000000); 
   }
-
 
   handleChangeName(event) {
     this.setState({name: event.target.value});
@@ -152,25 +163,25 @@ class DebtForm extends Component {
         </div>
           
         <label style={style.item}>
-          <span>Debt Name:</span>
+          <span style={style.itemName}>Debt Name:</span>
           <input type="text" style={sharedStyles.input} value={this.state.name} onChange={this.handleChangeName} />
         </label>
         <label style={style.item}>
-          <span>Balance:</span>
+          <span style={style.itemName}>Balance:</span>
           <input type="text" style={sharedStyles.input} value={this.state.balance} onChange={this.handleChangeBalance} />
         </label>
         <label style={style.item}>
-          <span>Minimum Monthly Payment:</span>
+          <span style={style.itemName}>Minimum monthly payment:</span>
           <input type="number" style={sharedStyles.input} value={this.state.minimumPayment} onChange={this.handleChangeMinPay} />
         </label>
         <label style={style.item}>
-          <span>Interest:</span>
-          <input type="number" style={sharedStyles.input} value={this.state.interest} onChange={this.handleChangeInterest} />
+          <span style={style.itemName}>Interest:</span>
+          <input type="number" style={sharedStyles.input} placeholder="E.g. 20 for 20% interest" value={this.state.interest} onChange={this.handleChangeInterest} />
         </label>
-        <label style={style.example}>
-          Ex: A 20% interest rate would be written as 20.
-          </label>  
-        <input style={sharedStyles.button} type="submit" value="Submit" />
+
+        <div style={style.buttonContainer}>
+          <input style={sharedStyles.button} type="submit" value="Submit" />
+        </div>
       </form>
     );
   }
