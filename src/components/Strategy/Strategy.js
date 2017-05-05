@@ -78,7 +78,8 @@ class Strategy extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { selectedValue: this.props.strategy, idNum: "1" };
+        this.state = { selectedValue: this.props.strategy, idNum: "1" };
+
     this.setState = this.setState.bind(this);
 
     this.handleLBF = this.handleLBF.bind(this);
@@ -112,12 +113,14 @@ class Strategy extends Component {
     console.log("strategy: "+this.state.selectedValue + " --> "+newValue);
     this.setState({selectedValue: newValue});
     this.props.setStrategy(newValue);
+    
   }
-/*Make each RB a div, that has an onclick that changes the state, and alters the color(?) of the div*/
+
 
   render() {
-    console.log(this.state.selectedValue); 
-    return (
+
+    if (this.props.showNav) {
+      return (
       <div style={sharedStyles.container}>
         <Header />
         <div style={sharedStyles.subContainer}>
@@ -131,13 +134,37 @@ class Strategy extends Component {
           <br/> <br/>
          <Link
             style={sharedStyles.nextButton}
-            to="/contribution">
+            to="/graph" >
               Next Step
           </Link>
         </div>
          
       </div>
     );
+    } else {
+      return (
+         <div style={sharedStyles.container}>
+        <Header />
+        <div style={sharedStyles.subContainer}>
+          <div style={style.stratD}>
+            <div onClick={this.handleLBF} style={this.state.idNum === "1" ? style.radioB : style.grey}>Lowest Amount First</div> 
+            <div onClick={this.handleHIF} style={this.state.idNum === "2" ? style.radioB : style.grey}>Highest Interest First</div> 
+            <div onClick={this.handleOE} style={this.state.idNum === "3" ? style.radioB : style.grey}>Order Entered</div> 
+      
+     
+          </div> 
+          <br/> <br/>
+         <Link
+            style={sharedStyles.nextButton}
+            to="/graph" >
+              Next Step
+          </Link>
+        </div>
+         
+      </div>
+    );
+    }
+    
   }
 }
 
