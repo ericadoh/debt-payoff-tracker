@@ -12,9 +12,8 @@ const style = {
     flexDirection: 'column',
     boxSizing: 'border-box',
     width: 300,
-    height: 170,
+    height: 150,
     margin: 10,
-    //padding: '15px 20px 15px 20px',
     fontFamily: sharedStyles.mainFont,
     fontSize: 18,
     flex: '1 0 300px'
@@ -50,7 +49,7 @@ const style = {
   },
 
   debtInfo: {
-    fontSize: 24
+    fontSize: 20
   }, 
   
   debtName: {

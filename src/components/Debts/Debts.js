@@ -15,9 +15,10 @@ const style = {
   },
 
   addDebtItem: {
+    cursor: 'pointer',
     boxSizing: 'border-box',
     width: 300,
-    height: 170,
+    height: 150,
     margin: 10,
     padding: '15px 20px 15px 20px',
     fontFamily: sharedStyles.mainFont,
