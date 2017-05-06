@@ -136,12 +136,16 @@ class Debts extends Component {
           <Header />
           <div style={sharedStyles.subContainer}>
             <Navbar />
-            {this.renderDebts()}
-          <Link
-            style={sharedStyles.nextButton}
-            to="/contribution">
-              Next Step
-          </Link>
+            <div style={sharedStyles.column}>
+              {this.renderDebts()}
+              <div style={sharedStyles.buttonContainer} >
+                <Link
+                  style={sharedStyles.nextButton}
+                  to="/contribution">
+                    Save
+                </Link>
+              </div>
+            </div>
           </div> 
         </div>
       );
@@ -154,18 +158,19 @@ class Debts extends Component {
             <DebtForm addDebt={this.props.addDebt} onSubmit={this.handleCloseModal} />
           </ReactModal>
           <Header />
-          <div style={sharedStyles.subContainer}>
+          <div style={{...sharedStyles.subContainer, ...sharedStyles.column}}>
             {this.renderDebts()}
-          <Link
-            style={sharedStyles.nextButton}
-            to="/contribution">
-              Next Step
-          </Link>
+            <div style={sharedStyles.buttonContainer}>
+              <Link
+                style={sharedStyles.nextButton}
+                to="/contribution">
+                  Next Step
+              </Link>
+            </div>
           </div> 
         </div>
       );
     }
-    
   }
 }
 

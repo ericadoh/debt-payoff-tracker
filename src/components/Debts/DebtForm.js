@@ -39,12 +39,6 @@ const style = {
     marginRight: '20'
   },
 
-  buttonContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center'
-  },
-
   button: {
     background: sharedStyles.mainColor, 
     color: 'white', 
@@ -180,7 +174,7 @@ class DebtForm extends Component {
           <input type="number" style={sharedStyles.input} placeholder="E.g. 20 for 20% interest" value={this.state.interest} onChange={this.handleChangeInterest} />
         </label>
 
-        <div style={style.buttonContainer}>
+        <div style={sharedStyles.buttonContainer}>
           <input style={sharedStyles.button} type="submit" value="Submit" />
         </div>
       </form>

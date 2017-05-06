@@ -4,7 +4,6 @@ import Navbar from '../Navbar/Navbar';
 import STRATEGY_TYPES from './StrategyTypes';
 import sharedStyles from '../../styles/styles'; 
 import { Link } from 'react-router-dom';
-import {RadioGroup, RadioButton} from 'react-radio-buttons';
 
 const style = {
   header: {
@@ -20,46 +19,58 @@ const style = {
     flexDirection: 'row',
     justifyContent: 'center'
   },
+  instruction: {
+    fontFamily: sharedStyles.mainFont,
+    fontSize: 30,
+    color: 'black',
+    fontWeight: 700,
+    display: 'flex',
+    justifyContent: 'center'
+  },
   stratD: {
-     boxSizing: 'border-box', 
+    boxSizing: 'border-box', 
     display: 'flex',
     flexDirection: 'row',
-    margin: '10px', 
+    justifyContent: 'center',
+    margin: '10px'
   }, 
-  radioB: {  
+  green: {  
+    cursor: 'pointer',
+    boxSizing: 'border-box',
     fontFamily: sharedStyles.mainFont,
     fontSize: 40, 
     backgroundColor: sharedStyles.mainColor, 
     color: 'white', 
-    fontWeight: 400, 
-    width: "250", 
-    height: "150", 
+    fontWeight: 700, 
+    width: 250, 
     textAlign: "center",
-    padding: "20", 
+    padding: '10px 20px 10px 20px',
     margin: "7", 
     borderRadius: "10", 
-    borderColor: sharedStyles.mainColor, 
-    borderWidth: "1", 
-    border: "solid"
-
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    boxShadow: '0 4px 4px -2px rgba(0, 0, 0, 0.5)'
   },
   grey: {
+    cursor: 'pointer',
+    boxSizing: 'border-box',
     fontFamily: sharedStyles.mainFont,
     fontSize: 40, 
     backgroundColor: "white", 
     color: 'grey', 
-    fontWeight: 200, 
-      width: "250", 
-    height: "150", 
+    fontWeight: 700, 
+    width: 250, 
     textAlign: "center",
-    padding: "20", 
+    padding: '10px 20px 10px 20px',
     margin: "7", 
     borderRadius: "10", 
     borderColor: "grey", 
     borderWidth: "1", 
-    border: "solid"
-
-
+    border: "solid",
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   }, 
   unSelect: {
    
@@ -125,43 +136,45 @@ class Strategy extends Component {
         <Header />
         <div style={sharedStyles.subContainer}>
           <Navbar />
-          <div style={style.stratD}>
-            <div onClick={this.handleLBF} style={this.state.idNum === "1" ? style.radioB : style.grey}>Lowest Amount First</div> 
-            <div onClick={this.handleHIF} style={this.state.idNum === "2" ? style.radioB : style.grey}>Highest Interest First</div> 
-            <div onClick={this.handleOE} style={this.state.idNum === "3" ? style.radioB : style.grey}>Order Entered</div> 
-        
-          </div> 
-          <br/> <br/>
-         <Link
-            style={sharedStyles.nextButton}
-            to="/graph" >
-              Next Step
-          </Link>
+          <div style={style.column}>
+            <span style={style.instruction}>{'Select a payoff strategy:'}</span>
+            <div style={style.stratD}>
+              <div onClick={this.handleLBF} style={this.state.idNum === "1" ? style.green : style.grey}>Lowest Amount First</div> 
+              <div onClick={this.handleHIF} style={this.state.idNum === "2" ? style.green : style.grey}>Highest Interest First</div> 
+              <div onClick={this.handleOE} style={this.state.idNum === "3" ? style.green : style.grey}>Order Entered</div> 
+            </div> 
+            <div style={sharedStyles.buttonContainer}>
+              <Link
+                style={sharedStyles.nextButton}
+                to="/graph" >
+                  Save
+              </Link>
+            </div>
+          </div>
         </div>
          
       </div>
     );
     } else {
       return (
-         <div style={sharedStyles.container}>
-        <Header />
-        <div style={sharedStyles.subContainer}>
-          <div style={style.stratD}>
-            <div onClick={this.handleLBF} style={this.state.idNum === "1" ? style.radioB : style.grey}>Lowest Amount First</div> 
-            <div onClick={this.handleHIF} style={this.state.idNum === "2" ? style.radioB : style.grey}>Highest Interest First</div> 
-            <div onClick={this.handleOE} style={this.state.idNum === "3" ? style.radioB : style.grey}>Order Entered</div> 
-      
-     
-          </div> 
-          <br/> <br/>
-         <Link
-            style={sharedStyles.nextButton}
-            to="/graph" >
-              Next Step
-          </Link>
+        <div style={sharedStyles.container}>
+          <Header />
+          <div style={{...sharedStyles.subContainer, ...sharedStyles.column}}>
+            <span style={style.instruction}>{'Select a payoff strategy:'}</span>
+            <div style={style.stratD}>
+              <div onClick={this.handleLBF} style={this.state.idNum === "1" ? style.green : style.grey}>Lowest Amount First</div> 
+              <div onClick={this.handleHIF} style={this.state.idNum === "2" ? style.green : style.grey}>Highest Interest First</div> 
+              <div onClick={this.handleOE} style={this.state.idNum === "3" ? style.green : style.grey}>Order Entered</div> 
+            </div> 
+            <div style={sharedStyles.buttonContainer}>
+              <Link
+                style={sharedStyles.nextButton}
+                to="/graph" >
+                  Finish
+              </Link>
+            </div>
+          </div>
         </div>
-         
-      </div>
     );
     }
     
