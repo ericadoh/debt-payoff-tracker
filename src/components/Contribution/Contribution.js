@@ -21,7 +21,8 @@ class Contribution extends Component {
                         debts={this.props.debts} 
                         monthly={this.props.monthly} 
                         setMonthly={this.props.setMonthly}
-                        showNav={this.props.showNav} /> 
+                        showNav={this.props.showNav}
+                        browserHistory={this.props.browserHistory} /> 
                 </div>
             </div>
         );
@@ -34,7 +35,8 @@ class Contribution extends Component {
                         debts={this.props.debts} 
                         monthly={this.props.monthly} 
                         setMonthly={this.props.setMonthly}
-                        showNav={this.props.showNav} /> 
+                        showNav={this.props.showNav} 
+                        browserHistory={this.props.browserHistory}/> 
                 </div>
             </div>
         );

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import sharedStyles from '../../styles/styles';
 import { Link } from 'react-router-dom';
+{/*import { browserHistory } from 'react-router';*/}
 const style = {
   form: {
     display: 'flex',
@@ -38,7 +39,6 @@ class ContributionForm extends Component {
     super(props);
     this.debts = this.props.debts; 
     this.state = {monthly: this.props.monthly, canLink: this.props.showNav};
-    console.log(this.state);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -57,31 +57,17 @@ class ContributionForm extends Component {
     if(this.state.monthly < data){
       alert("Your monthly contribution is not high enough to cover your minimum monthly payments.");
       event.preventDefault(); 
-      return false;
     }
     else{
       alert('Your monthly contribution was submitted: ' + this.state.monthly);
       event.preventDefault();
       this.setState({canLink: true});
       this.props.setMonthly(this.state.monthly);
-      return false;
+      this.props.browserHistory.push('/strategy');
     }
   }
 
   render() {
-    let button = null; 
-    if(this.state.monthly !== '' && this.state.canLink){
-      button = <div style={style.rightWrap}>
-        <Link
-          style={sharedStyles.nextButton}
-          to="/strategy">
-            Next Step
-        </Link>
-        </div> ; 
-    }
-    else{
-      button = <div></div>; 
-    }
     return (
       <form style={style.form} onSubmit={this.handleSubmit}>
         <label style={style.label}>
@@ -91,7 +77,6 @@ class ContributionForm extends Component {
         <div style={style.wrapper}>
           <input style={sharedStyles.button} type="submit" value="Submit" />
         </div> 
-        {button}
        
       </form>
     );

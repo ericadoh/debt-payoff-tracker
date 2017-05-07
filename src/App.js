@@ -50,9 +50,12 @@ class App extends Component {
 			],
 			strategy: STRATEGY_TYPES.HIGHEST_INTEREST_FIRST,
 			monthly: '',
-			showNav: false
+			showNav: false,
+			browserHistory: history,
 		};
 		this.setState = this.setState.bind(this);
+		console.log('history:');
+		console.log(this.state.browserHistory);
 	}
 
 
@@ -153,7 +156,8 @@ class App extends Component {
 						strategy={this.state.strategy}
 						saveCGF={this.saveCGF}
 						setMonthly={this.setMonthly} 
-						showNav={this.state.showNav}/>} />
+						showNav={this.state.showNav}
+						browserHistory={this.state.browserHistory}/>} />
 					<Route path="/strategy" render={()=><Strategy
 						debts={this.state.debts} 
 						monthly={this.state.monthly}
