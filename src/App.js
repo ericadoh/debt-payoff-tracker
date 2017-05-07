@@ -24,6 +24,7 @@ class App extends Component {
 			url: 'https://capitalgoodfund.org/api/debt-tracker/load.php',
 			crossDomain: true,
 			success: function(data) {
+				console.log("===GET===");
 				console.log(data);
 
 			}.bind(this),
@@ -101,6 +102,7 @@ class App extends Component {
 			data: JSON.stringify(params),   //JSON.stringify?
 
 			success: function(data) {
+				console.log("SAVE CGF")
 				console.log(data);
 
 			}.bind(this),
@@ -135,21 +137,28 @@ class App extends Component {
 						monthly={this.state.monthly} 
 						strategy={this.state.strategy}
 						showNav={this.state.showNav}
-						setShowNav={this.setShowNav} 
-						saveCGF={this.saveCGF}/>} />
+						setShowNav={this.setShowNav}/>} />
 					<Route path="/debts"
-						render={()=><Debts debts={this.state.debts}
+						render={()=><Debts 
+						debts={this.state.debts}
+						monthly={this.state.monthly}
+						strategy={this.state.strategy}
+						saveCGF={this.saveCGF}
 						addDebt={this.addDebt}
 						deleteDebt={this.deleteDebt} 
 						showNav={this.state.showNav}/>} />
 					<Route path="/contribution" render={()=><Contribution 
 						debts={this.state.debts} 
 						monthly={this.state.monthly} 
+						strategy={this.state.strategy}
+						saveCGF={this.saveCGF}
 						setMonthly={this.setMonthly} 
 						showNav={this.state.showNav}/>} />
 					<Route path="/strategy" render={()=><Strategy
 						debts={this.state.debts} 
-						strategy={this.state.strategy} 
+						monthly={this.state.monthly}
+						strategy={this.state.strategy}
+						saveCGF={this.saveCGF} 
 						setStrategy={this.setStrategy} 
 						showNav={this.state.showNav}
 						setShowNav={this.setShowNav}/>} />

@@ -103,19 +103,19 @@ class Strategy extends Component {
     var newValue = "" + STRATEGY_TYPES.LOWEST_BALANCE_FIRST;
     this.setState({selectedValue: newValue});
     this.props.setStrategy(newValue);
-
+    this.props.saveCGF(this.props.debts, this.props.monthly, this.props.strategy);
   }
    handleHIF(){
     var newValue = "" + STRATEGY_TYPES.HIGHEST_INTEREST_FIRST; 
     this.setState({selectedValue: newValue});
     this.props.setStrategy(newValue);
-
+    this.props.saveCGF(this.props.debts, this.props.monthly, this.props.strategy);
   }
   handleOE(){
     var newValue = "" + STRATEGY_TYPES.ORDER_ENTERED; 
     this.setState({selectedValue: newValue});
     this.props.setStrategy(newValue);
-
+    this.props.saveCGF(this.props.debts, this.props.monthly, this.props.strategy);
   }
 
   handleSelection(newValue) {

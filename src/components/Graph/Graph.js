@@ -106,7 +106,7 @@ class Graph extends Component {
     componentWillMount() {
         console.log("willMount");
         this.props.setShowNav(true);
-        this.props.saveCGF(this.props.debts, this.props.monthly, this.props.strategy);
+        
     }
 }
 
