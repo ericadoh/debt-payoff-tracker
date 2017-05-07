@@ -19,9 +19,10 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 
-		{/*$.ajax({
+		$.ajax({
 			type: 'GET',
 			url: 'https://capitalgoodfund.org/api/debt-tracker/load.php',
+			crossDomain: true,
 			success: function(data) {
 				console.log(data);
 
@@ -29,7 +30,7 @@ class App extends Component {
 			error: function(xhr, status, err) {
 				console.log(this.props.url, status, err.toString());
 			}.bind(this)
-		})*/}
+		})
 
 		this.state = { 
 			debts: [
@@ -44,6 +45,8 @@ class App extends Component {
 		};
 		this.setState = this.setState.bind(this);
 	}
+
+
 
 	addDebt = debt => {
 		console.log(debt);
@@ -76,22 +79,28 @@ class App extends Component {
 		this.setState({monthly: contribution});
 	}
 
-	saveCGF() {
+	saveCGF = (debts, monthly, strategy) => {
 		var params = {
-			monthlyPayoffAmount: this.state.monthly,
-			payoffStrategy: this.state.payoffStrategy,
+			"debts": debts,
+			"monthlyPayoffAmount": monthly,
+			"payoffStrategy": strategy,
 		};
 		$.ajax({
 			type: 'POST',
 			url: 'https://capitalgoodfund.org/api/debt-tracker/save.php',
-			data: params,
+			crossDomain: true,
+			cache: 'false',
+			dataType: 'json',
+			data: JSON.stringify(params),   //JSON.stringify?
+
 			success: function(data) {
 				console.log(data);
+
 			}.bind(this),
 			error: function(xhr, status, err) {
 				console.log(this.props.url, status, err.toString());
 			}.bind(this)
-		});
+		})
 	}
 
 	setShowNav = navState => {
@@ -119,7 +128,8 @@ class App extends Component {
 						monthly={this.state.monthly} 
 						strategy={this.state.strategy}
 						showNav={this.state.showNav}
-						setShowNav={this.setShowNav}/>} />
+						setShowNav={this.setShowNav} 
+						saveCGF={this.saveCGF}/>} />
 					<Route path="/debts"
 						render={()=><Debts debts={this.state.debts}
 						addDebt={this.addDebt}
