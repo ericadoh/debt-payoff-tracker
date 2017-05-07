@@ -49,7 +49,6 @@ class Graph extends Component {
 
 
     render() {
-        console.log(this.props);
         const { debts, strategy, monthly } = this.props;
         const planGenerator = new PlanGenerator(debts, strategy, monthly);
         const plan = planGenerator.generate();

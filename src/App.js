@@ -69,7 +69,6 @@ class App extends Component {
 	}
 	
 	setStrategy = newStrategy => {
-		console.log('new strategy: ' + newStrategy);
 		this.setState({
 			strategy: newStrategy
 		});
