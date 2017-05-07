@@ -45,8 +45,8 @@ const style = {
     width: 250, 
     textAlign: "center",
     padding: '10px 20px 10px 20px',
-    margin: "7", 
-    borderRadius: "10", 
+    margin: "7px", 
+    borderRadius: "10px", 
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -63,10 +63,10 @@ const style = {
     width: 250, 
     textAlign: "center",
     padding: '10px 20px 10px 20px',
-    margin: "7", 
-    borderRadius: "10", 
+    margin: "7px", 
+    borderRadius: "10px", 
     borderColor: "grey", 
-    borderWidth: "1", 
+    borderWidth: "1px", 
     border: "solid",
     display: 'flex',
     justifyContent: 'center',
@@ -89,7 +89,8 @@ class Strategy extends Component {
 
   constructor(props) {
     super(props);
-        this.state = { selectedValue: this.props.strategy, idNum: "1" };
+    console.log(props);
+    this.state = { selectedValue: ""+this.props.strategy};
 
     this.setState = this.setState.bind(this);
 
@@ -99,24 +100,21 @@ class Strategy extends Component {
   }
 
   handleLBF(){
-    var newValue = "" + STRATEGY_TYPES.LOWEST_BALANCE_FIRST; 
+    var newValue = "" + STRATEGY_TYPES.LOWEST_BALANCE_FIRST;
     this.setState({selectedValue: newValue});
     this.props.setStrategy(newValue);
-    this.setState({idNum: "1"})
 
   }
    handleHIF(){
     var newValue = "" + STRATEGY_TYPES.HIGHEST_INTEREST_FIRST; 
     this.setState({selectedValue: newValue});
     this.props.setStrategy(newValue);
-     this.setState({idNum: "2"})
 
   }
   handleOE(){
     var newValue = "" + STRATEGY_TYPES.ORDER_ENTERED; 
     this.setState({selectedValue: newValue});
     this.props.setStrategy(newValue);
-     this.setState({idNum: "3"})
 
   }
 
@@ -139,9 +137,9 @@ class Strategy extends Component {
           <div style={style.column}>
             <span style={style.instruction}>{'Select a payoff strategy:'}</span>
             <div style={style.stratD}>
-              <div onClick={this.handleLBF} style={this.state.idNum === "1" ? style.green : style.grey}>Lowest Amount First</div> 
-              <div onClick={this.handleHIF} style={this.state.idNum === "2" ? style.green : style.grey}>Highest Interest First</div> 
-              <div onClick={this.handleOE} style={this.state.idNum === "3" ? style.green : style.grey}>Order Entered</div> 
+              <div onClick={this.handleLBF} style={this.state.selectedValue === "0" ? style.green : style.grey}>Lowest Amount First</div> 
+              <div onClick={this.handleHIF} style={this.state.selectedValue === "1" ? style.green : style.grey}>Highest Interest First</div> 
+              <div onClick={this.handleOE} style={this.state.selectedValue === "2" ? style.green : style.grey}>Order Entered</div> 
             </div> 
             <div style={sharedStyles.buttonContainer}>
               <Link
@@ -162,9 +160,9 @@ class Strategy extends Component {
           <div style={{...sharedStyles.subContainer, ...sharedStyles.column}}>
             <span style={style.instruction}>{'Select a payoff strategy:'}</span>
             <div style={style.stratD}>
-              <div onClick={this.handleLBF} style={this.state.idNum === "1" ? style.green : style.grey}>Lowest Amount First</div> 
-              <div onClick={this.handleHIF} style={this.state.idNum === "2" ? style.green : style.grey}>Highest Interest First</div> 
-              <div onClick={this.handleOE} style={this.state.idNum === "3" ? style.green : style.grey}>Order Entered</div> 
+              <div onClick={this.handleLBF} style={this.state.selectedValue === "0" ? style.green : style.grey}>Lowest Amount First</div> 
+              <div onClick={this.handleHIF} style={this.state.selectedValue === "1" ? style.green : style.grey}>Highest Interest First</div> 
+              <div onClick={this.handleOE} style={this.state.selectedValue === "2" ? style.green : style.grey}>Order Entered</div> 
             </div> 
             <div style={sharedStyles.buttonContainer}>
               <Link
