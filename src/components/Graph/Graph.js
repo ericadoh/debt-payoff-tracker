@@ -92,7 +92,6 @@ class Graph extends Component {
 
         };
 
-
         return (
         	<div style={sharedStyles.container}>
         		<Header />

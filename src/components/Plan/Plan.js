@@ -35,6 +35,14 @@ const generateMonths = numRows => {
   return months;
 }
 
+const style = {
+  cell: {
+    display: 'flex',
+    alignItems: 'center',
+    fontFamily: sharedStyles.mainFont
+  }
+};
+
 class Plan extends Component {
 
   render() {
@@ -50,18 +58,15 @@ class Plan extends Component {
     const renderColumn = (debt, i) => {
       console.log(debt);
       return (
-        <ColumnGroup key={i}>
-          <Column
-              fixed={true}
-              header={<Cell>{debt.name}</Cell>}
-              cell={({rowIndex, ...props}) => {
-                console.log(...props);
-                return (<Cell {...props}>
-                  {plan[rowIndex][i]}
-                </Cell>);
-              }}
-              width={150} />
-        </ColumnGroup>
+          <Column key={i}
+            header={<Cell>{debt.name}</Cell>}
+            cell={({rowIndex, ...props}) => {
+              console.log(...props);
+              return (<Cell style={style.cell} {...props}>
+                {plan[rowIndex][i]}
+              </Cell>);
+            }}
+            width={150} />
       );
     }
 
@@ -71,26 +76,24 @@ class Plan extends Component {
         <div style={sharedStyles.subContainer}>
           <Navbar />
           <Table
-            rowHeight={30}
+            rowHeight={40}
             rowsCount={plan.length}
-            width={2000}
+            width={1000}
             height={500}
-            headerHeight={30}>
+            headerHeight={40}>
 
-            <ColumnGroup fixed={true}>
-              <Column
-                fixed={true}
-                header={<Cell>Month</Cell>}
-                cell={({rowIndex, ...props}) => {
-                  console.log(...props);
-                  return (<Cell {...props}>
-                    {months[rowIndex]}
-                  </Cell>);
-                }}
-                width={150} />
-            </ColumnGroup>
+            <Column
+              fixed={true}
+              header={<Cell>Month</Cell>}
+              cell={({rowIndex, ...props}) => {
+                console.log(...props);
+                return (<Cell style={style.cell} {...props}>
+                  {months[rowIndex]}
+                </Cell>);
+              }}
+              width={150} />
 
-            {this.props.debts.map(renderColumn)}
+              {this.props.debts.map(renderColumn)}
 
           </Table>
         </div>
