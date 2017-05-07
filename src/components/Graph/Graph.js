@@ -22,6 +22,7 @@ class Graph extends Component {
     constructor(props) {
         super(props);
         this.monthly = this.props.monthly;
+        this.setState = this.setState.bind(this);
     }
 
 
@@ -107,6 +108,7 @@ class Graph extends Component {
     componentWillMount() {
         console.log("willMount");
         this.props.setShowNav(true);
+        this.props.saveCGF(this.props.debts, this.props.monthly, this.props.strategy);
     }
 }
 
