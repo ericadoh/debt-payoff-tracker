@@ -89,7 +89,7 @@ class Strategy extends Component {
   constructor(props) {
     super(props);
     console.log(props);
-    this.state = { selectedValue: ""+this.props.strategy};
+    this.state = { selectedValue: this.props.strategy};
 
     this.setState = this.setState.bind(this);
 
@@ -99,22 +99,22 @@ class Strategy extends Component {
   }
 
   handleLBF(){
-    var newValue = "" + STRATEGY_TYPES.LOWEST_BALANCE_FIRST;
+    var newValue = STRATEGY_TYPES.LOWEST_BALANCE_FIRST;
     this.setState({selectedValue: newValue});
     this.props.setStrategy(newValue);
-    this.props.saveCGF(this.props.debts, this.props.monthly, this.props.strategy);
+    this.props.saveCGF(this.props.debts, this.props.monthly, 0);
   }
    handleHIF(){
-    var newValue = "" + STRATEGY_TYPES.HIGHEST_INTEREST_FIRST; 
+    var newValue = STRATEGY_TYPES.HIGHEST_INTEREST_FIRST; 
     this.setState({selectedValue: newValue});
     this.props.setStrategy(newValue);
-    this.props.saveCGF(this.props.debts, this.props.monthly, this.props.strategy);
+    this.props.saveCGF(this.props.debts, this.props.monthly, 1);
   }
   handleOE(){
-    var newValue = "" + STRATEGY_TYPES.ORDER_ENTERED; 
+    var newValue = STRATEGY_TYPES.ORDER_ENTERED; 
     this.setState({selectedValue: newValue});
     this.props.setStrategy(newValue);
-    this.props.saveCGF(this.props.debts, this.props.monthly, this.props.strategy);
+    this.props.saveCGF(this.props.debts, this.props.monthly, 2);
   }
 
   handleSelection(newValue) {
@@ -136,9 +136,10 @@ class Strategy extends Component {
           <div style={style.column}>
             <span style={style.instruction}>{'Select a payoff strategy:'}</span>
             <div style={style.stratD}>
-              <div className={'grow'} onClick={this.handleLBF} style={this.state.selectedValue === "0" ? style.green : style.grey}>Lowest Amount First</div> 
-              <div className={'grow'} onClick={this.handleHIF} style={this.state.selectedValue === "1" ? style.green : style.grey}>Highest Interest First</div> 
-              <div className={'grow'} onClick={this.handleOE} style={this.state.selectedValue === "2" ? style.green : style.grey}>Order Entered</div> 
+              <div className={'grow'} onClick={this.handleLBF} style={this.state.selectedValue === 0 ? style.green : style.grey}>Lowest Amount First</div> 
+              <div className={'grow'} onClick={this.handleHIF} style={this.state.selectedValue === 1 ? style.green : style.grey}>Highest Interest First</div> 
+              <div className={'grow'} onClick={this.handleOE} style={this.state.selectedValue === 2 ? style.green : style.grey}>Order Entered</div> 
+
             </div> 
             <div style={sharedStyles.buttonContainer}>
               <Link className={'grow'}
@@ -159,9 +160,9 @@ class Strategy extends Component {
           <div style={{...sharedStyles.subContainer, ...sharedStyles.column}}>
             <span style={style.instruction}>{'Select a payoff strategy:'}</span>
             <div style={style.stratD}>
-              <div className={'grow'} onClick={this.handleLBF} style={this.state.selectedValue === "0" ? style.green : style.grey}>Lowest Amount First</div> 
-              <div className={'grow'} onClick={this.handleHIF} style={this.state.selectedValue === "1" ? style.green : style.grey}>Highest Interest First</div> 
-              <div className={'grow'} onClick={this.handleOE} style={this.state.selectedValue === "2" ? style.green : style.grey}>Order Entered</div> 
+              <div className={'grow'} onClick={this.handleLBF} style={this.state.selectedValue === 0 ? style.green : style.grey}>Lowest Amount First</div> 
+              <div className={'grow'} onClick={this.handleHIF} style={this.state.selectedValue === 1 ? style.green : style.grey}>Highest Interest First</div> 
+              <div className={'grow'} onClick={this.handleOE} style={this.state.selectedValue === 2 ? style.green : style.grey}>Order Entered</div> 
             </div> 
             <div style={sharedStyles.buttonContainer}>
               <Link className={'grow'}

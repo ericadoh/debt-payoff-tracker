@@ -41,6 +41,7 @@ class App extends Component {
 			browserHistory: history,
 		};
 		this.setState = this.setState.bind(this);
+		//this.setState({showNav : this.initialShowNav()});
 	}
 
 	addDebt = debt => {
@@ -49,7 +50,10 @@ class App extends Component {
 		debt.interest = debt.interest * .01;
 		this.setState(previousState => ({
 		    debts: [...previousState.debts, debt]
-		}));
+		}), function() {
+			this.saveCGF(this.state.debts, this.state.monthly, this.state.strategy);
+		});
+		
 	}
 
 	/*
@@ -61,7 +65,10 @@ class App extends Component {
 		const index = this.state.debts.map(d => d.id).indexOf(debt.id);
 		this.setState(previousState => ({
 			debts: previousState.debts.filter((_, i) => i !== index)
-		}));
+		}), function() {
+			this.saveCGF(this.state.debts, this.state.monthly, this.state.strategy);
+		});
+		
 	}
 	
 	setStrategy = newStrategy => {
@@ -89,8 +96,10 @@ class App extends Component {
 			data: JSON.stringify(params),   //JSON.stringify?
 
 			success: function(data) {
-				console.log("SAVE CGF")
+				console.log("===SAVE CGF===");
+				console.log(params);
 				console.log(data);
+				console.log('==============');
 
 			}.bind(this),
 			error: function(xhr, status, err) {
@@ -103,7 +112,7 @@ class App extends Component {
 		this.setState({showNav: navState});
 	}
 
-	showNav() {
+	initialShowNav() {
 		if (this.state.debts.length == 0 || this.state.monthly =='') {
 			return false;
 		} else {
