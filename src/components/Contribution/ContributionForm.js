@@ -17,7 +17,8 @@ const style = {
     color: 'black',
     alignItems: 'center',
     justifyContent: 'center',
-    textAlign: 'center'
+    textAlign: 'center',
+    marginBottom: 40
   },
   wrapper: {
     width: '100%', 

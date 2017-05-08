@@ -20,6 +20,8 @@ const style = {
     justifyContent: 'center'
   },
   instruction: {
+    marginTop: 40,
+    marginBottom: 30,
     fontFamily: sharedStyles.mainFont,
     fontSize: 30,
     color: 'black',

@@ -48,13 +48,10 @@ const style = {
     textAlign: 'center'
   },
 
-  fullC: {
-    backgroundColor: sharedStyles.mainColor,
-     display: 'flex',
-      flexDirection: 'row',
-      marginLeft:  '10px',
+  marginBottom: {
+    marginTop: 10,
+    marginBottom: 40
   }
-
 }
 
 class Debts extends Component {
@@ -136,7 +133,7 @@ class Debts extends Component {
           <Header />
           <div style={{...sharedStyles.subContainer, ...sharedStyles.column}}>
             {this.renderDebts()}
-            <div style={sharedStyles.buttonContainer}>
+            <div style={{...sharedStyles.buttonContainer, ...style.marginBottom}}>
               <Link className={'grow'}
                 style={sharedStyles.nextButton}
                 to="/contribution">
