@@ -37,9 +37,11 @@ class PlanGenerator {
   choose_strategy_index = (debt_balances, debt_min_payments) => {
 
     const strategy = this.strategy;
+    console.log('strategy: ' + this.strategy);
 
     switch (strategy) {
       case STRATEGY_TYPES.LOWEST_BALANCE_FIRST:
+      console.log('DOING LOWEST BALANCE FIRST');
         return this.index_of_least_balance_debt(debt_balances);
       case STRATEGY_TYPES.HIGHEST_INTEREST_FIRST:
         return this.index_of_highest_interest_debt(debt_balances);
@@ -95,6 +97,8 @@ class PlanGenerator {
   index_of_least_balance_debt = debt_balances => {
 
     if (debt_balances.length === 0) return -1;
+
+    console.log(debt_balances);
     
     let min_index = this.first_non_zero_index(debt_balances);
     let min = debt_balances[min_index];
@@ -142,12 +146,20 @@ class PlanGenerator {
           // decrementing the debt amount its min payment
           debt_amounts[i] -= debt_min_payments[i];
         }
+
+        console.log('~~~~~~~~~~~~~~ BEFORE ADDING SNOWBALL ~~~~~~~~~~~~~~~~');
+        console.log(row);
+        console.log(debt_amounts);
+        console.log(curr_max_monthly_contribution)
         
         // if the current debt is the last debt, 
         // put remaining monthly contribution towards the debt
         // chosen by the strategy
         if (i === debt_amounts.length - 1) {
-          strategy_index = this.choose_strategy_index(debt_amounts, debt_min_payments);
+          //strategy_index = this.choose_strategy_index(debt_amounts, debt_min_payments);
+          console.log('strategy index: ' + strategy_index);
+
+
           if (strategy_index === -1) break;
           
           while (curr_max_monthly_contribution > 0) {

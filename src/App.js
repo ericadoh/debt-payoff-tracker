@@ -35,12 +35,11 @@ class App extends Component {
 
 		this.state = { 
 			debts: [
-				{ name: 'Student', balance: 24, minimumPayment: 3.5, interest: .11, dateEntered: new Date() },
-				{ name: 'Car', balance: 22, minimumPayment: 10, interest: .03, dateEntered: new Date() },
-				{ name: 'Other', balance: 30, minimumPayment: 2, interest: .05, dateEntered: new Date() }
-			],
+{ name: 'Student', balance: 20, minimumPayment: 1, interest: .07, dateEntered: new Date() },
+{ name: 'Car', balance: 12, minimumPayment: 5, interest: .09, dateEntered: new Date() }
+],
 			strategy: STRATEGY_TYPES.HIGHEST_INTEREST_FIRST,
-			monthly: 16.50,
+			monthly: 8,
 			showNav: false,
 			browserHistory: history,
 		};
