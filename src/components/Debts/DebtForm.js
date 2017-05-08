@@ -52,7 +52,24 @@ const style = {
   example: {
     color: "lightgrey", 
     fontsize: 12
-  }
+  },
+
+  per:{
+    marginLeft: -223, 
+    paddingLeft: -223, 
+    marginRight: -7, 
+    paddingRight: -7
+    // marginRight: 100, 
+    // paddingRight: 100
+  }, 
+  inputP: {
+    borderRadius: '4px',
+    height: 30,
+    fontSize: 26,
+    fontFamily: '"Open Sans", sans-serif',
+    padding: 5, 
+    width: 275, 
+  },
 };
 
 class DebtForm extends Component {
@@ -171,7 +188,8 @@ class DebtForm extends Component {
         </label>
         <label style={style.item}>
           <span style={style.itemName}>Interest:</span>
-          <input type="number" style={sharedStyles.input} placeholder="E.g. 20 for 20% interest" value={this.state.interest} onChange={this.handleChangeInterest} />
+          <input type="number" style={style.inputP} value={this.state.interest} onChange={this.handleChangeInterest} />
+          <span style={style.per}>%</span>
         </label>
 
         <div style={sharedStyles.buttonContainer}>
