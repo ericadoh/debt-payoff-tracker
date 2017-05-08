@@ -68,7 +68,8 @@ const styles = {
 		alignItems: 'center',
 		justifyContent: 'center',
 		display: 'table',
-		cursor: 'pointer'
+		cursor: 'pointer',
+		outline: 'none'
   },
 
   modal: {

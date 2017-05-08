@@ -13,6 +13,7 @@ const style = {
     textDecoration: 'none',
     fontFamily: sharedStyles.mainFont,
     fontSize: 24,
+    fontWeight: 400,
     padding: '10px 0px 10px 0px',
     color: 'black'
   }, 
@@ -29,12 +30,12 @@ class Navbar extends Component {
   render() {
     return (
       <div style={style.navbar}>
-        <Link
+        <Link className={'fade'}
           style={style.link}
           to="/table">
             Table
         </Link>
-        <Link
+        <Link className={'fade'}
           style={style.link}
           to="/graph">
             Graph
@@ -42,17 +43,17 @@ class Navbar extends Component {
         <div style={style.line}> 
           ______________
         </div> 
-        <Link
+        <Link className={'fade'}
           style={style.link}
           to="/debts">
             Edit Debts
         </Link>
-        <Link
+        <Link className={'fade'}
           style={style.link}
           to="/contribution">
             Edit Contribution
         </Link>
-        <Link
+        <Link className={'fade'}
           style={style.link}
           to="/strategy">
             Edit Strategy

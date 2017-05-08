@@ -12,7 +12,7 @@ const style = {
     flexDirection: 'column',
     boxSizing: 'border-box',
     width: 300,
-    height: 150,
+    height: 200,
     margin: 10,
     fontFamily: sharedStyles.mainFont,
     fontSize: 18,

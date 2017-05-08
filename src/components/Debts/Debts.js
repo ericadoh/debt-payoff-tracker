@@ -19,7 +19,7 @@ const style = {
     cursor: 'pointer',
     boxSizing: 'border-box',
     width: 300,
-    height: 150,
+    height: 200,
     margin: 10,
     padding: '15px 20px 15px 20px',
     fontFamily: sharedStyles.mainFont,
@@ -112,7 +112,7 @@ class Debts extends Component {
             <div style={sharedStyles.column}>
               {this.renderDebts()}
               <div style={sharedStyles.buttonContainer} >
-                <Link
+                <Link className={'grow'}
                   style={sharedStyles.nextButton}
                   to="/contribution">
                     Save
