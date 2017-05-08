@@ -43,11 +43,10 @@ class App extends Component {
 		this.setState = this.setState.bind(this);
 	}
 
-
-
 	addDebt = debt => {
 		console.log(debt);
 		debt.dateEntered = new Date();
+		debt.interest = debt.interest * .01;
 		this.setState(previousState => ({
 		    debts: [...previousState.debts, debt]
 		}));

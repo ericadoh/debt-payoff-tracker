@@ -133,7 +133,7 @@ class DebtListItem extends Component {
             Min. monthly payment: {this.props.minimumPayment}
           </label>
           <label style={style.debtInfo}>
-            Interest: {this.props.interest}
+            Interest: {(this.props.interest * 100) + '%'}
           </label>
         </div>
 

@@ -3,6 +3,20 @@ import PlanGenerator from '../src/components/Plan/PlanGenerator';
 
 describe('plan generation tests', function() {
 
+	it('1 debt, lowest balance first', function() {
+  	const debts = [
+  		{ name: 'Student', balance: 1000, minimumPayment: 250, interest: .05, dateEntered: new Date() }
+  	];
+  	const strategy = STRATEGY_TYPES.LOWEST_BALANCE_FIRST;
+  	const monthly = 300;
+
+  	const planGenerator = new PlanGenerator(debts, strategy, monthly);
+		const output = planGenerator.generate();
+  	const expectedOutput = [[300], [300], [300], [109.25]];
+
+  	expect(output).toEqual(expectedOutput);
+  });
+
 	it('2 debts', function() {
 
 		const debts = [

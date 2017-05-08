@@ -58,7 +58,6 @@ class ContributionForm extends Component {
       event.preventDefault(); 
     }
     else{
-      alert('Your monthly contribution was submitted: ' + this.state.monthly);
       event.preventDefault();
       this.setState({canLink: true});
       this.props.setMonthly(this.state.monthly);

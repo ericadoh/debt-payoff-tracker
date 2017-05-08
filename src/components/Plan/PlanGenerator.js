@@ -108,7 +108,7 @@ class PlanGenerator {
     const debt_min_payments = debts.map(d => d.minimumPayment);
     const max_monthly_contribution = this.monthly;
     const plan = [];
-    
+
     let strategy_index = this.choose_strategy_index(debt_amounts, debt_min_payments);
 
     while (this.not_zero(debt_amounts)) {
