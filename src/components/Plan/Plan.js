@@ -65,7 +65,7 @@ class Plan extends Component {
     const plan = planGenerator.generate();
     const months = generateMonths(plan.length);
 
-    const expectedArray = [[1,7], [2.87,5.13], [8,0],[8,0],[0.51,0]];
+    const expectedArray = [[4.50,10,2], [4.50, 10,2],[12.40,2.10,2],[3.17,0,13.33],[0,0,11.18]];
     console.log(compare(plan, expectedArray));
 
     const renderColumn = (debt, i) => {
