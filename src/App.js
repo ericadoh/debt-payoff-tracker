@@ -41,7 +41,7 @@ class App extends Component {
 			],
 			strategy: STRATEGY_TYPES.HIGHEST_INTEREST_FIRST,
 			monthly: 16.50,
-			showNav: false, // change this to true 
+			showNav: false,
 			browserHistory: history,
 		};
 		this.setState = this.setState.bind(this);
