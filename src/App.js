@@ -49,13 +49,12 @@ class App extends Component {
 				{ name: 'Erica', balance: 450, minimumPayment: 50, interest: .05, dateEntered: new Date() }
 			],
 			strategy: STRATEGY_TYPES.HIGHEST_INTEREST_FIRST,
-			monthly: '',
+			monthly: "",
 			showNav: false,
 			browserHistory: history,
 		};
 		this.setState = this.setState.bind(this);
-		console.log('history:');
-		console.log(this.state.browserHistory);
+		//this.setState({showNav : this.initialShowNav()});
 	}
 
 
@@ -105,8 +104,10 @@ class App extends Component {
 			data: JSON.stringify(params),   //JSON.stringify?
 
 			success: function(data) {
-				console.log("SAVE CGF")
+				console.log("===SAVE CGF===");
+				console.log(params);
 				console.log(data);
+				console.log('==============');
 
 			}.bind(this),
 			error: function(xhr, status, err) {
@@ -119,7 +120,7 @@ class App extends Component {
 		this.setState({showNav: navState});
 	}
 
-	showNav() {
+	initialShowNav() {
 		if (this.state.debts.length == 0 || this.state.monthly =='') {
 			return false;
 		} else {
