@@ -66,14 +66,10 @@ class Plan extends Component {
 
     const planGenerator = new PlanGenerator(debts, strategy, monthly);
     const plan = planGenerator.generate();
+
+    console.log(plan);
+    
     const months = generateMonths(plan.length);
-
-    const expectedArray = [[1,7],
-[2.87,5.13],
-[8,0],[8,0],
-[0.51,0]];
-
-    console.log(compare(plan, expectedArray));
 
     const renderColumn = (debt, i) => {
       return (

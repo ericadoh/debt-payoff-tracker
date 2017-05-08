@@ -1,17 +1,8 @@
 import STRATEGY_TYPES from '../Strategy/StrategyTypes';
 
-// make everything work with just debts array first
-
-function roundTo(n, digits) {
-     if (digits === undefined) {
-       digits = 0;
-     }
-
-     var multiplicator = Math.pow(10, digits);
-     n = parseFloat((n * multiplicator).toFixed(11));
-     var test =(Math.round(n) / multiplicator);
-     return +(test.toFixed(2));
-   }
+const roundTo = (value, decimals) => {
+  return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+}
 
 class PlanGenerator {
 
@@ -37,11 +28,9 @@ class PlanGenerator {
   choose_strategy_index = (debt_balances, debt_min_payments) => {
 
     const strategy = this.strategy;
-    console.log('strategy: ' + this.strategy);
 
     switch (strategy) {
       case STRATEGY_TYPES.LOWEST_BALANCE_FIRST:
-      console.log('DOING LOWEST BALANCE FIRST');
         return this.index_of_least_balance_debt(debt_balances);
       case STRATEGY_TYPES.HIGHEST_INTEREST_FIRST:
         return this.index_of_highest_interest_debt(debt_balances);
@@ -98,8 +87,6 @@ class PlanGenerator {
 
     if (debt_balances.length === 0) return -1;
 
-    console.log(debt_balances);
-    
     let min_index = this.first_non_zero_index(debt_balances);
     let min = debt_balances[min_index];
     
@@ -146,23 +133,16 @@ class PlanGenerator {
           // decrementing the debt amount its min payment
           debt_amounts[i] -= debt_min_payments[i];
         }
-
-        console.log('~~~~~~~~~~~~~~ BEFORE ADDING SNOWBALL ~~~~~~~~~~~~~~~~');
-        console.log(row);
-        console.log(debt_amounts);
-        console.log(curr_max_monthly_contribution)
         
         // if the current debt is the last debt, 
         // put remaining monthly contribution towards the debt
         // chosen by the strategy
         if (i === debt_amounts.length - 1) {
-          //strategy_index = this.choose_strategy_index(debt_amounts, debt_min_payments);
-          console.log('strategy index: ' + strategy_index);
 
-
-          if (strategy_index === -1) break;
-          
           while (curr_max_monthly_contribution > 0) {
+
+            if (strategy_index === -1) break;
+
             if (debt_amounts[strategy_index] < curr_max_monthly_contribution) {
               curr_max_monthly_contribution -= debt_amounts[strategy_index];
               row[strategy_index] += debt_amounts[strategy_index];
@@ -175,10 +155,7 @@ class PlanGenerator {
             }
           }
         }
-        
       }
-      
-
 
       plan.push(row);
       
