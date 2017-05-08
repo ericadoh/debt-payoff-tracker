@@ -29,7 +29,8 @@ const style = {
     color: 'white', 
     fontWeight: 700,
     outline: 'none',
-    border: 'none'
+    border: 'none',
+    borderRadius: '4px'
   },
 
   debtListContainer: {
@@ -52,31 +53,6 @@ const style = {
      display: 'flex',
       flexDirection: 'row',
       marginLeft:  '10px',
-  }, 
-
-  modal: {
-    overlay : {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor   : 'rgba(0, 0, 0, 0.5)'
-    },
-    content: {
-      border: 'none',
-      background: '#fff',
-      overflow: 'auto',
-      WebkitOverflowScrolling: 'touch',
-      borderRadius: '4px',
-      outline: 'none',
-      padding: '0',
-      display: 'table',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%,-50%)',
-      boxShadow: '0 4px 4px -2px rgba(0, 0, 0, 0.5)'
-    }
   }
 
 }
@@ -116,7 +92,7 @@ class Debts extends Component {
 
     return (
       <div style={style.debts}>
-        <button style={{...style.addDebtItem, ...sharedStyles.shadow}} onClick={this.handleOpenModal}>{'+ Add new debt'}</button>
+        <button className={'grow'} style={style.addDebtItem} onClick={this.handleOpenModal}>{'+ Add new debt'}</button>
         {this.props.debts.map(renderDebtListItem)}
       </div>
       ); 
@@ -128,7 +104,7 @@ class Debts extends Component {
     if (this.props.showNav) {
       return (
         <div style={sharedStyles.container}>
-          <ReactModal style={style.modal}
+          <ReactModal style={sharedStyles.modal}
             isOpen={this.state.showModal}
             contentLabel="Minimal Modal Example" >
             <DebtForm addDebt={this.props.addDebt} onSubmit={this.handleCloseModal} />
@@ -152,7 +128,7 @@ class Debts extends Component {
     } else {
       return (
         <div style={sharedStyles.container}>
-          <ReactModal style={style.modal}
+          <ReactModal style={sharedStyles.modal}
             isOpen={this.state.showModal}
             contentLabel="Minimal Modal Example" >
             <DebtForm addDebt={this.props.addDebt} onSubmit={this.handleCloseModal} />
@@ -161,7 +137,7 @@ class Debts extends Component {
           <div style={{...sharedStyles.subContainer, ...sharedStyles.column}}>
             {this.renderDebts()}
             <div style={sharedStyles.buttonContainer}>
-              <Link
+              <Link className={'grow'}
                 style={sharedStyles.nextButton}
                 to="/contribution">
                   Next Step

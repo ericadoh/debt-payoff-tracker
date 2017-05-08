@@ -73,7 +73,7 @@ class ContributionForm extends Component {
           <input style={sharedStyles.input} type="number" value={this.state.monthly} onChange={this.handleChange} />
         </label>
         <div style={style.wrapper}>
-          <input style={sharedStyles.button} type="submit" value="Submit" />
+          <input className={'grow'} style={sharedStyles.button} type="submit" value="Submit" />
         </div> 
        
       </form>

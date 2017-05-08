@@ -49,8 +49,7 @@ const style = {
     borderRadius: "10px", 
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
-    boxShadow: '0 4px 4px -2px rgba(0, 0, 0, 0.5)'
+    alignItems: 'center'
   },
   grey: {
     cursor: 'pointer',
@@ -65,9 +64,7 @@ const style = {
     padding: '10px 20px 10px 20px',
     margin: "7px", 
     borderRadius: "10px", 
-    borderColor: "grey", 
-    borderWidth: "1px", 
-    border: "solid",
+    border: "3px solid #eee", 
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
@@ -137,12 +134,12 @@ class Strategy extends Component {
           <div style={style.column}>
             <span style={style.instruction}>{'Select a payoff strategy:'}</span>
             <div style={style.stratD}>
-              <div onClick={this.handleLBF} style={this.state.selectedValue === "0" ? style.green : style.grey}>Lowest Amount First</div> 
-              <div onClick={this.handleHIF} style={this.state.selectedValue === "1" ? style.green : style.grey}>Highest Interest First</div> 
-              <div onClick={this.handleOE} style={this.state.selectedValue === "2" ? style.green : style.grey}>Order Entered</div> 
+              <div className={'grow'} onClick={this.handleLBF} style={this.state.selectedValue === "0" ? style.green : style.grey}>Lowest Amount First</div> 
+              <div className={'grow'} onClick={this.handleHIF} style={this.state.selectedValue === "1" ? style.green : style.grey}>Highest Interest First</div> 
+              <div className={'grow'} onClick={this.handleOE} style={this.state.selectedValue === "2" ? style.green : style.grey}>Order Entered</div> 
             </div> 
             <div style={sharedStyles.buttonContainer}>
-              <Link
+              <Link className={'grow'}
                 style={sharedStyles.nextButton}
                 to="/graph" >
                   Save
@@ -160,12 +157,12 @@ class Strategy extends Component {
           <div style={{...sharedStyles.subContainer, ...sharedStyles.column}}>
             <span style={style.instruction}>{'Select a payoff strategy:'}</span>
             <div style={style.stratD}>
-              <div onClick={this.handleLBF} style={this.state.selectedValue === "0" ? style.green : style.grey}>Lowest Amount First</div> 
-              <div onClick={this.handleHIF} style={this.state.selectedValue === "1" ? style.green : style.grey}>Highest Interest First</div> 
-              <div onClick={this.handleOE} style={this.state.selectedValue === "2" ? style.green : style.grey}>Order Entered</div> 
+              <div className={'grow'} onClick={this.handleLBF} style={this.state.selectedValue === "0" ? style.green : style.grey}>Lowest Amount First</div> 
+              <div className={'grow'} onClick={this.handleHIF} style={this.state.selectedValue === "1" ? style.green : style.grey}>Highest Interest First</div> 
+              <div className={'grow'} onClick={this.handleOE} style={this.state.selectedValue === "2" ? style.green : style.grey}>Order Entered</div> 
             </div> 
             <div style={sharedStyles.buttonContainer}>
-              <Link
+              <Link className={'grow'}
                 style={sharedStyles.nextButton}
                 to="/graph" >
                   Finish

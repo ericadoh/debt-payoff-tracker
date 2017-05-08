@@ -9,15 +9,16 @@ const style = {
     fontSize: 30,
     backgroundColor: sharedStyles.mainColor,
     color: 'white',
-    padding: '15px 20px 15px 20px'
+    padding: '15px 20px 15px 20px',
+    fontWeight: 700
   }
 };
 
 class Header extends Component {
   render() {
     return (
-    	<div style={{...sharedStyles.shadow, ...style.header}}>
-    		Debt Payoff Tracker
+    	<div style={style.header}>
+    		debt payoff tracker
     	</div>
     );
   }

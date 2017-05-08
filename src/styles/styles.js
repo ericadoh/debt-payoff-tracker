@@ -54,6 +54,7 @@ const styles = {
 	},
 
 	nextButton: {
+		marginTop: 30,
     	background: '#36BAFF', 
 		color: 'white', 
 		fontSize: 30, 
@@ -66,8 +67,33 @@ const styles = {
 		textDecoration: 'none',
 		alignItems: 'center',
 		justifyContent: 'center',
-		boxShadow: '0 4px 4px -2px rgba(0, 0, 0, 0.5)',
-		display: 'table'
+		display: 'table',
+		cursor: 'pointer'
+  },
+
+  modal: {
+    overlay : {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor   : 'rgba(0, 0, 0, 0.5)',
+    },
+    content: {
+      border: 'none',
+      background: '#fff',
+      overflow: 'auto',
+      WebkitOverflowScrolling: 'touch',
+      borderRadius: '4px',
+      outline: 'none',
+      padding: '0',
+      display: 'table',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%,-50%)',
+      boxShadow: '0 4px 4px -2px rgba(0, 0, 0, 0.5)'
+    }
   }
   
 }

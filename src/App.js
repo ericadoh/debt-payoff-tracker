@@ -34,7 +34,16 @@ class App extends Component {
 		})
 
 		this.state = { 
-			debts: [],
+			debts: [{ name: 'Student', balance: 61, minimumPayment: 4, interest: .06, dateEntered: new Date() },
+{ name: 'Car', balance: 55, minimumPayment: 10, interest: .03, dateEntered: new Date() },
+{ name: 'Other', balance: 60, minimumPayment: 6, interest: .10, dateEntered: new Date() },
+{ name: 'Medical', balance: 300, minimumPayment: 20, interest: .045, dateEntered: new Date() },{ name: 'Student', balance: 61, minimumPayment: 4, interest: .06, dateEntered: new Date() },
+{ name: 'Car', balance: 55, minimumPayment: 10, interest: .03, dateEntered: new Date() },
+{ name: 'Other', balance: 60, minimumPayment: 6, interest: .10, dateEntered: new Date() },
+{ name: 'Medical', balance: 300, minimumPayment: 20, interest: .045, dateEntered: new Date() },{ name: 'Student', balance: 61, minimumPayment: 4, interest: .06, dateEntered: new Date() },
+{ name: 'Car', balance: 55, minimumPayment: 10, interest: .03, dateEntered: new Date() },
+{ name: 'Other', balance: 60, minimumPayment: 6, interest: .10, dateEntered: new Date() },
+{ name: 'Medical', balance: 300, minimumPayment: 20, interest: .045, dateEntered: new Date() }],
 			strategy: STRATEGY_TYPES.LOWEST_BALANCE_FIRST,
 			monthly: 0,
 			showNav: false,

@@ -16,7 +16,10 @@ const style = {
     margin: 10,
     fontFamily: sharedStyles.mainFont,
     fontSize: 18,
-    flex: '1 0 300px'
+    flex: '1 0 300px',
+    backgroundColor: 'white',
+    borderRadius: '4px',
+    border: "3px solid " + sharedStyles.lightMainColor, 
   },
 
   debtHeader: {
@@ -104,8 +107,11 @@ class DebtListItem extends Component {
 
   render() {
     return (
-      <div style={{...style.debtListItem, ...sharedStyles.shadow}} >
+      <div
+        className={'grow'}
+        style={style.debtListItem} >
         <ReactModal 
+          style={sharedStyles.modal}
           isOpen={this.state.showModal}
           contentLabel="Minimal Modal Example" >
           <DebtForm name={this.props.name} balance={this.props.balance} minimumPayment={this.props.minimumPayment} interest={this.props.interest} addDebt={this.props.addDebt} onSubmit={this.handleCloseModal} />
@@ -116,10 +122,10 @@ class DebtListItem extends Component {
            {this.props.name}
           </label>
           <div style={style.icons}>
-            <button style={style.edit} onClick={this.handleOpenModal} type="submit">
+            <button className={'fade'} style={style.edit} onClick={this.handleOpenModal} type="submit">
               <img src={pencil} alt="edit"/>
             </button>
-            <button style={style.edit} onClick={this.deleteSelf} type="submit">
+            <button className={'fade'} style={style.edit} onClick={this.deleteSelf} type="submit">
               <img src={deleteIcon} alt="delete"/>
             </button>
           </div>

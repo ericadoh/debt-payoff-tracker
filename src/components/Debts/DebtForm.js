@@ -152,7 +152,7 @@ class DebtForm extends Component {
 
         <div style={style.header}>
           <span>Add/change debt information</span>
-          <button style={style.icon} onClick={this.closeSelf}>
+          <button className={'fade'} style={style.icon} onClick={this.closeSelf}>
             <img src={deleteIcon} alt="delete"/>
           </button>
         </div>
@@ -175,7 +175,7 @@ class DebtForm extends Component {
         </label>
 
         <div style={sharedStyles.buttonContainer}>
-          <input style={sharedStyles.button} type="submit" value="Submit" />
+          <input className={'grow'} style={sharedStyles.button} type="submit" value="Submit" />
         </div>
       </form>
     );
