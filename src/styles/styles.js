@@ -64,7 +64,6 @@ const styles = {
 		border: 0,
 		borderRadius: 5, 
 		textDecoration: 'none',
-		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',
 		boxShadow: '0 4px 4px -2px rgba(0, 0, 0, 0.5)',

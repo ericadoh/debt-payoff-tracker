@@ -5,18 +5,6 @@ import sharedStyles from '../../styles/styles';
 import ReactHighcharts from 'react-highcharts';
 import PlanGenerator from '../Plan/PlanGenerator';
 
-// 0 is January and 11 is December
-const generateMonths = numRows => {
-  const today = new Date();
-  const months = [];
-  for (let i = 0; i < numRows; i++) {
-    months.push(today.getMonth());
-    today.setMonth(today.getMonth() + 1); 
-  }
-  return months;
-}
-
-
 class Graph extends Component {
 
     constructor(props) {
@@ -52,7 +40,6 @@ class Graph extends Component {
         const { debts, strategy, monthly } = this.props;
         const planGenerator = new PlanGenerator(debts, strategy, monthly);
         const plan = planGenerator.generate();
-        const months = generateMonths(plan.length);
 
         console.log(plan);
         let debtSeries = this.arrangeData(this.props.debts, plan);

@@ -142,7 +142,7 @@ class DebtForm extends Component {
     }
   }
   closeSelf = () => {
-     const{ addDebt, onSubmit } = this.props;
+     const{ onSubmit } = this.props;
       onSubmit(); 
 
   }
@@ -152,7 +152,7 @@ class DebtForm extends Component {
 
         <div style={style.header}>
           <span>Add/change debt information</span>
-          <button style={style.icon} onClick= {this.closeSelf}>
+          <button style={style.icon} onClick={this.closeSelf}>
             <img src={deleteIcon} alt="delete"/>
           </button>
         </div>

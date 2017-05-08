@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Column, ColumnGroup, Cell } from 'fixed-data-table';
+import { Table, Column, Cell } from 'fixed-data-table';
 
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
@@ -35,6 +35,18 @@ const generateMonths = numRows => {
   return months;
 }
 
+const compare = (arr1, arr2) => {
+  if (arr1.length !== arr2.length) return false;
+  
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr1[0].length; j++) {
+      if (arr1[i][j] !== arr2[i][j]) return false;
+    }
+  }
+  
+  return true;
+}
+
 const style = {
   cell: {
     display: 'flex',
@@ -53,10 +65,10 @@ class Plan extends Component {
     const plan = planGenerator.generate();
     const months = generateMonths(plan.length);
 
-    console.log(debts);
+    const expectedArray = [[1,7], [2.87,5.13], [8,0],[8,0],[0.51,0]];
+    console.log(compare(plan, expectedArray));
 
     const renderColumn = (debt, i) => {
-      console.log(debt);
       return (
           <Column key={i}
             header={<Cell>{debt.name}</Cell>}

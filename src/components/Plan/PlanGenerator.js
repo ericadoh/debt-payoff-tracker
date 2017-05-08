@@ -2,6 +2,17 @@ import STRATEGY_TYPES from '../Strategy/StrategyTypes';
 
 // make everything work with just debts array first
 
+function roundTo(n, digits) {
+     if (digits === undefined) {
+       digits = 0;
+     }
+
+     var multiplicator = Math.pow(10, digits);
+     n = parseFloat((n * multiplicator).toFixed(11));
+     var test =(Math.round(n) / multiplicator);
+     return +(test.toFixed(2));
+   }
+
 class PlanGenerator {
 
   constructor(debts, strategy, monthly) {
@@ -102,6 +113,7 @@ class PlanGenerator {
 
     const debts = this.debts;
     const debt_amounts = debts.map(d => d.balance);
+    const debt_interests = debts.map(d => d.interest / 12);
     const debt_min_payments = debts.map(d => d.minimumPayment);
     const max_monthly_contribution = this.monthly;
     const plan = [];
@@ -109,6 +121,10 @@ class PlanGenerator {
     let strategy_index = this.choose_strategy_index(debt_amounts, debt_min_payments);
 
     while (this.not_zero(debt_amounts)) {
+
+      for (let i = 0; i < debt_amounts.length; i++) {
+        debt_amounts[i] = roundTo((1 + debt_interests[i]) * debt_amounts[i], 2);
+      }
       
       const row = [];
       let curr_max_monthly_contribution = max_monthly_contribution;
@@ -150,6 +166,8 @@ class PlanGenerator {
         
       }
       
+
+
       plan.push(row);
       
     }

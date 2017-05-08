@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import sharedStyles from '../../styles/styles';
-import { Link } from 'react-router-dom';
-{/*import { browserHistory } from 'react-router';*/}
+
 const style = {
   form: {
     display: 'flex',
