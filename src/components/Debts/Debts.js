@@ -96,6 +96,16 @@ class Debts extends Component {
 
   }
 
+  handleSubmit = (event) => {
+    if (this.props.debts.length === 0){
+      alert("You must enter at least one debt.");
+      event.preventDefault(); 
+    } else {
+      event.preventDefault();
+      this.props.browserHistory.push('/contribution');
+    }
+  }
+
   render() {
 
     if (this.props.showNav) {
@@ -111,13 +121,9 @@ class Debts extends Component {
             <Navbar />
             <div style={sharedStyles.column}>
               {this.renderDebts()}
-              <div style={sharedStyles.buttonContainer} >
-                <Link className={'grow'}
-                  style={sharedStyles.nextButton}
-                  to="/contribution">
-                    Save
-                </Link>
-              </div>
+              <form style={sharedStyles.buttonContainer} >
+                <input className={'grow'} style={sharedStyles.button} type="submit" value="Save" />
+              </form>
             </div>
           </div> 
         </div>
@@ -133,13 +139,9 @@ class Debts extends Component {
           <Header />
           <div style={{...sharedStyles.subContainer, ...sharedStyles.column}}>
             {this.renderDebts()}
-            <div style={{...sharedStyles.buttonContainer, ...style.marginBottom}}>
-              <Link className={'grow'}
-                style={sharedStyles.nextButton}
-                to="/contribution">
-                  Next Step
-              </Link>
-            </div>
+            <form style={{...sharedStyles.buttonContainer, ...style.marginBottom}} onSubmit={this.handleSubmit}>
+              <input className={'grow'} style={sharedStyles.button} type="submit" value="Next Step" />
+            </form>
           </div> 
         </div>
       );

@@ -66,12 +66,12 @@ class App extends Component {
 	
 	setStrategy = newStrategy => {
 		this.setState({
-			strategy: newStrategy
+			strategy: parseInt(newStrategy)
 		});
 	}
 
 	setMonthly = contribution => {
-		this.setState({monthly: contribution});
+		this.setState({monthly: parseFloat(contribution)});
 	}
 
 	saveCGF = (debts, monthly, strategy) => {
@@ -133,7 +133,8 @@ class App extends Component {
 						saveCGF={this.saveCGF}
 						addDebt={this.addDebt}
 						deleteDebt={this.deleteDebt} 
-						showNav={this.state.showNav}/>} />
+						showNav={this.state.showNav}
+						browserHistory={this.state.browserHistory}/>} />
 					<Route path="/contribution" render={()=><Contribution 
 						debts={this.state.debts} 
 						monthly={this.state.monthly} 

@@ -50,10 +50,8 @@ class ContributionForm extends Component {
   handleSubmit(event) {
     var data = 0; 
     for (var i=0; i<this.debts.length; i++) {
-           
-                data += this.debts[i].minimumPayment; 
-            
-      }
+      data += this.debts[i].minimumPayment;    
+    }
     if(this.state.monthly < data){
       alert("Your monthly contribution is not high enough to cover your minimum monthly payments.");
       event.preventDefault(); 
