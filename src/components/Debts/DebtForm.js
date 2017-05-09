@@ -36,7 +36,7 @@ const style = {
   },
 
   itemName: {
-    marginRight: '20'
+    marginRight: 20
   },
 
   button: {
