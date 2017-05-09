@@ -53,7 +53,6 @@ class App extends Component {
 		}), function() {
 			this.saveCGF(this.state.debts, this.state.monthly, this.state.strategy);
 		});
-		
 	}
 
 	/*

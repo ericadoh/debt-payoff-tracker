@@ -81,7 +81,7 @@ class DebtForm extends Component {
       name: this.props.name ? this.props.name : '',
       balance: this.props.balance ? this.props.balance : '',
       minimumPayment: this.props.minimumPayment ? this.props.minimumPayment : '',
-      interest: this.props.interest ? this.props.interest : '', 
+      interest: this.props.interest ? this.props.interest * 100 : '', 
       id: this.handleCreateID()
     };
 
