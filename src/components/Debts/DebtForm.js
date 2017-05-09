@@ -180,7 +180,7 @@ class DebtForm extends Component {
         </label>
         <label style={style.item}>
           <span style={style.itemName}>Balance:</span>
-          <input type="text" style={sharedStyles.input} value={this.state.balance} onChange={this.handleChangeBalance} />
+          <input type="number" style={sharedStyles.input} value={this.state.balance} onChange={this.handleChangeBalance} />
         </label>
         <label style={style.item}>
           <span style={style.itemName}>Minimum monthly payment:</span>

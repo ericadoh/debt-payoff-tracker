@@ -6,7 +6,7 @@ const style = {
   navbar: {
     display: 'flex',
     flexDirection: 'column',
-    width: 200,
+    width: 250,
     paddingRight: 20, 
   },
   link: {
@@ -15,7 +15,8 @@ const style = {
     fontSize: 24,
     fontWeight: 400,
     padding: '10px 0px 10px 0px',
-    color: 'black'
+    color: 'black', 
+
   }, 
    line: {
     textDecoration: 'none',

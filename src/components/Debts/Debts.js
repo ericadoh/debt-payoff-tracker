@@ -121,9 +121,7 @@ class Debts extends Component {
             <Navbar />
             <div style={sharedStyles.column}>
               {this.renderDebts()}
-              <form style={sharedStyles.buttonContainer} >
-                <input className={'grow'} style={sharedStyles.button} type="submit" value="Save" />
-              </form>
+              
             </div>
           </div> 
         </div>
