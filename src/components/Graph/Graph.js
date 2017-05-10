@@ -23,7 +23,6 @@ class Graph extends Component {
                 data: [debts[i].balance]
             });
         }
-        console.log(series);
 
         var prev = 0;
         for (var month=0; month<plan.length; month++) {
@@ -92,9 +91,7 @@ class Graph extends Component {
     }
 
     componentWillMount() {
-        console.log("willMount");
         this.props.setShowNav(true);
-        
     }
 }
 

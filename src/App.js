@@ -44,14 +44,32 @@ class App extends Component {
 		//this.setState({showNav : this.initialShowNav()});
 	}
 
+	checkDebtsContribution() {
+	    let debts = this.state.debts;
+	    console.log(debts);
+	    let totalMonthly = 0;
+	    for (var i=0; i<debts.length; i++) {
+	      totalMonthly += debts[i].minimumPayment;
+	    }
+
+	    if (totalMonthly > this.state.monthly) {
+	      alert('ERROR: Your total amount of money you must pay per month, '
+	      	+ 'now exceeds your monthly contribution you inputted. '
+	        + 'You will now be redirected to the monthly contribution page to increase your monthly contribution');
+	      this.state.browserHistory.push('/contribution');
+	    }
+  }
+
 	addDebt = debt => {
-		console.log(debt);
 		debt.dateEntered = new Date();
 		debt.interest = debt.interest * .01;
 		this.setState(previousState => ({
 		    debts: [...previousState.debts, debt]
 		}), function() {
 			this.saveCGF(this.state.debts, this.state.monthly, this.state.strategy);
+	        if (this.state.showNav) {
+	          this.checkDebtsContribution();
+	        }
 		});
 	}
 
@@ -118,6 +136,8 @@ class App extends Component {
 			return true;
 		}
 	}
+
+
 
 	render() {
     	return (

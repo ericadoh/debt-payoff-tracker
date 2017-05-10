@@ -154,7 +154,8 @@ class DebtForm extends Component {
         });
         addDebt({...this.state});
         onSubmit();
-    }
+
+      }
 
     }
   }
@@ -163,6 +164,7 @@ class DebtForm extends Component {
       onSubmit(); 
 
   }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>

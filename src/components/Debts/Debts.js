@@ -106,7 +106,8 @@ class Debts extends Component {
     }
   }
 
-  render() {
+
+  render() {    
 
     if (this.props.showNav) {
       return (
@@ -114,7 +115,9 @@ class Debts extends Component {
           <ReactModal style={sharedStyles.modal}
             isOpen={this.state.showModal}
             contentLabel="Minimal Modal Example" >
-            <DebtForm addDebt={this.props.addDebt} onSubmit={this.handleCloseModal} />
+            <DebtForm addDebt={this.props.addDebt} debts={this.props.debts} 
+            balance={this.props.balance}
+            onSubmit={this.handleCloseModal} />
           </ReactModal>
           <Header />
           <div style={sharedStyles.subContainer}>
