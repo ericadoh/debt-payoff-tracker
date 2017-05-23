@@ -5,6 +5,10 @@ import sharedStyles from '../../styles/styles';
 import ReactHighcharts from 'react-highcharts';
 import PlanGenerator from '../Plan/PlanGenerator';
 
+const roundTo = (value, decimals) => {
+  return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+}
+
 class Graph extends Component {
 
     constructor(props) {
@@ -12,7 +16,6 @@ class Graph extends Component {
         this.monthly = this.props.monthly;
         this.setState = this.setState.bind(this);
     }
-
 
     arrangeData(debts, plan) {
 
@@ -35,12 +38,24 @@ class Graph extends Component {
     }
 
 
+    renderInterest(interest) {
+        const { debts } = this.props;
+
+        return (
+            debts.map((d, i) => {
+                return <div>{d.name + ': ' + roundTo(interest[i], 2)}</div>
+            })
+        );
+    }
+
+
     render() {
         const { debts, strategy, monthly } = this.props;
         const planGenerator = new PlanGenerator(debts, strategy, monthly);
-        const plan = planGenerator.generate();
+        const info = planGenerator.generate();
+        const plan = info.table;
+        const interest = info.interest;
 
-        console.log(plan);
         let debtSeries = this.arrangeData(this.props.debts, plan);
 
         //console.log(series);
@@ -84,6 +99,9 @@ class Graph extends Component {
                 <div style={sharedStyles.subContainer} >
                     <Navbar />
                     <ReactHighcharts config={config}></ReactHighcharts>
+                    <div>
+                        {this.renderInterest(interest)}
+                    </div>
                 </div>
         	</div>
           

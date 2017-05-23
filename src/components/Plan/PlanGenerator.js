@@ -105,12 +105,15 @@ class PlanGenerator {
     const max_monthly_contribution = this.monthly;
     const plan = [];
 
+    const interest = new Array(debts.length).fill(0);
+
     let strategy_index = this.choose_strategy_index(debt_amounts, debt_min_payments);
 
     while (this.not_zero(debt_amounts)) {
 
       for (let i = 0; i < debt_amounts.length; i++) {
         debt_amounts[i] = (1 + debt_interests[i]) * debt_amounts[i];
+        interest[i] += debt_interests[i] * debt_amounts[i];
       }
       
       const row = [];
@@ -157,7 +160,12 @@ class PlanGenerator {
       
     }
 
-    return plan;
+    const info = {
+      'table': plan,
+      'interest': interest
+    }
+
+    return info;
   }
 
 };

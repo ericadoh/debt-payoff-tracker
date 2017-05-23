@@ -71,7 +71,7 @@ class Plan extends Component {
     console.log(this.props);
 
     const planGenerator = new PlanGenerator(debts, strategy, monthly);
-    const plan = planGenerator.generate();
+    const plan = planGenerator.generate().table;
 
     console.log(plan);
     
