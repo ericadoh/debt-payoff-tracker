@@ -1,9 +1,5 @@
 import STRATEGY_TYPES from '../Strategy/StrategyTypes';
 
-const roundTo = (value, decimals) => {
-  return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
-}
-
 class PlanGenerator {
 
   constructor(debts, strategy, monthly) {
@@ -114,7 +110,7 @@ class PlanGenerator {
     while (this.not_zero(debt_amounts)) {
 
       for (let i = 0; i < debt_amounts.length; i++) {
-        debt_amounts[i] = roundTo((1 + debt_interests[i]) * debt_amounts[i], 2);
+        debt_amounts[i] = (1 + debt_interests[i]) * debt_amounts[i];
       }
       
       const row = [];

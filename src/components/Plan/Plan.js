@@ -35,6 +35,10 @@ const generateMonths = numRows => {
   return months;
 }
 
+const roundTo = (value, decimals) => {
+  return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+}
+
 const compare = (arr1, arr2) => {
   if (arr1.length !== arr2.length) return false;
   
@@ -80,7 +84,7 @@ class Plan extends Component {
             cell={({rowIndex, ...props}) => {
               console.log(...props);
               return (<Cell style={style.cell} {...props}>
-                {plan[rowIndex][i]}
+                {roundTo(plan[rowIndex][i], 2)}
               </Cell>);
             }}
             width={150} />
