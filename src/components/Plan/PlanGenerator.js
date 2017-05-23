@@ -1,5 +1,13 @@
 import STRATEGY_TYPES from '../Strategy/StrategyTypes';
 
+/*
+  Takes in an array of debts, the chosen strategy, and the monthly contribution, and outputs
+  an object with two properties:
+  - table: a 2D array where each row is a month and each column corresponds to a debt.
+    the value of a cell [r][c] is the amount of money the user should pay towards debt c during month r
+  - interest: an array of total interest accumulated for each debt at the end of the payment plan.
+*/
+
 class PlanGenerator {
 
   constructor(debts, strategy, monthly) {
@@ -8,10 +16,12 @@ class PlanGenerator {
     this.monthly = monthly;
   }
 
+  // Returns true if the input array is all non-zero values, and false otherwise.
   not_zero = arr => {
     return arr.filter(x => x > 0).length !== 0;
   }
 
+  // Returns first index of the input array that has a non-zero value.
   first_non_zero_index = arr => {
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] !== 0) {
@@ -21,6 +31,8 @@ class PlanGenerator {
     return -1;
   }
 
+  // Returns index of the next debt to be prioritized in the payment plan.
+  // Priority is determined by the chosen strategy.
   choose_strategy_index = (debt_balances, debt_min_payments) => {
 
     const strategy = this.strategy;
@@ -38,6 +50,9 @@ class PlanGenerator {
 
   }
 
+  // Takes in an array of the current debt balances and returns the index
+  // of the earliest non-zero debt balance.
+  // TODO: This should now be determined by ranking order.
   index_of_earliest_entered_debt = debt_balances => {
 
     if (debt_balances.length === 0) return -1;
@@ -59,6 +74,8 @@ class PlanGenerator {
 
   }
 
+  // Takes in an array of the current debt balances and returns the index
+  // of the debt balance that has the highest interest (and is non-zero).
   index_of_highest_interest_debt = debt_balances => {
 
     if (debt_balances.length === 0) return -1;
@@ -79,6 +96,8 @@ class PlanGenerator {
     return index;
   }
 
+  // Takes in an array of the current debt balances and returns the index
+  // of the debt balance that has the lowest balance (and is non-zero).
   index_of_least_balance_debt = debt_balances => {
 
     if (debt_balances.length === 0) return -1;
@@ -104,18 +123,20 @@ class PlanGenerator {
     const debt_min_payments = debts.map(d => d.minimumPayment);
     const max_monthly_contribution = this.monthly;
     const plan = [];
-
     const interest = new Array(debts.length).fill(0);
 
     let strategy_index = this.choose_strategy_index(debt_amounts, debt_min_payments);
 
+    // while the debts have not been paid off
     while (this.not_zero(debt_amounts)) {
 
+      // accumulate interest
       for (let i = 0; i < debt_amounts.length; i++) {
         debt_amounts[i] = (1 + debt_interests[i]) * debt_amounts[i];
         interest[i] += debt_interests[i] * debt_amounts[i];
       }
       
+      // initialize a row for the payment plan
       const row = [];
       let curr_max_monthly_contribution = max_monthly_contribution;
       
@@ -129,13 +150,11 @@ class PlanGenerator {
         } else {
           curr_max_monthly_contribution -= debt_min_payments[i];
           row.push(debt_min_payments[i]);
-          // decrementing the debt amount its min payment
           debt_amounts[i] -= debt_min_payments[i];
         }
         
         // if the current debt is the last debt, 
-        // put remaining monthly contribution towards the debt
-        // chosen by the strategy
+        // put the remaining monthly contribution towards the debt chosen by the strategy
         if (i === debt_amounts.length - 1) {
 
           while (curr_max_monthly_contribution > 0) {
