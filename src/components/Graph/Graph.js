@@ -9,6 +9,20 @@ const roundTo = (value, decimals) => {
   return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
 
+const style = {
+
+    title: {
+        fontFamily: sharedStyles.mainFont,
+        fontSize: 24,
+        fontWeight: 600
+    },
+
+    interest: {
+        fontFamily: sharedStyles.mainFont,
+        fontSize: 18
+    }
+}
+
 class Graph extends Component {
 
     constructor(props) {
@@ -43,7 +57,7 @@ class Graph extends Component {
 
         return (
             debts.map((d, i) => {
-                return <div>{d.name + ': ' + roundTo(interest[i], 2)}</div>
+                return <div style={style.interest}>{d.name + ': $' + roundTo(interest[i], 2)}</div>
             })
         );
     }
@@ -98,9 +112,12 @@ class Graph extends Component {
         		<Header />
                 <div style={sharedStyles.subContainer} >
                     <Navbar />
-                    <ReactHighcharts config={config}></ReactHighcharts>
-                    <div>
-                        {this.renderInterest(interest)}
+                    <div style={sharedStyles.column} >
+                        <ReactHighcharts config={config}></ReactHighcharts>
+                        <div>
+                            <p style={style.title}>{'Total interest:'}</p>
+                            {this.renderInterest(interest)}
+                        </div>
                     </div>
                 </div>
         	</div>

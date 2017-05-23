@@ -20,7 +20,8 @@ const styles = {
 
 	column: {
 	    display: 'flex',
-	    flexDirection: 'column'
+	    flexDirection: 'column',
+	    width: '100%'
 	},
 
 	shadow: {
