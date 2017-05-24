@@ -83,6 +83,7 @@ class Debts extends Component {
           balance={debt.balance}
           minimumPayment={debt.minimumPayment}
           interest={debt.interest}
+          rank={debt.rank}
           deleteDebt={this.props.deleteDebt}/>
       );
     };

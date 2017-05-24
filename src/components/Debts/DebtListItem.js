@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import sharedStyles from '../../styles/styles';
-import DebtForm from './DebtForm.js'; 
+import DebtFormWithRank from './DebtFormWithRank.js'; 
 import ReactModal from 'react-modal';
 import pencil from './pencil.png'; 
 import deleteIcon from './delete.png';
@@ -114,7 +114,8 @@ class DebtListItem extends Component {
           style={sharedStyles.modal}
           isOpen={this.state.showModal}
           contentLabel="Minimal Modal Example" >
-          <DebtForm name={this.props.name} balance={this.props.balance} minimumPayment={this.props.minimumPayment} interest={this.props.interest} addDebt={this.props.addDebt} onSubmit={this.handleCloseModal} />
+          //EDIT THIS TO BE DEBTFORM WITH RANK INPUT 
+          <DebtFormWithRank name={this.props.name} balance={this.props.balance} minimumPayment={this.props.minimumPayment} interest={this.props.interest} rank={this.props.rank} addDebt={this.props.addDebt} onSubmit={this.handleCloseModal} />
         </ReactModal>
 
         <div style={style.debtHeader} >
@@ -140,6 +141,9 @@ class DebtListItem extends Component {
           </label>
           <label style={style.debtInfo}>
             Interest: {(this.props.interest * 100) + '%'}
+          </label>
+           <label style={style.debtInfo}>
+            Rank: {this.props.rank}
           </label>
         </div>
 
